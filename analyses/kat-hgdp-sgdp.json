@@ -1,0 +1,16 @@
+{
+	"name": "KAT_HGDP_SGDP",
+	"source": { 
+		"HGDP00998": "HGDP", 
+		"HGDP00995": "HGDP",
+		"HGDP01013": "HGDP",
+		"S_Karitiana-1": "SGDP",
+		"S_Karitiana-2": "SGDP"},
+	"sink" : { 
+		"HGDP00934": "HGDP",
+		"HGDP00935": "HGDP",
+		"S_Yoruba-1": "SGDP",
+		"S_Yoruba-2": "SGDP"},
+	"Np": 5000,
+	"EM": 10
+}

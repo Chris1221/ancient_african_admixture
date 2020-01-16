@@ -1,0 +1,25 @@
+{
+	"Nilo-Saharan": {
+		"Dinka": "B_Dinka-3",
+		"Luo": "S_Luo-1",
+		"Masai": "S_Masai-1"},
+	"Niger-Kordofanian": {
+		"BantuHerero": "S_BantuHerero-1",
+		"BantuKenya": "S_BantuKenya-1",
+		"BantuTswana": "S_BantuTswana-1",
+		"Biaka": "S_Biaka-1",
+		"Esan": "S_Esan-1",
+		"Gambian": "S_Gambian-1", 
+		"Luhya": "S_Luhya-1",
+		"Mandenka": "S_Mandenka-1",
+		"Mbuti": "S_Mbuti-1",
+		"Mende": "S_Mende-1",
+		"Yoruba": "S_Yoruba-1"},
+	"Khoesan": {
+		"Ju_hoan_North": "S_Ju_hoan_North-1",
+		"Khomani_San": "S_Khomani_San-1"},
+	"Afroasiatic": {
+		"Mozabite": "S_Mozabite-1",
+		"Saharawi": "S_Saharawi-1",
+		"Somali": "S_Somani-1"}
+}

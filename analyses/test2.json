@@ -1,0 +1,7 @@
+{
+	"name":		"test2",
+	"source":	"S_Yoruba-1 S_Mbuti-1",
+	"sink":		"S_French-1",
+	"Np":		10,
+	"EM": 		1
+}

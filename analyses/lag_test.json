@@ -1,0 +1,9 @@
+{
+	"name": "LAG_TEST",
+	"source": { 
+		"S_French-1": "SGDP", 
+	"sink" : {
+		"S_Yoruba-1": "SGDP"},
+	"Np": 10000,
+	"EM": 10
+}
