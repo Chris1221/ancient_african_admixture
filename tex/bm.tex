@@ -104,6 +104,23 @@ In the populations with this trend, {\tt smcsmc} infers directional migration fr
 
 We download variant call format (VCF) whole genome sequence (WGS) data from the phased release of the Simons Genome Diversity Panel and convert it to seg file format using a utility provided by the {\tt smcsmc} software implementation ({\tt smcsmc.vcf\_to\_seg}). We apply two masks to the data. Firstly, we mask the data with the strict accesibility mask provided by the 1000 genomes project (see URLs). Secondly, we mask any sites absent chimpanzee ancestry, due to a known issue in calling which resulted in artificially long runs of homozygosity. We develop a {\tt snakemake} pipeline for efficiently analysing sequence data with both {\tt smcsmc} and MSMC, available at the project's github page (see URLs). We assume a mutation rate of $1.25\times10^{-8}$ and a recombination rate of $3\times10^{-9}$, in line with recent literature. Two parameters must be set on a run-by-run basis. As the inference portion of {\tt smcsmc} uses a variational Bayesian approach, a number of maximum epochs must be set. Additionally, the number of particles to be used must be specified. All of the following analyses were run three times. 
 
+We select one individual from each of the African populations in the SGDP and model their effective population size using both {\tt smcsmc} and MSMC (Figure \ref{sgdp_ne}). We simultaneously estimate directional migration rates in either direction with {\tt smcsmc}, with the converged solution representing a joint optimisation. Overall, both estimates are relatively consistent, especially in the estimation of the Eurasian $N_e$. However, in all cases, MSMC finds a higher African $N_e$ than does {\tt smcsmc} in the ancient past ($>$ 100kya). We expect that this is due to {\tt smcsmc} simultaneously estimating a high migration rate during this period in most of the African groups (Figure \ref{sgdp_mig}). A more thorough discussion of the discrepencies in effective population size estimates may be found in the main text. There are several interesting trends apparent in the estimated migration rates. Firstly, it appears that in almost all cases, the migration rate from African to Eurasian population exceeds that in the opposite direction. Secondly, the qualatative trends appear to break down by language phyla. Afroasiatic populations appear to have a large amount of migration in either direction, which is consistent with the literature. [TD1] Niger-Kordofanian and Nilo-Saharan populations appear to have comparable levels of migration at comparable times, approximatley peaking at between 2.5-3.0$\times 10^{-4}$ 40-70kya. Khoesan populations have a much lower level of migration, around 1$\times 10^{-4}$, though the timing of the peak is consistent with other groups. We wish to find the total fraction of a particular population replaced during a particular time period. We track the probability that a particular individual has not migrated after time $T$ (in generations). Let $\rho(t)$ be the instantaneous rate of migration per unit of time. In this formulation, $\frac{d}{dt} F(t) = - \rho(t) F(t)$, whose solution is $F(t) = e^{- \int_{t=0}^T \rho(t) dt}$; this gives a total migration probability in a range of epochs $E$ of  $1-F(T) = 1 - e^{\sum_{i \in E} r_i}$. We use this formulation to integrate all migration in the last 100ky. 
+
+To ensure that these results are reliable, we replicate our analysis in a subset of the HGDP which has been physically phased. This will additionally confirm that such trends are not the result of errors made during statistical phasing.
+
+\begin{figure}
+	\centering
+	\label{sgdp_ne}
+	\includegraphics[width=\linewidth]{../plot/sgdp_ne.png}
+	\caption{Estimated effective population size in different African and Eurasian groups with {\tt smcsmc}. 5000 particles and 10 variational Bayes interations were used to achieve convergence.}	
+\end{figure}
+
+\begin{figure}
+	\centering
+	\label{sgdp_mig}
+	\includegraphics[width=\linewidth]{../plot/sgdp_mig.png}
+	\caption{Estimated directional migration between African and Eurasian groups in the SGDP with {\tt smcsmc}. 5000 particles and 10 variational Bayes interations were used to achieve convergence.}	
+\end{figure}
 
 
 \begin{enumerate}
@@ -119,7 +136,6 @@ To directly compare these results to those obtained in the SGDP, we select the c
     \label{hgdp_sgdp_ne}
     \includegraphics[width=\linewidth]{../plot/sgdp_subset_ne.png}
     \caption{{\tt smcsmc} and MSMC inferred effective population size of several populations in the Simons Genome Diversity Panel. These samples were selected to match, as closely as possible, those in the physically phased subet of the Human Genome Diversity Project panel. 10,000 particles and 25 iterations were used for {\tt smcsmc} and 40 iterations for MSMC.}
-    \label{fig:my_label}
 \end{figure}
 
 \section{Simulation procedure} \label{sim}

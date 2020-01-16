@@ -15,7 +15,7 @@ matrices = list()
 
 
 orientation = c("long", "wide", "long", "long")
-  
+
 for(language in list_language_families()){
   source = names_from_config(config$source) # from tools
   source_strings = vapply(source, ids_to_names, character(1)) %>% as.vector
@@ -37,7 +37,7 @@ for(language in list_language_families()){
     for (so in source){
       for (si in sink){
         smcsmc_file = new("smcsmc", file = paste0(smc2_path, seed, ".", so, ".", si, ".out"))
-        plots[[i]] = plot(smcsmc_file, type = "ne", ylim = c(2.5e3, 0.5e5), xlim = c(1e4, 1e6))
+        plots[[i]] = plot(smcsmc_file,ylim = c(0, 1e-3), xlim = c(1e4, 1e6))
         #leg = grab_legend(plots[[i]])
         i = i + 1 }}
     matrices[[j]] <- ggmatrix(plots, nrow = length(sink), ncol = length(source), byrow = FALSE, yAxisLabels = sink_strings, xAxisLabels = source_strings)
@@ -46,7 +46,7 @@ for(language in list_language_families()){
     for (si in sink){
       for (so in source){
         smcsmc_file = new("smcsmc", file = paste0(smc2_path, seed, ".", so, ".", si, ".out"))
-        plots[[i]] = plot(smcsmc_file, type = "ne", ylim = c(2.5e3, 0.5e5), xlim = c(1e4, 1e6))
+        plots[[i]] = plot(smcsmc_file, ylim = c(0, 1e-3), xlim = c(1e4, 1e6))
         leg = grab_legend(plots[[i]])
         i = i + 1 }}
     matrices[[j]] <- ggmatrix(plots, nrow = length(source), ncol = length(sink), byrow = FALSE,xlab = "Years Before Present", ylab = "Estimated Effective Population Size", yAxisLabels = source_strings, xAxisLabels = sink_strings, legend = leg) + theme(legend.position = "bottom")
@@ -65,7 +65,7 @@ layout = rbind( c(3,3,3,1,1,1,4,4,4),
 
 # Just directly save it
 # Alternatively could do a newpage then draw it.
-ggsave( arrange_ggmatrix(matrices, layout), file = "~/repos/dirmig/plot/sgdp_ne.png", dpi = 300, width = 13.6, height = 12.1, unit = "in")
+ggsave( arrange_ggmatrix(matrices, layout), file = "~/repos/dirmig/plot/sgdp_mig.png", dpi = 300, width = 13.6, height = 12.1, unit = "in")
 
 #grid.newpage()
 #grid.draw(arranged_matrix)

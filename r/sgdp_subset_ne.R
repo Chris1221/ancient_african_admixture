@@ -33,4 +33,4 @@ for (si in sink){
 }
 
 ggmatrix(plots, nrow = length(source), ncol = length(sink), byrow = FALSE,xlab = "Years Before Present", ylab = "Estimated Effective Population Size", yAxisLabels = source_strings, xAxisLabels = sink_strings, legend = leg) + theme(legend.position = "bottom")
-ggsave("~/repos/eurasian-backmigration/v2/plot/sgdp_subet_ne.eps", dpi = 300, height = 10, width = 8, unit = "in")
+ggsave("~/repos/dirmig/plot/sgdp_subet_ne.eps", dpi = 300, height = 10, width = 8, unit = "in")
