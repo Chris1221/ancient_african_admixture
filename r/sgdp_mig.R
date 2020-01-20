@@ -9,7 +9,7 @@ library(grid)
 library(gridExtra)
 
 
-config = fromJSON(file = "~/repos/eurasian-backmigration/analyses/whole_sgdp.json")
+config = fromJSON(file = "~/repos/dirmig/analyses/whole_sgdp.json")
 j = 1
 matrices = list()
 
@@ -24,8 +24,8 @@ for(language in list_language_families()){
   sink = sink[sink %in% list_samples_from_lang(language)]
   sink_strings = vapply(sink, ids_to_names, character(1)) %>% as.vector
   seed = "1791095846"
-  smc2_path = "~/repos/eurasian-backmigration/v2/data/sgdp/"
-  msmc_path = "~/repos/eurasian-backmigration/v2/data/sgdp/"
+  smc2_path = "~/repos/dirmig/data/sgdp/"
+  msmc_path = "~/repos/dirmig/data/sgdp/"
   
   plots = list()
   
@@ -66,9 +66,3 @@ layout = rbind( c(3,3,3,1,1,1,4,4,4),
 # Just directly save it
 # Alternatively could do a newpage then draw it.
 ggsave( arrange_ggmatrix(matrices, layout), file = "~/repos/dirmig/plot/sgdp_mig.png", dpi = 300, width = 13.6, height = 12.1, unit = "in")
-
-#grid.newpage()
-#grid.draw(arranged_matrix)
-
-
-#ggsave(paste0("~/repos/eurasian-backmigration/v2/plot/sgdp_ne_", language, ".eps"), plot = p, dpi = 300, height = 10, width = 8, unit = "in")

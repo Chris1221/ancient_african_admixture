@@ -23,7 +23,7 @@ for (si in sink){
     smcsmc_file = new("smcsmc", file = paste0(smc2_path, seed, ".", so, ".", si, ".out"))
     msmc_file = new("msmc", file = paste0(msmc_path, so, ".", si, ".final.txt"))
     
-    plots[[i]] = plot_both_msmc_and_smcsmc(smcsmc = smcsmc_file, msmc = msmc_file)
+    plots[[i]] = plot_both_msmc_and_smcsmc(smcsmc = smcsmc_file, msmc = msmc_file, ylim = c(3e3, 5e4))
     
     if(i == 1){
       leg = grab_legend(plots[[i]])
