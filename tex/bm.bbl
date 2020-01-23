@@ -1,0 +1,2691 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{nty/global/}
+    \entry{Altheide1997}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f7a59f6d75831ad17ebc2f86f0a4530b}{%
+           family={Altheide},
+           familyi={A\bibinitperiod},
+           given={T\bibnamedelima K},
+           giveni={T\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=078856c78954fda815a54fcb866f4d6c}{%
+           family={Hammer},
+           familyi={H\bibinitperiod},
+           given={M\bibnamedelima F},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{b78e5e9c36109d23ebb461cbd46c712e}
+      \strng{fullhash}{b78e5e9c36109d23ebb461cbd46c712e}
+      \strng{authornamehash}{b78e5e9c36109d23ebb461cbd46c712e}
+      \strng{authorfullhash}{b78e5e9c36109d23ebb461cbd46c712e}
+      \field{sortinit}{A}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0002-9297}
+      \field{journaltitle}{American journal of human genetics}
+      \field{month}{8}
+      \field{number}{2}
+      \field{title}{{Evidence for a possible Asian origin of YAP+ Y chromosomes.}}
+      \field{volume}{61}
+      \field{year}{1997}
+      \field{pages}{462\bibrangedash 6}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1016/S0002-9297(07)64077-4
+      \endverb
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/9311756%20http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC1715891
+      \endverb
+    \endentry
+    \entry{Batini2011}{article}{}
+      \name{author}{10}{}{%
+        {{hash=589254b9d24185dc57345a4fd71036ad}{%
+           family={Batini},
+           familyi={B\bibinitperiod},
+           given={Chiara},
+           giveni={C\bibinitperiod}}}%
+        {{hash=cd5d978ff3f53c07b5d73500a939e67d}{%
+           family={Lopes},
+           familyi={L\bibinitperiod},
+           given={Joao},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7cd73edf38d593a2fd847edd198460ac}{%
+           family={Behar},
+           familyi={B\bibinitperiod},
+           given={Doron\bibnamedelima M.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=dd87f6824199be9f69ff89d8ff57afbd}{%
+           family={Calafell},
+           familyi={C\bibinitperiod},
+           given={Francesc},
+           giveni={F\bibinitperiod}}}%
+        {{hash=8fffe0249553001689283f426c8f1d8d}{%
+           family={Jorde},
+           familyi={J\bibinitperiod},
+           given={Lynn\bibnamedelima B.},
+           giveni={L\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=001078f6e7be8b24ecec7f78d1f96748}{%
+           family={{Van Der Veen}},
+           familyi={V\bibinitperiod},
+           given={Lolke},
+           giveni={L\bibinitperiod}}}%
+        {{hash=1e72fe4d35628db6ca5273908d8e55eb}{%
+           family={Quintana-Murci},
+           familyi={Q\bibinithyphendelim M\bibinitperiod},
+           given={Lluis},
+           giveni={L\bibinitperiod}}}%
+        {{hash=9674a11e87a43494eb10a49daac9aeca}{%
+           family={Spedini},
+           familyi={S\bibinitperiod},
+           given={Gabriella},
+           giveni={G\bibinitperiod}}}%
+        {{hash=abc19bab9810e143d432a01825f05464}{%
+           family={Destro-Bisol},
+           familyi={D\bibinithyphendelim B\bibinitperiod},
+           given={Giovanni},
+           giveni={G\bibinitperiod}}}%
+        {{hash=bbf4794e0caca8f3b1b43ddeda14736e}{%
+           family={Comas},
+           familyi={C\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{6748981b931abe1aebd91d73a74283fc}
+      \strng{fullhash}{e621e5c226a00ee4d78bcd35eeeba5d8}
+      \strng{authornamehash}{6748981b931abe1aebd91d73a74283fc}
+      \strng{authorfullhash}{e621e5c226a00ee4d78bcd35eeeba5d8}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Pygmy populations are among the few hunter-gatherers currently living in sub-Saharan Africa and are mainly represented by two groups, Eastern and Western, according to their current geographical distribution. They are scattered across the Central African belt and surrounded by Bantu-speaking farmers, with whom they have complex social and economic interactions. To investigate the demographic history of Pygmy groups, a population approach was applied to the analysis of 205 complete mitochondrial DNA (mtDNA) sequences from ten central African populations. No sharing of maternal lineages was observed between the two Pygmy groups, with haplogroup L1c being characteristic of the Western group but most of Eastern Pygmy lineages falling into subclades of L0a, L2a, and L5. Demographic inferences based on Bayesian coalescent simulations point to an early split among the maternal ancestors of Pygmies and those of Bantu-speaking farmers (∼ 70,000 years ago [ya]). Evidence for population growth in the ancestors of Bantu-speaking farmers has been observed, starting ∼ 65,000 ya, well before the diffusion of Bantu languages. Subsequently, the effective population size of the ancestors of Pygmies remained constant over time and ∼ 27,000 ya, coincident with the Last Glacial Maximum, Eastern and Western Pygmies diverged, with evidence of subsequent migration only among the Western group and the Bantu-speaking farmers. Western Pygmies show signs of a recent bottleneck 4,000-650 ya, coincident with the diffusion of Bantu languages, whereas Eastern Pygmies seem to have experienced a more ancient decrease in population size (20,000-4,000 ya). In conclusion, the results of this first attempt at analyzing complete mtDNA sequences at the population level in sub-Saharan Africa not only support previous findings but also offer new insights into the demographic history of Pygmy populations, shedding new light on the ancient peopling of the African continent.}
+      \field{issn}{07374038}
+      \field{journaltitle}{Molecular Biology and Evolution}
+      \field{number}{2}
+      \field{title}{{Insights into the demographic history of African pygmies from complete mitochondrial genomes}}
+      \field{volume}{28}
+      \field{year}{2011}
+      \field{pages}{1099\bibrangedash 1110}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1093/molbev/msq294
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/msq294.pdf:pdf
+      \endverb
+      \keyw{African Pygmies,coalescent simulations,demography,mitochondrial genome,phylogeography}
+    \endentry
+    \entry{Behar2008a}{article}{}
+      \name{author}{15}{}{%
+        {{hash=7cd73edf38d593a2fd847edd198460ac}{%
+           family={Behar},
+           familyi={B\bibinitperiod},
+           given={Doron\bibnamedelima M.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=891fac248db001d9314106a529b352f2}{%
+           family={Villems},
+           familyi={V\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=45452f4a6a9dd91c77d482b41bef1fd9}{%
+           family={Soodyall},
+           familyi={S\bibinitperiod},
+           given={Himla},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c223061ea9ce55418b4fe37d44338912}{%
+           family={Blue-Smith},
+           familyi={B\bibinithyphendelim S\bibinitperiod},
+           given={Jason},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a9cc49f281b027cc8bb9bc8312baefa4}{%
+           family={Pereira},
+           familyi={P\bibinitperiod},
+           given={Luisa},
+           giveni={L\bibinitperiod}}}%
+        {{hash=f7e30608bf012ed07aae50fe3043b3ca}{%
+           family={Metspalu},
+           familyi={M\bibinitperiod},
+           given={Ene},
+           giveni={E\bibinitperiod}}}%
+        {{hash=6a552706b883fb5d5b4b9bf8e47ebce0}{%
+           family={Scozzari},
+           familyi={S\bibinitperiod},
+           given={Rosaria},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2568ce0cd1cf4c0cae79b18788bd57dd}{%
+           family={Makkan},
+           familyi={M\bibinitperiod},
+           given={Heeran},
+           giveni={H\bibinitperiod}}}%
+        {{hash=046aab893e06a0aef84397a2ed9f8b4b}{%
+           family={Tzur},
+           familyi={T\bibinitperiod},
+           given={Shay},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bbf4794e0caca8f3b1b43ddeda14736e}{%
+           family={Comas},
+           familyi={C\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=9015ad7e4dd8af1536b53d5842da384d}{%
+           family={Bertranpetit},
+           familyi={B\bibinitperiod},
+           given={Jaume},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1e72fe4d35628db6ca5273908d8e55eb}{%
+           family={Quintana-Murci},
+           familyi={Q\bibinithyphendelim M\bibinitperiod},
+           given={Lluis},
+           giveni={L\bibinitperiod}}}%
+        {{hash=19661a59649849249714ca72b6c26fff}{%
+           family={Tyler-Smith},
+           familyi={T\bibinithyphendelim S\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+        {{hash=4a9a3cb5f0ccf402793d1683f820241d}{%
+           family={Wells},
+           familyi={W\bibinitperiod},
+           given={R.\bibnamedelimi Spencer},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=419317fdd051d6322062748170149516}{%
+           family={Rosset},
+           familyi={R\bibinitperiod},
+           given={Saharon},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7033eb9479eeaff192a8862e247d089}
+      \strng{fullhash}{13a8fe895088d4a68c242af5879928fa}
+      \strng{authornamehash}{a7033eb9479eeaff192a8862e247d089}
+      \strng{authorfullhash}{13a8fe895088d4a68c242af5879928fa}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The quest to explain demographic history during the early part of human evolution has been limited because of the scarce paleoanthropological record from the Middle Stone Age. To shed light on the structure of the mitochondrial DNA (mtDNA) phylogeny at the dawn of Homo sapiens, we constructed a matrilineal tree composed of 624 complete mtDNA genomes from sub-Saharan Hg L lineages. We paid particular attention to the Khoi and San (Khoisan) people of South Africa because they are considered to be a unique relic of hunter-gatherer lifestyle and to carry paternal and maternal lineages belonging to the deepest clades known among modern humans. Both the tree phylogeny and coalescence calculations suggest that Khoisan matrilineal ancestry diverged from the rest of the human mtDNA pool 90,000-150,000 years before present (ybp) and that at least five additional, currently extant maternal lineages existed during this period in parallel. Furthermore, we estimate that a minimum of 40 other evolutionarily successful lineages flourished in sub-Saharan Africa during the period of modern human dispersal out of Africa approximately 60,000-70,000 ybp. Only much later, at the beginning of the Late Stone Age, about 40,000 ybp, did introgression of additional lineages occur into the Khoisan mtDNA pool. This process was further accelerated during the recent Bantu expansions. Our results suggest that the early settlement of humans in Africa was already matrilineally structured and involved small, separately evolving isolated populations. {©} 2008 The American Society of Human Genetics.}
+      \field{issn}{00029297}
+      \field{journaltitle}{American Journal of Human Genetics}
+      \field{title}{{The Dawn of Human Matrilineal Diversity}}
+      \field{year}{2008}
+      \verb{doi}
+      \verb 10.1016/j.ajhg.2008.04.002
+      \endverb
+    \endentry
+    \entry{Blench2007}{report}{}
+      \name{author}{1}{}{%
+        {{hash=011ad5c84be175edf638aad61991826d}{%
+           family={Blench},
+           familyi={B\bibinitperiod},
+           given={Roger},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{011ad5c84be175edf638aad61991826d}
+      \strng{fullhash}{011ad5c84be175edf638aad61991826d}
+      \strng{authornamehash}{011ad5c84be175edf638aad61991826d}
+      \strng{authorfullhash}{011ad5c84be175edf638aad61991826d}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Archaeology, Language, and the African Past is an overview of theories and methods, a fusion of African linguistics and archaeology. Roger Blench provides a comprehensive look at the history of all African language families, incorporating the latest linguistic classifications, current evidence from archaeology, genetic research, and recorded history. This original and definitive volume examines the economic culture of the continent from major crops and plant life to animals and livestock from a multi-dimensional perspective. It provides students of linguistics, archaeology, and anthropology with a critical discussion on the history of African languages and the cultures they articulate.}
+      \field{booktitle}{African Diaspora Archaeology Newsletter}
+      \field{isbn}{9780759104662; 0759104654; 0759104662}
+      \field{issn}{00393533}
+      \field{title}{{Archaeology, Language, and the African Past}}
+      \field{type}{techreport}
+      \field{year}{2007}
+    \endentry
+    \entry{Busby2016}{article}{}
+      \name{author}{16}{}{%
+        {{hash=4ced163078ad465b1b8a72fac1761ff4}{%
+           family={Busby},
+           familyi={B\bibinitperiod},
+           given={George\bibnamedelima Bj},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=c8737f709cf970565cefba971b46bd89}{%
+           family={Band},
+           familyi={B\bibinitperiod},
+           given={Gavin},
+           giveni={G\bibinitperiod}}}%
+        {{hash=ca58ac28c22794c6bdbff343a66cd920}{%
+           family={{Si Le}},
+           familyi={S\bibinitperiod},
+           given={Quang},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=5137b2aab2987d95bdb19b423772b3de}{%
+           family={Jallow},
+           familyi={J\bibinitperiod},
+           given={Muminatou},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d690be6f658c16defab38ece8d5dc170}{%
+           family={Bougama},
+           familyi={B\bibinitperiod},
+           given={Edith},
+           giveni={E\bibinitperiod}}}%
+        {{hash=ae3f84459b641c7bccb9b1e552c3c1a5}{%
+           family={Mangano},
+           familyi={M\bibinitperiod},
+           given={Valentina\bibnamedelima D.},
+           giveni={V\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=c4cbca7730d90ba1324f5296d693af9b}{%
+           family={Amenga-Etego},
+           familyi={A\bibinithyphendelim E\bibinitperiod},
+           given={Lucas\bibnamedelima N.},
+           giveni={L\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=4b72e7ad192af3940d6f237e3c74e89d}{%
+           family={Enimil},
+           familyi={E\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=40228d9e08fefe932b0f79a45e7b25c5}{%
+           family={Apinjoh},
+           familyi={A\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+        {{hash=5cdfc36db2f6ac8db2f43562075cf367}{%
+           family={Ndila},
+           familyi={N\bibinitperiod},
+           given={Carolyne\bibnamedelima M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=20edf7c0be6eeb19552182aac50cdff8}{%
+           family={Manjurano},
+           familyi={M\bibinitperiod},
+           given={Alphaxard},
+           giveni={A\bibinitperiod}}}%
+        {{hash=61e209fdc391f90e855bdfe934a2a84b}{%
+           family={Nyirongo},
+           familyi={N\bibinitperiod},
+           given={Vysaul},
+           giveni={V\bibinitperiod}}}%
+        {{hash=bf59d7c146f84ec1afc8c4158c22dcd8}{%
+           family={Doumba},
+           familyi={D\bibinitperiod},
+           given={Ogobara},
+           giveni={O\bibinitperiod}}}%
+        {{hash=1acd3c02ae244b4e38ba8a5a7ccf82a4}{%
+           family={Rockett},
+           familyi={R\bibinitperiod},
+           given={Kirk\bibnamedelima A.},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=179fe72cc99c1d1b9a80e5bb7e9beb38}{%
+           family={Kwiatkowski},
+           familyi={K\bibinitperiod},
+           given={Dominic\bibnamedelima P.},
+           giveni={D\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=4f3a038700b9f29f913274356df8cf53}{%
+           family={Spencer},
+           familyi={S\bibinitperiod},
+           given={Chris\bibnamedelima Ca},
+           giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{627c4ec5789f39bcb9655ad8e3db9226}
+      \strng{fullhash}{43d12730ecf4ce662fb54e24dd4a8696}
+      \strng{authornamehash}{627c4ec5789f39bcb9655ad8e3db9226}
+      \strng{authorfullhash}{43d12730ecf4ce662fb54e24dd4a8696}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{<}p{>}Similarity between two individuals in the combination of genetic markers along their chromosomes indicates shared ancestry and can be used to identify historical connections between different population groups due to admixture. We use a genome-wide, haplotype-based, analysis to characterise the structure of genetic diversity and gene-flow in a collection of 48 sub-Saharan African groups. We show that coastal populations experienced an influx of Eurasian haplotypes over the last 7000 years, and that Eastern and Southern Niger-Congo speaking groups share ancestry with Central West Africans as a result of recent population expansions. In fact, most sub-Saharan populations share ancestry with groups from outside of their current geographic region as a result of gene-flow within the last 4000 years. Our in-depth analysis provides insight into haplotype sharing across different ethno-linguistic groups and the recent movement of alleles into new environments, both of which are relevant to studies of genetic epidemiology.{<}/p{>}}
+      \field{isbn}{2050-084X; 2050-084X}
+      \field{issn}{2050084X}
+      \field{journaltitle}{eLife}
+      \field{title}{{Admixture into and within sub-Saharan Africa}}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.7554/eLife.15266
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/Downloads/elife-15266-v1.pdf:pdf
+      \endverb
+      \keyw{Africa,admixture,chromosome painting,evolutionary biology,gene-flow,genomics,human}
+    \endentry
+    \entry{Cabrera2018}{article}{}
+      \name{author}{4}{}{%
+        {{hash=604e6997cd143303994efe0028502dc3}{%
+           family={Cabrera},
+           familyi={C\bibinitperiod},
+           given={Vicente\bibnamedelima M.},
+           giveni={V\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=caadcb9e1a1e538f4268da2ca52af641}{%
+           family={Marrero},
+           familyi={M\bibinitperiod},
+           given={Patricia},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e7de03b7291033ed498e98d5353bbe57}{%
+           family={Abu-Amero},
+           familyi={A\bibinithyphendelim A\bibinitperiod},
+           given={Khaled\bibnamedelima K.},
+           giveni={K\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=5dbe7dab38e97ef615d53f180a698d5e}{%
+           family={Larruga},
+           familyi={L\bibinitperiod},
+           given={Jose\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {BioMed Central}%
+      }
+      \strng{namehash}{91ddecd5b62f1e43f3c53fc9f9f17385}
+      \strng{fullhash}{f0f586c8135c03bcb159b0305614297a}
+      \strng{authornamehash}{91ddecd5b62f1e43f3c53fc9f9f17385}
+      \strng{authorfullhash}{f0f586c8135c03bcb159b0305614297a}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The main unequivocal conclusion after three decades of phylogeographic mtDNA studies is the African origin of all extant modern humans. In addition, a southern coastal route has been argued for to explain the Eurasian colonization of these African pioneers. Based on the age of macrohaplogroup L3, from which all maternal Eurasian and the majority of African lineages originated, the out-of-Africa event has been dated around 60-70 kya. On the opposite side, we have proposed a northern route through Central Asia across the Levant for that expansion and, consistent with the fossil record, we have dated it around 125 kya. To help bridge differences between the molecular and fossil record ages, in this article we assess the possibility that mtDNA macrohaplogroup L3 matured in Eurasia and returned to Africa as basal L3 lineages around 70 kya. The coalescence ages of all Eurasian (M,N) and African (L3 ) lineages, both around 71 kya, are not significantly different. The oldest M and N Eurasian clades are found in southeastern Asia instead near of Africa as expected by the southern route hypothesis. The split of the Y-chromosome composite DE haplogroup is very similar to the age of mtDNA L3. An Eurasian origin and back migration to Africa has been proposed for the African Y-chromosome haplogroup E. Inside Africa, frequency distributions of maternal L3 and paternal E lineages are positively correlated. This correlation is not fully explained by geographic or ethnic affinities. This correlation rather seems to be the result of a joint and global replacement of the old autochthonous male and female African lineages by the new Eurasian incomers. These results are congruent with a model proposing an out-of-Africa migration into Asia, following a northern route, of early anatomically modern humans carrying pre-L3 mtDNA lineages around 125 kya, subsequent diversification of pre-L3 into the basal lineages of L3, a return to Africa of Eurasian fully modern humans around 70 kya carrying the basal L3 lineages and the subsequent diversification of Eurasian-remaining L3 lineages into the M and N lineages in the outside-of-Africa context, and a second Eurasian global expansion by 60 kya, most probably, out of southeast Asia. Climatic conditions and the presence of Neanderthals and other hominins might have played significant roles in these human movements. Moreover, recent studies based on ancient DNA and whole-genome sequencing are also compatible with this hypothesis.}
+      \field{issn}{1471-2148}
+      \field{journaltitle}{BMC Evolutionary Biology}
+      \field{month}{12}
+      \field{number}{1}
+      \field{title}{{Carriers of mitochondrial DNA macrohaplogroup L3 basal lineages migrated back to Africa from Asia around 70,000 years ago}}
+      \field{volume}{18}
+      \field{year}{2018}
+      \field{pages}{98}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/s12862-018-1211-4
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/s12862-018-1211-4.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://bmcevolbiol.biomedcentral.com/articles/10.1186/s12862-018-1211-4
+      \endverb
+      \keyw{Animal Systematics/Taxonomy/Biogeography,Entomology,Evolutionary Biology,Genetics and Population Dynamics,Life Sciences,general}
+    \endentry
+    \entry{Chandrasekar2007}{article}{}
+      \name{author}{14}{}{%
+        {{hash=24bcc603b97c41536a3d20ad8411a891}{%
+           family={Chandrasekar},
+           familyi={C\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f075fa61d93d62c544c07b4ef6b488b7}{%
+           family={Saheb},
+           familyi={S\bibinitperiod},
+           given={S.\bibnamedelimi Y.},
+           giveni={S\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=40d58f8a3f13f7518d167f18f73dbc3c}{%
+           family={Gangopadyaya},
+           familyi={G\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=4785476762f520b664fb7acf8ed4c55f}{%
+           family={Gangopadyaya},
+           familyi={G\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=fa88fd1b74097be673d48cdf509c1e09}{%
+           family={Mukherjee},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=dede151633df0c160b58a1968c476331}{%
+           family={Basu},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=451b49dda672c9340a95e69e40d9d2c2}{%
+           family={Lakshmi},
+           familyi={L\bibinitperiod},
+           given={G.\bibnamedelimi R.},
+           giveni={G\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=0bcf584ec9c57383e0a9ebb7dbd18ab8}{%
+           family={Sahani},
+           familyi={S\bibinitperiod},
+           given={A.\bibnamedelimi K.},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=1ff839f2affeb0d572869e423281b123}{%
+           family={Das},
+           familyi={D\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=c94c1d9e68bd6ff490ced7e916813a5b}{%
+           family={Battacharya},
+           familyi={B\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=99234b3837efccbd41922316b13416f9}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0110df8ef9c44d10b0364f0785e2e9e3}{%
+           family={Xaviour},
+           familyi={X\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f3ffa874448f1032d3c55fa8805c038e}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=69b6917dd4a397be13d633c6e9bb8989}{%
+           family={Rao},
+           familyi={R\bibinitperiod},
+           given={V.\bibnamedelimi R.},
+           giveni={V\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{44e285b61e0e514712d3a19e53dcdc7a}
+      \strng{fullhash}{dbc375beccd14289a7ba7780bc61d62c}
+      \strng{authornamehash}{44e285b61e0e514712d3a19e53dcdc7a}
+      \strng{authorfullhash}{dbc375beccd14289a7ba7780bc61d62c}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0301-4460}
+      \field{journaltitle}{Annals of Human Biology}
+      \field{month}{1}
+      \field{number}{5}
+      \field{title}{{YAP insertion signature in South Asia}}
+      \field{volume}{34}
+      \field{year}{2007}
+      \field{pages}{582\bibrangedash 586}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1080/03014460701556262
+      \endverb
+      \verb{url}
+      \verb http://www.tandfonline.com/doi/full/10.1080/03014460701556262
+      \endverb
+    \endentry
+    \entry{Chikhi2018}{article}{}
+      \name{author}{6}{}{%
+        {{hash=cef7f82f77744066aef9d5d561db67fb}{%
+           family={Chikhi},
+           familyi={C\bibinitperiod},
+           given={Lounès},
+           giveni={L\bibinitperiod}}}%
+        {{hash=861ff4443f094e1041e22f70aa3f6f7c}{%
+           family={Rodríguez},
+           familyi={R\bibinitperiod},
+           given={Willy},
+           giveni={W\bibinitperiod}}}%
+        {{hash=de73cca62899cc2328f69144b3fb4b65}{%
+           family={Grusea},
+           familyi={G\bibinitperiod},
+           given={Simona},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ad63cdc6ec8e9bd017e9876a9820d757}{%
+           family={Santos},
+           familyi={S\bibinitperiod},
+           given={Patrícia},
+           giveni={P\bibinitperiod}}}%
+        {{hash=98e9e97d29513fe5d27cfc9c7ddc7cc0}{%
+           family={Boitard},
+           familyi={B\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bcd731886b479699cdcf99088c01df86}{%
+           family={Mazet},
+           familyi={M\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{67c16e0dc5e3e9561ebfebe6c28f6206}
+      \strng{fullhash}{f0ebcd2dc12e7b71151aa334df74a5a8}
+      \strng{authornamehash}{67c16e0dc5e3e9561ebfebe6c28f6206}
+      \strng{authorfullhash}{f0ebcd2dc12e7b71151aa334df74a5a8}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Several inferential methods using genomic data have been proposed to quantify and date population size changes in the history of species. At the same time an increasing number of studies have shown that population structure can generate spurious signals of population size change. Recently, Mazet et al. (2016) introduced, for a sample size of two, a time-dependent parameter, which they called the IICR (inverse instantaneous coalescence rate). The IICR is equivalent to a population size in panmictic models, but not necessarily in structured models. It is characterised by a temporal trajectory that suggests population size changes, as a function of the sampling scheme, even when the total population size was constant. Here, we extend the work of Mazet et al. (2016) by (i) showing how the IICR can be computed for any demographic model of interest, under the coalescent, (ii) applying this approach to models of population structure (1D and 2D stepping stone, split models, two- and three-island asymmetric gene flow, continent-island models), (iii) stressing the importance of the sampling strategy in generating different histories, (iv) arguing that IICR plots can be seen as summaries of genomic information that can thus be used for model choice or model exclusion (v) applying this approach to the question of admixture between humans and Neanderthals. Altogether these results are potentially important given that the widely used PSMC (pairwise sequentially Markovian coalescent) method of Li and Durbin (2011) estimates the IICR of the sample, not necessarily the history of the populations.}
+      \field{issn}{1365-2540}
+      \field{journaltitle}{Heredity}
+      \field{number}{1}
+      \field{title}{{The IICR (inverse instantaneous coalescence rate) as a summary of genomic diversity: insights into demographic inference and model choice}}
+      \field{volume}{120}
+      \field{year}{2018}
+      \field{pages}{13\bibrangedash 24}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1038/s41437-017-0005-6
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1038/s41437-017-0005-6
+      \endverb
+    \endentry
+    \entry{Cruciani2002}{article}{}
+      \name{author}{16}{}{%
+        {{hash=85c19fc55e97005675511bbbc34ebc21}{%
+           family={Cruciani},
+           familyi={C\bibinitperiod},
+           given={Fulvio},
+           giveni={F\bibinitperiod}}}%
+        {{hash=856f39bdc3791003ee17747c4b2e9ef1}{%
+           family={Santolamazza},
+           familyi={S\bibinitperiod},
+           given={Piero},
+           giveni={P\bibinitperiod}}}%
+        {{hash=6c386c2e3f4cd9cde5516881f0483a0a}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Peidong},
+           giveni={P\bibinitperiod}}}%
+        {{hash=81473e3a2990abfde92e35c4151b1b0f}{%
+           family={Macaulay},
+           familyi={M\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+        {{hash=3f6df8c1c72f7bed532a71a69e00cb0a}{%
+           family={Moral},
+           familyi={M\bibinitperiod},
+           given={Pedro},
+           giveni={P\bibinitperiod}}}%
+        {{hash=877dde497cbb2a3dce095a1a686b5738}{%
+           family={Olckers},
+           familyi={O\bibinitperiod},
+           given={Antonel},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b99a7d671c04004b1cea2e2ecaa87dd0}{%
+           family={Modiano},
+           familyi={M\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=cbe1726729e0d456268ff795c70dd2af}{%
+           family={Holmes},
+           familyi={H\bibinitperiod},
+           given={Susan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=abc19bab9810e143d432a01825f05464}{%
+           family={Destro-Bisol},
+           familyi={D\bibinithyphendelim B\bibinitperiod},
+           given={Giovanni},
+           giveni={G\bibinitperiod}}}%
+        {{hash=3729567377fdd840ba5886fc13e6d4ce}{%
+           family={Coia},
+           familyi={C\bibinitperiod},
+           given={Valentina},
+           giveni={V\bibinitperiod}}}%
+        {{hash=b07428584698c1657a8c59e6e615aa1e}{%
+           family={Wallace},
+           familyi={W\bibinitperiod},
+           given={Douglas\bibnamedelima C.},
+           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=823760735aa6ddd1c1f950fcebe6d236}{%
+           family={Oefner},
+           familyi={O\bibinitperiod},
+           given={Peter\bibnamedelima J.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=5633540de0c0ccd36b462228a26a6c68}{%
+           family={Torroni},
+           familyi={T\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d587e80a5b5c5deedb0703015973dd5a}{%
+           family={Cavalli-Sforza},
+           familyi={C\bibinithyphendelim S\bibinitperiod},
+           given={L.\bibnamedelimi Luca},
+           giveni={L\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=6a552706b883fb5d5b4b9bf8e47ebce0}{%
+           family={Scozzari},
+           familyi={S\bibinitperiod},
+           given={Rosaria},
+           giveni={R\bibinitperiod}}}%
+        {{hash=a00c2bbca2d9e2d1325784e9ce4f9049}{%
+           family={Underhill},
+           familyi={U\bibinitperiod},
+           given={Peter\bibnamedelima A.},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{2f6befadd6ed8234f9f4510416cad0e5}
+      \strng{fullhash}{770e8f6d41a0a72ef917f85223ec5d06}
+      \strng{authornamehash}{2f6befadd6ed8234f9f4510416cad0e5}
+      \strng{authorfullhash}{770e8f6d41a0a72ef917f85223ec5d06}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The variation of 77 biallelic sites located in the nonrecombining portion of the Y chromosome was examined in 608 male subjects from 22 African populations. This survey revealed a total of 37 binary haplotypes, which were combined with microsatellite polymorphism data to evaluate internal diversities and to estimate coalescence ages of the binary haplotypes. The majority of binary haplotypes showed a nonuniform distribution across the continent. Analysis of molecular variance detected a high level of interpopulation diversity (PhiST=0.342), which appears to be partially related to the geography (PhiCT=0.230). In sub-Saharan Africa, the recent spread of a set of haplotypes partially erased pre-existing diversity, but a high level of population (PhiST=0.332) and geographic (PhiCT=0.179) structuring persists. Correspondence analysis shows that three main clusters of populations can be identified: northern, eastern, and sub-Saharan Africans. Among the latter, the Khoisan, the Pygmies, and the northern Cameroonians are clearly distinct from a tight cluster formed by the Niger-Congo-speaking populations from western, central western, and southern Africa. Phylogeographic analyses suggest that a large component of the present Khoisan gene pool is eastern African in origin and that Asia was the source of a back migration to sub-Saharan Africa. Haplogroup IX Y chromosomes appear to have been involved in such a migration, the traces of which can now be observed mostly in northern Cameroon.}
+      \field{issn}{00029297}
+      \field{journaltitle}{The American Journal of Human Genetics}
+      \field{number}{5}
+      \field{title}{{A Back Migration from Asia to Sub-Saharan Africa Is Supported by High-Resolution Analysis of Human Y-Chromosome Haplotypes}}
+      \field{volume}{70}
+      \field{year}{2002}
+      \field{pages}{1197\bibrangedash 1214}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1086/340257
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/AJHGv70p1197.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Dumont2008}{article}{}
+      \name{author}{2}{}{%
+        {{hash=b9720d953609a49922c5afbd571c4ede}{%
+           family={Dumont},
+           familyi={D\bibinitperiod},
+           given={Beth\bibnamedelima L},
+           giveni={B\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=a3fed4d8238bc41ae40798f3974ce490}{%
+           family={Payseur},
+           familyi={P\bibinitperiod},
+           given={Bret\bibnamedelima A},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley {\&} Sons, Ltd (10.1111)}%
+      }
+      \strng{namehash}{94775c92d7d256b4a7abb4dd51991aa7}
+      \strng{fullhash}{94775c92d7d256b4a7abb4dd51991aa7}
+      \strng{authornamehash}{94775c92d7d256b4a7abb4dd51991aa7}
+      \strng{authorfullhash}{94775c92d7d256b4a7abb4dd51991aa7}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Rates of recombination vary considerably between species. Despite the significance of this observation for evolutionary biology and genetics, the evolutionary mechanisms that contribute to these interspecific differences are unclear. On fine physical scales, recombination rates appear to evolve rapidly between closely related species, but the mode and tempo of recombination rate evolution on the broader scale is poorly understood. Here, we use phylogenetic comparative methods to begin to characterize the evolutionary processes underlying average genomic recombination rates in mammals. We document a strong phylogenetic effect in recombination rates, indicating that more closely related species tend to have more similar average rates of recombination. We demonstrate that this phylogenetic signal is not an artifact of errors in recombination rate estimation and show that it is robust to uncertainty in the mammalian phylogeny. Neutral evolutionary models present good fits to the data and we find no evidence for heterogeneity in the rate of evolution in recombination across the mammalian tree. These results suggest that observed interspecific variation in average genomic rates of recombination is largely attributable to the steady accumulation of neutral mutations over evolutionary time. Although single recombination hotspots may live and die on short evolutionary time scales, the strong phylogenetic signal in genomic recombination rates indicates that the pace of evolution on this scale may be considerably slower.}
+      \field{annotation}{doi: 10.1111/j.1558-5646.2007.00278.x}
+      \field{issn}{0014-3820}
+      \field{journaltitle}{Evolution}
+      \field{month}{2}
+      \field{number}{2}
+      \field{title}{{EVOLUTION OF THE GENOMIC RATE OF RECOMBINATION IN MAMMALS}}
+      \field{volume}{62}
+      \field{year}{2008}
+      \field{pages}{276\bibrangedash 294}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1111/j.1558-5646.2007.00278.x
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1111/j.1558-5646.2007.00278.x
+      \endverb
+      \keyw{Genetic maps,mammalian genomics,phylogenetic comparative methods,recombination}
+    \endentry
+    \entry{Durvasula2019}{article}{}
+      \name{author}{2}{}{%
+        {{hash=c548ae4b83db8922fd5d754c2838d3f8}{%
+           family={Durvasula},
+           familyi={D\bibinitperiod},
+           given={Arun},
+           giveni={A\bibinitperiod}}}%
+        {{hash=42444e8073f744a3db61a499f44443f9}{%
+           family={Sankararaman},
+           familyi={S\bibinitperiod},
+           given={Sriram},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{361320e71684e967cc7be33b78cb8d45}
+      \strng{fullhash}{361320e71684e967cc7be33b78cb8d45}
+      \strng{authornamehash}{361320e71684e967cc7be33b78cb8d45}
+      \strng{authorfullhash}{361320e71684e967cc7be33b78cb8d45}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{While introgression from Neanderthals and Denisovans has been well-documented in modern humans outside Africa, the contribution of archaic hominins to the genetic variation of present-day Africans remains poorly understood. Using 405 whole-genome sequences from four sub-Saharan African populations, we provide complementary lines of evidence for archaic introgression into these populations. Our analyses of site frequency spectra indicate that these populations derive 2-19{\%} of their genetic ancestry from an archaic population that diverged prior to the split of Neanderthals and modern humans. Using a method that can identify segments of archaic ancestry without the need for reference archaic genomes, we built genome-wide maps of archaic ancestry in the Yoruba and the Mende populations that recover about 482 and 502 megabases of archaic sequence, respectively. Analyses of these maps reveal segments of archaic ancestry at high frequency in these populations that represent potential targets of adaptive introgression. Our results reveal the substantial contribution of archaic ancestry in shaping the gene pool of present-day African populations.}
+      \field{journaltitle}{bioRxiv}
+      \field{title}{{Recovering signals of ghost archaic introgression in African populations}}
+      \field{year}{2019}
+      \field{pages}{285734}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1101/285734
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/285734.full.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://biorxiv.org/content/early/2019/02/28/285734.abstract
+      \endverb
+    \endentry
+    \entry{Excoffier2013}{article}{}
+      \name{author}{5}{}{%
+        {{hash=11cd3a5a3d4fb8b072309208716345cc}{%
+           family={Excoffier},
+           familyi={E\bibinitperiod},
+           given={Laurent},
+           giveni={L\bibinitperiod}}}%
+        {{hash=43cf272a5bbb889a4c394e9a4ec4a714}{%
+           family={Dupanloup},
+           familyi={D\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod}}}%
+        {{hash=d93a9294d803a737efcd702073b15f5a}{%
+           family={Huerta-Sánchez},
+           familyi={H\bibinithyphendelim S\bibinitperiod},
+           given={Emilia},
+           giveni={E\bibinitperiod}}}%
+        {{hash=8717c4f695297ea33e9331c6777612ce}{%
+           family={Sousa},
+           familyi={S\bibinitperiod},
+           given={Vitor\bibnamedelima C.},
+           giveni={V\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=4458d08a491407f7332c82b194dd320e}{%
+           family={Foll},
+           familyi={F\bibinitperiod},
+           given={Matthieu},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{5cca3c25beee146c7c81800d4d6475cb}
+      \strng{fullhash}{e4ae169ec72263d8a723b9788e8bdc78}
+      \strng{authornamehash}{5cca3c25beee146c7c81800d4d6475cb}
+      \strng{authorfullhash}{e4ae169ec72263d8a723b9788e8bdc78}
+      \field{sortinit}{E}
+      \field{sortinithash}{07bbd5a529b5beaa311df5be05b874bc}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We introduce a flexible and robust simulation-based framework to infer demographic parameters from the site frequency spectrum (SFS) computed on large genomic datasets. We show that our composite-likelihood approach allows one to study evolutionary models of arbitrary complexity, which cannot be tackled by other current likelihood-based methods. For simple scenarios, our approach compares favorably in terms of accuracy and speed with ∂a∂i, the current reference in the field, while showing better convergence properties for complex models. We first apply our methodology to non-coding genomic SNP data from four human populations. To infer their demographic history, we compare neutral evolutionary models of increasing complexity, including unsampled populations. We further show the versatility of our framework by extending it to the inference of demographic parameters from SNP chips with known ascertainment, such as that recently released by Affymetrix to study human origins. Whereas previous ways of handling ascertained SNPs were either restricted to a single population or only allowed the inference of divergence time between a pair of populations, our framework can correctly infer parameters of more complex models including the divergence of several populations, bottlenecks and migration. We apply this approach to the reconstruction of African demography using two distinct ascertained human SNP panels studied under two evolutionary models. The two SNP panels lead to globally very similar estimates and confidence intervals, and suggest an ancient divergence ({>}110 Ky) between Yoruba and San populations. Our methodology appears well suited to the study of complex scenarios from large genomic data sets.}
+      \field{issn}{15537390}
+      \field{journaltitle}{PLoS Genetics}
+      \field{title}{{Robust Demographic Inference from Genomic and SNP Data}}
+      \field{year}{2013}
+      \verb{doi}
+      \verb 10.1371/journal.pgen.1003905
+      \endverb
+    \endentry
+    \entry{Fan2019}{article}{}
+      \name{author}{17}{}{%
+        {{hash=0f7ce451b92614e5b52e4a4945eff997}{%
+           family={Fan},
+           familyi={F\bibinitperiod},
+           given={Shaohua},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5e35b4953f901973984991274237c058}{%
+           family={Kelly},
+           familyi={K\bibinitperiod},
+           given={Derek\bibnamedelima E.},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=d1a280a7e6e9ed5e2e63c0adf10ec829}{%
+           family={Beltrame},
+           familyi={B\bibinitperiod},
+           given={Marcia\bibnamedelima H.},
+           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=bc1f316444a5da34ce6be63043adabb7}{%
+           family={Hansen},
+           familyi={H\bibinitperiod},
+           given={Matthew\bibnamedelima E.B.},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=d1013727e2f6ff90a885ffc35890400d}{%
+           family={Mallick},
+           familyi={M\bibinitperiod},
+           given={Swapan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b52f91be2d46768adb7e34fdc9d84c0d}{%
+           family={Ranciaro},
+           familyi={R\bibinitperiod},
+           given={Alessia},
+           giveni={A\bibinitperiod}}}%
+        {{hash=48fa414f0a8af0533fabac71a435d246}{%
+           family={Hirbo},
+           familyi={H\bibinitperiod},
+           given={Jibril},
+           giveni={J\bibinitperiod}}}%
+        {{hash=6bc88c88b48cfd8a2c4dc566cd758fde}{%
+           family={Thompson},
+           familyi={T\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1d6e2c43fc5667c42d8a15d4cf5d6332}{%
+           family={Beggs},
+           familyi={B\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod}}}%
+        {{hash=cf5dbb31537c0e216ea88fa80fea68de}{%
+           family={Nyambo},
+           familyi={N\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=e83ff713ea86338c49e49467aa021e13}{%
+           family={Omar},
+           familyi={O\bibinitperiod},
+           given={Sabah\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=be8df25951de7f7898cf24497a402cff}{%
+           family={Meskel},
+           familyi={M\bibinitperiod},
+           given={Dawit\bibnamedelima Wolde},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=93e88f2be1e7cd1cf7a8abae07944718}{%
+           family={Belay},
+           familyi={B\bibinitperiod},
+           given={Gurja},
+           giveni={G\bibinitperiod}}}%
+        {{hash=cac162f885938ce2eb5d189539980c01}{%
+           family={Froment},
+           familyi={F\bibinitperiod},
+           given={Alain},
+           giveni={A\bibinitperiod}}}%
+        {{hash=88c3ebd7390fa0517feb43783fbc46b2}{%
+           family={Patterson},
+           familyi={P\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod}}}%
+        {{hash=d08e693e8243dc7c7c1c5e59695dc865}{%
+           family={Reich},
+           familyi={R\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=22e29202db533b3d7a3181a46cf02566}{%
+           family={Tishkoff},
+           familyi={T\bibinitperiod},
+           given={Sarah\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{0549a25207033ac2c48719e4226480bc}
+      \strng{fullhash}{b66b054b7ccbab454749002a31204519}
+      \strng{authornamehash}{0549a25207033ac2c48719e4226480bc}
+      \strng{authorfullhash}{b66b054b7ccbab454749002a31204519}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Africa is the origin of modern humans within the past 300 thousand years. To infer the complex demographic history of African populations and adaptation to diverse environments, we sequenced the genomes of 92 individuals from 44 indigenous African populations. Genetic structure analyses indicate that among Africans, genetic ancestry is largely partitioned by geography and language, though we observe mixed ancestry in many individuals, consistent with both short- and long-range migration events followed by admixture. Phylogenetic analysis indicates that the San genetic lineage is basal to all modern human lineages. The San and Niger-Congo, Afroasiatic, and Nilo-Saharan lineages were substantially diverged by 160 kya (thousand years ago). In contrast, the San and Central African rainforest hunter-gatherer (CRHG), Hadza hunter-gatherer, and Sandawe hunter-gatherer lineages were diverged by {\~{}} 120–100 kya. Niger-Congo, Nilo-Saharan, and Afroasiatic lineages diverged more recently by {\~{}} 54–16 kya. Eastern and western CRHG lineages diverged by {\~{}} 50–31 kya, and the western CRHG lineages diverged by {\~{}} 18–12 kya. The San and CRHG populations maintained the largest effective population size compared to other populations prior to 60 kya. Further, we observed signatures of positive selection at genes involved in muscle development, bone synthesis, reproduction, immune function, energy metabolism, and cell signaling, which may contribute to local adaptation of African populations. We observe high levels of genomic variation between ethnically diverse Africans which is largely correlated with geography and language. Our study indicates ancient population substructure and local adaptation of Africans.}
+      \field{issn}{1474760X}
+      \field{journaltitle}{Genome Biology}
+      \field{title}{{African evolutionary history inferred from whole genome sequence data of 44 indigenous African populations}}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1186/s13059-019-1679-2
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/s13059-019-1679-2.pdf:pdf
+      \endverb
+      \keyw{African populations,Demographic history,Effective population size,Genomic variation,Human evolution,Local adaptation,Whole genome sequencing}
+    \endentry
+    \entry{GallegoLlorente2015}{article}{}
+      \name{author}{2}{}{%
+        {{hash=3aaa07348abe44f79d6a07248b7df761}{%
+           family={{Gallego Llorente}},
+           familyi={G\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f509a12ed5a9e16a1f87440638854909}{%
+           family={Manica},
+           familyi={M\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f6ea0ed0a8261bfae0354ff5890adb3e}
+      \strng{fullhash}{f6ea0ed0a8261bfae0354ff5890adb3e}
+      \strng{authornamehash}{f6ea0ed0a8261bfae0354ff5890adb3e}
+      \strng{authorfullhash}{f6ea0ed0a8261bfae0354ff5890adb3e}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science}
+      \field{number}{October}
+      \field{title}{{Ancient Ethiopian genome reveals extensive Eurasian admixture in Eastern Africa}}
+      \field{volume}{350}
+      \field{year}{2015}
+      \field{pages}{820\bibrangedash 825}
+      \range{pages}{6}
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/820.full.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Haber2019}{article}{}
+      \name{author}{9}{}{%
+        {{hash=49a30d958536bbd8b43711827cbf2308}{%
+           family={Haber},
+           familyi={H\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f05b4682315a99f7a060ea7dea33c75e}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Abigail\bibnamedelima L.},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=50f05727d1370ae88ae57d5e3eb8d54d}{%
+           family={Connell},
+           familyi={C\bibinitperiod},
+           given={Bruce\bibnamedelima A.},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=6eeb0af518052cf382a809870dac2870}{%
+           family={Asan},
+           familyi={A\bibinitperiod}}}%
+        {{hash=1bd3ebabb682731fbd579ee0ffd29ca7}{%
+           family={Arciero},
+           familyi={A\bibinitperiod},
+           given={Elena},
+           giveni={E\bibinitperiod}}}%
+        {{hash=38c078ccaf7499f8f6038329477260b5}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Huanming},
+           giveni={H\bibinitperiod}}}%
+        {{hash=574558b2498b781ee9d1f00df36ce4bb}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={Mark\bibnamedelima G.},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=b758ed12646b9315485bab59e2b35124}{%
+           family={Xue},
+           familyi={X\bibinitperiod},
+           given={Yali},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=19661a59649849249714ca72b6c26fff}{%
+           family={Tyler-Smith},
+           familyi={T\bibinithyphendelim S\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{201cea81f335aeda599936ebd4696abd}
+      \strng{fullhash}{190967bb3668e79b0209dc18c5966537}
+      \strng{authornamehash}{201cea81f335aeda599936ebd4696abd}
+      \strng{authorfullhash}{190967bb3668e79b0209dc18c5966537}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0016-6731}
+      \field{journaltitle}{Genetics}
+      \field{title}{{A Rare Deep-Rooting D0 African Y-Chromosomal Haplogroup and Its Implications for the Expansion of Modern Humans out of Africa}}
+      \field{year}{2019}
+      \field{pages}{genetics.302368.2019}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1534/genetics.119.302368
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/genetics.119.302368.full.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.genetics.org/lookup/doi/10.1534/genetics.119.302368
+      \endverb
+    \endentry
+    \entry{Hammer1998}{article}{}
+      \name{author}{9}{}{%
+        {{hash=c17b1b81ad8be3b2b25a2481698896ca}{%
+           family={Hammer},
+           familyi={H\bibinitperiod},
+           given={M.\bibnamedelimi F.},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=af731e11d286f5d0dfba2b13d2895b91}{%
+           family={Karafet},
+           familyi={K\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=2eced51b9a3b799cb96fece857c25a1a}{%
+           family={Rasanayagam},
+           familyi={R\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=08e9d79b44de1c62cf7a687dec284b4b}{%
+           family={Wood},
+           familyi={W\bibinitperiod},
+           given={E.\bibnamedelimi T.},
+           giveni={E\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=6b4e98976e844253e7c274e1b5af2ddb}{%
+           family={Altheide},
+           familyi={A\bibinitperiod},
+           given={T.\bibnamedelimi K.},
+           giveni={T\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=903af5ca54820d81da8984fc378058f0}{%
+           family={Jenkins},
+           familyi={J\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=ecf962a5a4e9e993d322aa0e3175d601}{%
+           family={Griffiths},
+           familyi={G\bibinitperiod},
+           given={R.\bibnamedelimi C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=14088dc63d0d70ca0735db13ba502bb0}{%
+           family={Templeton},
+           familyi={T\bibinitperiod},
+           given={A.\bibnamedelimi R.},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=5abf23cfb1672285f9c4f818230b2536}{%
+           family={Zegura},
+           familyi={Z\bibinitperiod},
+           given={S.\bibnamedelimi L.},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Narnia}%
+      }
+      \strng{namehash}{dd1157ab2eb2510cc290492c715114be}
+      \strng{fullhash}{80f734b1b4e2a06b9ab105d1ea9bc96c}
+      \strng{authornamehash}{dd1157ab2eb2510cc290492c715114be}
+      \strng{authorfullhash}{80f734b1b4e2a06b9ab105d1ea9bc96c}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0737-4038}
+      \field{journaltitle}{Molecular Biology and Evolution}
+      \field{month}{4}
+      \field{number}{4}
+      \field{title}{{Out of Africa and back again: nested cladistic analysis of human Y chromosome variation}}
+      \field{volume}{15}
+      \field{year}{1998}
+      \field{pages}{427\bibrangedash 441}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1093/oxfordjournals.molbev.a025939
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/Library/Application Support/Mendeley Desktop/Downloaded/Hammer et al. - 1998 - Out of Africa and back again nested cladistic analysis of human Y chromosome variation.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://academic.oup.com/mbe/article-lookup/doi/10.1093/oxfordjournals.molbev.a025939
+      \endverb
+    \endentry
+    \entry{Henderson2018}{article}{}
+      \name{author}{3}{}{%
+        {{hash=4d3aa887d9a620482c7af2ad4094de3b}{%
+           family={Henderson},
+           familyi={H\bibinitperiod},
+           given={Donna},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ca1adf3be7f28bd9fc868980794b5b0d}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Sha\bibnamedelima (Joe)},
+           giveni={S\bibinitperiod\bibinitdelim (\bibinitperiod}}}%
+        {{hash=0d41f0b6ee7d2960b3eab2779e4dadb5}{%
+           family={Lunter},
+           familyi={L\bibinitperiod},
+           given={Gerton},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cold Spring Harbor Laboratory}%
+      }
+      \strng{namehash}{495f1202bd8834c77af3c73d2c2a64c9}
+      \strng{fullhash}{495f1202bd8834c77af3c73d2c2a64c9}
+      \strng{authornamehash}{495f1202bd8834c77af3c73d2c2a64c9}
+      \strng{authorfullhash}{495f1202bd8834c77af3c73d2c2a64c9}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Demographic events shape a population's genetic diversity, with the coalescent-with-recombination (CwR) model quantifying how the two are related through a sequence of genealogies. However, inferring demography from genome sequences is challenging because genealogies are only weakly constrained by polymorphisms, and the space of genealogies over genomes is huge. Here we show that particle filters are a promising approach to demographic inference. We introduce a continuous-sequence approximation of the CwR, resulting in a continuous-time and -space Markov jump process. We develop a particle filter algorithm for such processes, and introduce the unbounded-lookahead particle filter, generalising the unit-lookahead Auxiliary Particle Filter for discrete-time models. Using Variational Bayes for parameter inference, we can analyze up to four diploid samples simultaneously, resulting in accurate inferences of past population sizes over a larger range of epochs than was previously possible.}
+      \field{journaltitle}{bioRxiv}
+      \field{month}{8}
+      \field{title}{{Demographic inference using particle filters for continuous Markov jump processes}}
+      \field{year}{2018}
+      \field{pages}{382218}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1101/382218
+      \endverb
+      \verb{file}
+      \verb ::
+      \endverb
+      \verb{url}
+      \verb https://www.biorxiv.org/content/early/2018/08/01/382218
+      \endverb
+    \endentry
+    \entry{Hervella2016}{article}{}
+      \name{author}{13}{}{%
+        {{hash=e77a8e205b80b03002f710ed6e61ce5e}{%
+           family={Hervella},
+           familyi={H\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2861095be21e48f4cbb7700fc349bc02}{%
+           family={Svensson},
+           familyi={S\bibinitperiod},
+           given={E\bibnamedelima M},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=a613307acd3ea54a33f698af4b54df23}{%
+           family={Alberdi},
+           familyi={A\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c1ca4428622d508db32b86927ac4bdfe}{%
+           family={Günther},
+           familyi={G\bibinitperiod},
+           given={T},
+           giveni={T\bibinitperiod}}}%
+        {{hash=808c3145bd8313fa8aacdbb769d41e48}{%
+           family={Izagirre},
+           familyi={I\bibinitperiod},
+           given={N},
+           giveni={N\bibinitperiod}}}%
+        {{hash=6553427f4243d533aab4570a0de115f4}{%
+           family={Munters},
+           familyi={M\bibinitperiod},
+           given={A\bibnamedelima R},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=e08ad07288e680a20aab5301756a3cba}{%
+           family={Alonso},
+           familyi={A\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod}}}%
+        {{hash=97c0fdd088c287485827cc3a974aa699}{%
+           family={Ioana},
+           familyi={I\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a67a680a449e90a4ecdf34905772a338}{%
+           family={Ridiche},
+           familyi={R\bibinitperiod},
+           given={F},
+           giveni={F\bibinitperiod}}}%
+        {{hash=dfd4295b5e0e9fb0b0b03b772cbb5927}{%
+           family={Soficaru},
+           familyi={S\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+        {{hash=db34fb1358fd1b18737e314b333b38fa}{%
+           family={Jakobsson},
+           familyi={J\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5204b8e19009fcbc1dc59320226e75ca}{%
+           family={Netea},
+           familyi={N\bibinitperiod},
+           given={M\bibnamedelima G},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=9bd4ccab8bf5de30123a9fb577b17c55}{%
+           family={De-la-Rua},
+           familyi={D\bibinithyphendelim R\bibinitperiod},
+           given={C},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {The Author(s)}%
+      }
+      \strng{namehash}{912cd771ed92f5810c60bb4fd79b2178}
+      \strng{fullhash}{98f9df9fb0ce9c713d534d2dfd9658b1}
+      \strng{authornamehash}{912cd771ed92f5810c60bb4fd79b2178}
+      \strng{authorfullhash}{98f9df9fb0ce9c713d534d2dfd9658b1}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Reports}
+      \field{month}{5}
+      \field{title}{{The mitogenome of a 35,000-year-old Homo sapiens from Europe supports a Palaeolithic back-migration to Africa}}
+      \field{volume}{6}
+      \field{year}{2016}
+      \field{pages}{25501}
+      \range{pages}{1}
+      \verb{url}
+      \verb https://doi.org/10.1038/srep25501%20http://10.0.4.14/srep25501%20https://www.nature.com/articles/srep25501%7B%5C#%7Dsupplementary-information
+      \endverb
+    \endentry
+    \entry{Lachance2012}{article}{}
+      \name{author}{13}{}{%
+        {{hash=2b9df13bd20546f5ae1ce68d8216cf4b}{%
+           family={Lachance},
+           familyi={L\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1510a1328e79563f02e7fd80be83a925}{%
+           family={Vernot},
+           familyi={V\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=640ecbc3e2d14265118b1bc963dea69a}{%
+           family={Elbers},
+           familyi={E\bibinitperiod},
+           given={Clara\bibnamedelima C.},
+           giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=fcc50bd76e20910748fccab09fef82ee}{%
+           family={Ferwerda},
+           familyi={F\bibinitperiod},
+           given={Bart},
+           giveni={B\bibinitperiod}}}%
+        {{hash=cac162f885938ce2eb5d189539980c01}{%
+           family={Froment},
+           familyi={F\bibinitperiod},
+           given={Alain},
+           giveni={A\bibinitperiod}}}%
+        {{hash=028ecd9e4480087c3d10efcdf2093ea7}{%
+           family={Bodo},
+           familyi={B\bibinitperiod},
+           given={Jean\bibnamedelima Marie},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=cf19885f530a0cad4e0d27fa14a46183}{%
+           family={Lema},
+           familyi={L\bibinitperiod},
+           given={Godfrey},
+           giveni={G\bibinitperiod}}}%
+        {{hash=fedc0865d8aa022a445247c607ac5aec}{%
+           family={Fu},
+           familyi={F\bibinitperiod},
+           given={Wenqing},
+           giveni={W\bibinitperiod}}}%
+        {{hash=11e186fdc69261fae709b9ab127e9dc4}{%
+           family={Nyambo},
+           familyi={N\bibinitperiod},
+           given={Thomas\bibnamedelima B.},
+           giveni={T\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=314d8e7e6f022056710a901b3e3c4c95}{%
+           family={Rebbeck},
+           familyi={R\bibinitperiod},
+           given={Timothy\bibnamedelima R.},
+           giveni={T\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=62735e1af0391d63c09ff9fbcd3d4d54}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Kun},
+           giveni={K\bibinitperiod}}}%
+        {{hash=c4795acc76d2ab92e0804d1e20c2195f}{%
+           family={Akey},
+           familyi={A\bibinitperiod},
+           given={Joshua\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=22e29202db533b3d7a3181a46cf02566}{%
+           family={Tishkoff},
+           familyi={T\bibinitperiod},
+           given={Sarah\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d19540b155e556aad564222bf95f2447}
+      \strng{fullhash}{0af88c9fa3e5d999fdd2d74b0a74ed2b}
+      \strng{authornamehash}{d19540b155e556aad564222bf95f2447}
+      \strng{authorfullhash}{0af88c9fa3e5d999fdd2d74b0a74ed2b}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{To reconstruct modern human evolutionary history and identify loci that have shaped hunter-gatherer adaptation, we sequenced the whole genomes of five individuals in each of three different hunter-gatherer populations at {>}60× coverage: Pygmies from Cameroon and Khoesan-speaking Hadza and Sandawe from Tanzania. We identify 13.4 million variants, substantially increasing the set of known human variation. We found evidence of archaic introgression in all three populations, and the distribution of time to most recent common ancestors from these regions is similar to that observed for introgressed regions in Europeans. Additionally, we identify numerous loci that harbor signatures of local adaptation, including genes involved in immunity, metabolism, olfactory and taste perception, reproduction, and wound healing. Within the Pygmy population, we identify multiple highly differentiated loci that play a role in growth and anterior pituitary function and are associated with height. {©} 2012 Elsevier Inc.}
+      \field{issn}{00928674}
+      \field{journaltitle}{Cell}
+      \field{number}{3}
+      \field{title}{{Evolutionary history and adaptation from high-coverage whole-genome sequences of diverse African hunter-gatherers}}
+      \field{volume}{150}
+      \field{year}{2012}
+      \field{pages}{457\bibrangedash 469}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1016/j.cell.2012.07.009
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/PIIS0092867412008318.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Li2011}{article}{}
+      \name{author}{2}{}{%
+        {{hash=466d90849ccf7e74e32d338b7c35491d}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Heng},
+           giveni={H\bibinitperiod}}}%
+        {{hash=517afe729b2eb59735ba80628d943bb0}{%
+           family={Durbin},
+           familyi={D\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{68b0c2c99236e02736a0ab4098e9a024}
+      \strng{fullhash}{68b0c2c99236e02736a0ab4098e9a024}
+      \strng{authornamehash}{68b0c2c99236e02736a0ab4098e9a024}
+      \strng{authorfullhash}{68b0c2c99236e02736a0ab4098e9a024}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The history of human population size is important for understanding human evolution. Various studies have found evidence for a founder event (bottleneck) in East Asian and European populations, associated with the human dispersal out-of-Africa event around 60 thousand years (kyr) ago. However, these studies have had to assume simplified demographic models with few parameters, and they do not provide a precise date for the start and stop times of the bottleneck. Here, with fewer assumptions on population size changes, we present a more detailed history of human population sizes between approximately ten thousand and a million years ago, using the pairwise sequentially Markovian coalescent model applied to the complete diploid genome sequences of a Chinese male (YH), a Korean male (SJK), three European individuals (J. C. Venter, NA12891 and NA12878 (ref. 9)) and two Yoruba males (NA18507 (ref. 10) and NA19239). We infer that European and Chinese populations had very similar population-size histories before 10-20 kyr ago. Both populations experienced a severe bottleneck 10-60 kyr ago, whereas African populations experienced a milder bottleneck from which they recovered earlier. All three populations have an elevated effective population size between 60 and 250 kyr ago, possibly due to population substructure. We also infer that the differentiation of genetically modern humans may have started as early as 100-120 kyr ago, but considerable genetic exchanges may still have occurred until 20-40 kyr ago.}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{1476-4687 (Electronic)$\backslash$r0028-0836 (Linking)}
+      \field{issn}{00280836}
+      \field{journaltitle}{Nature}
+      \field{number}{7357}
+      \field{title}{{Inference of human population history from individual whole-genome sequences}}
+      \field{volume}{475}
+      \field{year}{2011}
+      \field{pages}{493\bibrangedash 496}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1038/nature10231
+      \endverb
+      \verb{eprint}
+      \verb arXiv:1011.1669v3
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/ancient{\_}dna/nature10231.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/nature10231
+      \endverb
+    \endentry
+    \entry{Liang953}{article}{}
+      \name{author}{2}{}{%
+        {{hash=812c37e369a757f86f547470ac31eb17}{%
+           family={Liang},
+           familyi={L\bibinitperiod},
+           given={Mason},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5645ae252263a070818e54fc1f241c23}{%
+           family={Nielsen},
+           familyi={N\bibinitperiod},
+           given={Rasmus},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Genetics}%
+      }
+      \strng{namehash}{9fc0ca8e02f9d054383b7af850dd4f43}
+      \strng{fullhash}{9fc0ca8e02f9d054383b7af850dd4f43}
+      \strng{authornamehash}{9fc0ca8e02f9d054383b7af850dd4f43}
+      \strng{authorfullhash}{9fc0ca8e02f9d054383b7af850dd4f43}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The distribution of admixture tract lengths has received considerable attention, in part because it can be used to infer the timing of past gene flow events between populations. It is commonly assumed that these lengths can be modeled as independently and identically distributed (iid) exponential random variables. This assumption is fundamental for many popular methods that analyze admixture using hidden Markov models. We compare the expected distribution of admixture tract lengths under a number of population-genetic models to the distribution predicted by the Wright{\{}$\backslash$textendash{\}}Fisher model with recombination. We show that under the latter model, the assumption of iid exponential tract lengths does not hold for recent or for ancient admixture events and that relying on this assumption can lead to false positives when inferring the number of admixture events. To further investigate the tract-length distribution, we develop a dyadic interval-based stochastic process for generating admixture tracts. This representation is useful for analyzing admixture tract-length distributions for populations with recent admixture, a scenario in which existing models perform poorly.}
+      \field{issn}{0016-6731}
+      \field{journaltitle}{Genetics}
+      \field{number}{3}
+      \field{title}{{The Lengths of Admixture Tracts}}
+      \field{volume}{197}
+      \field{year}{2014}
+      \field{pages}{953\bibrangedash 967}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1534/genetics.114.162362
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/tract-length.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.genetics.org/content/197/3/953
+      \endverb
+    \endentry
+    \entry{Lipson2019}{article}{}
+      \name{author}{31}{}{%
+        {{hash=1e832a3ec18123fe30e4a40fcd6e56e2}{%
+           family={Lipson},
+           familyi={L\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=667ce1374d3143f89770d3e90d56f26f}{%
+           family={Ribot},
+           familyi={R\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod}}}%
+        {{hash=d1013727e2f6ff90a885ffc35890400d}{%
+           family={Mallick},
+           familyi={M\bibinitperiod},
+           given={Swapan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d02c382e4ccc896f615b968e416b57e1}{%
+           family={Rohland},
+           familyi={R\bibinitperiod},
+           given={Nadin},
+           giveni={N\bibinitperiod}}}%
+        {{hash=1639966e6853866835d24b1ddcec6c76}{%
+           family={Adamski},
+           familyi={A\bibinitperiod},
+           given={Nicole},
+           giveni={N\bibinitperiod}}}%
+        {{hash=66bfa321c50e3c42758d40fbcd4420e2}{%
+           family={Broomandkhoshbacht},
+           familyi={B\bibinitperiod},
+           given={Nasreen},
+           giveni={N\bibinitperiod}}}%
+        {{hash=0d123e262845cf137676bf67cf70c018}{%
+           family={Lawson},
+           familyi={L\bibinitperiod},
+           given={Ann\bibnamedelima Marie},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=8620823b3bf5acffcb96d76de744ee7c}{%
+           family={Oppenheimer},
+           familyi={O\bibinitperiod},
+           given={Jonas},
+           giveni={J\bibinitperiod}}}%
+        {{hash=33017e8a03d82e2328a0d46aaaff9721}{%
+           family={Stewardson},
+           familyi={S\bibinitperiod},
+           given={Kristin},
+           giveni={K\bibinitperiod}}}%
+        {{hash=f354ba77165b7379fca91d3d878a333f}{%
+           family={Bradman},
+           familyi={B\bibinitperiod},
+           given={Neil},
+           giveni={N\bibinitperiod}}}%
+        {{hash=1962afda7067ae7569caad5f8bc4cfd4}{%
+           family={Culleton},
+           familyi={C\bibinitperiod},
+           given={Brendan\bibnamedelima J},
+           giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=0ce86af74018724d717df49468ffac5b}{%
+           family={Cornelissen},
+           familyi={C\bibinitperiod},
+           given={Els},
+           giveni={E\bibinitperiod}}}%
+        {{hash=bf1b8090ea60bea9ca02db3f07a0ac9a}{%
+           family={Crevecoeur},
+           familyi={C\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod}}}%
+        {{hash=2e320b2f1aefab6f5312959540eab57f}{%
+           family={Maret},
+           familyi={M\bibinitperiod},
+           given={Pierre\bibnamedelima De},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=becc0dd4e87449854804ce16512a46c6}{%
+           family={Leypey},
+           familyi={L\bibinitperiod},
+           given={Forka},
+           giveni={F\bibinitperiod}}}%
+        {{hash=1a0d6c743317fae71b9c819427929aaa}{%
+           family={Fomine},
+           familyi={F\bibinitperiod},
+           given={Mathew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5d54caac99182f96a67739104ba91c98}{%
+           family={Lavachery},
+           familyi={L\bibinitperiod},
+           given={Philippe},
+           giveni={P\bibinitperiod}}}%
+        {{hash=fba0119bc9327001e8df6ec0131c483f}{%
+           family={Mindzie},
+           familyi={M\bibinitperiod},
+           given={Christophe\bibnamedelima Mbida},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=fce0a60e8b2e4627a7f84ff86de2723e}{%
+           family={Orban},
+           familyi={O\bibinitperiod},
+           given={Rosine},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e228266ef754a88216360d8affa89045}{%
+           family={Sawchuk},
+           familyi={S\bibinitperiod},
+           given={Elizabeth},
+           giveni={E\bibinitperiod}}}%
+        {{hash=d4939c40eaed8ea8ef5d27f3a5ab9358}{%
+           family={Semal},
+           familyi={S\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5deb810b612cf75557c7aac69d60e696}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={Mark\bibnamedelima G},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=01856ff891c66d5361daf94e1f87953e}{%
+           family={Neer},
+           familyi={N\bibinitperiod},
+           given={Wim\bibnamedelima Van},
+           giveni={W\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=2c00e2a7067f0fd8ddde11bf349c96b1}{%
+           family={Veeramah},
+           familyi={V\bibinitperiod},
+           given={Krishna\bibnamedelima R},
+           giveni={K\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=b51cb5be5f8e8487c1cd5e2174c0e385}{%
+           family={Kennett},
+           familyi={K\bibinitperiod},
+           given={Douglas\bibnamedelima J},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=88c3ebd7390fa0517feb43783fbc46b2}{%
+           family={Patterson},
+           familyi={P\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod}}}%
+        {{hash=7ed2cf1923579b37cd12834640fb48d3}{%
+           family={Hellenthal},
+           familyi={H\bibinitperiod},
+           given={Garrett},
+           giveni={G\bibinitperiod}}}%
+        {{hash=6fe32c08a1d71ecd378867139e72fff4}{%
+           family={Lalueza-fox},
+           familyi={L\bibinithyphendelim f\bibinitperiod},
+           given={Carles},
+           giveni={C\bibinitperiod}}}%
+        {{hash=b6a5a8b0ddb8b243e5108f351563b17c}{%
+           family={Maceachern},
+           familyi={M\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=faafd136504821aa984a98f7540dbd2c}{%
+           family={Prendergast},
+           familyi={P\bibinitperiod},
+           given={Mary\bibnamedelima E},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=fbc16d95b711fbc958450f76e47826b0}{%
+           family={Reich},
+           familyi={R\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{3a228562f6c292483c84def34da385ef}
+      \strng{fullhash}{3d61144504cc5b8dfebc317e27d58dd8}
+      \strng{authornamehash}{3a228562f6c292483c84def34da385ef}
+      \strng{authorfullhash}{3d61144504cc5b8dfebc317e27d58dd8}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{November 2018}
+      \field{title}{{Ancient West African foragers in the context of African population history}}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1038/s41586-020-1929-1
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/s41586-020-1929-1.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Lopez2015}{article}{}
+      \name{author}{3}{}{%
+        {{hash=c6457c3b67276186fa2b27314a6beefc}{%
+           family={López},
+           familyi={L\bibinitperiod},
+           given={Saioa},
+           giveni={S\bibinitperiod}}}%
+        {{hash=abaa33ca0d0ee72908467d6ffefa940d}{%
+           family={Dorp},
+           familyi={D\bibinitperiod},
+           given={Lucy},
+           giveni={L\bibinitperiod},
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+        {{hash=7ed2cf1923579b37cd12834640fb48d3}{%
+           family={Hellenthal},
+           familyi={H\bibinitperiod},
+           given={Garrett},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Publications}%
+      }
+      \strng{namehash}{317db2c3412cd40fa5f3bf3f6572db6c}
+      \strng{fullhash}{317db2c3412cd40fa5f3bf3f6572db6c}
+      \strng{authornamehash}{317db2c3412cd40fa5f3bf3f6572db6c}
+      \strng{authorfullhash}{317db2c3412cd40fa5f3bf3f6572db6c}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Unraveling the first migrations of anatomically modern humans out of Africa has invoked great interest among researchers from a wide range of disciplines. Available fossil, archeological, and climatic data offer many hypotheses, and as such genetics, with the advent of genome-wide genotyping and sequencing techniques and an increase in the availability of ancient samples, offers another important tool for testing theories relating to our own history. In this review, we report the ongoing debates regarding how and when our ancestors left Africa, how many waves of dispersal there were and what geographical routes were taken. We explore the validity of each, using current genetic literature coupled with some of the key archeological findings.}
+      \field{issn}{1176-9343}
+      \field{journaltitle}{Evolutionary bioinformatics online}
+      \field{number}{Suppl 2}
+      \field{title}{{Human Dispersal Out of Africa: A Lasting Debate.}}
+      \field{volume}{11}
+      \field{year}{2015}
+      \field{pages}{57\bibrangedash 68}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.4137/EBO.S33489
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/ebo-suppl.2-2015-057.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/27127403%20http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC4844272
+      \endverb
+      \keyw{Anatomically modern humans,admixture,out of Africa model,waves of migration}
+    \endentry
+    \entry{Malaspinas2016}{article}{}
+      \name{author}{75}{}{%
+        {{hash=14cc8e0c23949e628d32966c169036b3}{%
+           family={Malaspinas},
+           familyi={M\bibinitperiod},
+           given={Anna\bibnamedelima Sapfo},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=43246466622a41367f8059d2bfe23dd6}{%
+           family={Westaway},
+           familyi={W\bibinitperiod},
+           given={Michael\bibnamedelima C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=3de0c25737f252b62fd0a8e9d0e622e7}{%
+           family={Muller},
+           familyi={M\bibinitperiod},
+           given={Craig},
+           giveni={C\bibinitperiod}}}%
+        {{hash=8717c4f695297ea33e9331c6777612ce}{%
+           family={Sousa},
+           familyi={S\bibinitperiod},
+           given={Vitor\bibnamedelima C.},
+           giveni={V\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=97d82b41c9a942a626a0ff55592b840f}{%
+           family={Lao},
+           familyi={L\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod}}}%
+        {{hash=b99db4a039f88bd66e3018b73135e602}{%
+           family={Alves},
+           familyi={A\bibinitperiod},
+           given={Isabel},
+           giveni={I\bibinitperiod}}}%
+        {{hash=4aa409629d049fbfa471b8b2afe2648a}{%
+           family={Bergström},
+           familyi={B\bibinitperiod},
+           given={Anders},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3cbedecef71605baa3507b6452743b02}{%
+           family={Athanasiadis},
+           familyi={A\bibinitperiod},
+           given={Georgios},
+           giveni={G\bibinitperiod}}}%
+        {{hash=50b98b5eedada92d4ce281e84c35f77b}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Jade\bibnamedelima Y.},
+           giveni={J\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=362a68447105361ff3263d3e9898d1ba}{%
+           family={Crawford},
+           familyi={C\bibinitperiod},
+           given={Jacob\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=853e35e69937a0ae612f8a5b22f33e9b}{%
+           family={Heupink},
+           familyi={H\bibinitperiod},
+           given={Tim\bibnamedelima H.},
+           giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=493b3ca1330cad7024de112231c6f622}{%
+           family={MacHoldt},
+           familyi={M\bibinitperiod},
+           given={Enrico},
+           giveni={E\bibinitperiod}}}%
+        {{hash=fd7a21c8d1119fac364aa448f7e5877e}{%
+           family={Peischl},
+           familyi={P\bibinitperiod},
+           given={Stephan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=301582418cb01994a18bf202ecaebdb5}{%
+           family={Rasmussen},
+           familyi={R\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a8c702b2c3ec1499428beeee33cf55e8}{%
+           family={Schiffels},
+           familyi={S\bibinitperiod},
+           given={Stephan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5aa402093cd9a59edc518272a396615c}{%
+           family={Subramanian},
+           familyi={S\bibinitperiod},
+           given={Sankar},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3490950f6816412736d60e7a39cb32c2}{%
+           family={Wright},
+           familyi={W\bibinitperiod},
+           given={Joanne\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=6369c0dd41637c71795efd32417cae58}{%
+           family={Albrechtsen},
+           familyi={A\bibinitperiod},
+           given={Anders},
+           giveni={A\bibinitperiod}}}%
+        {{hash=55a353549fd7db8f52b9ca65c95b0208}{%
+           family={Barbieri},
+           familyi={B\bibinitperiod},
+           given={Chiara},
+           giveni={C\bibinitperiod}}}%
+        {{hash=43cf272a5bbb889a4c394e9a4ec4a714}{%
+           family={Dupanloup},
+           familyi={D\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod}}}%
+        {{hash=12ffe87b462ff07adf45cbad5e2956d8}{%
+           family={Eriksson},
+           familyi={E\bibinitperiod},
+           given={Anders},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4723f5cd20250a922ce2c2ca7b7ed423}{%
+           family={Margaryan},
+           familyi={M\bibinitperiod},
+           given={Ashot},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1872ad720b07fb6870582c5297078337}{%
+           family={Moltke},
+           familyi={M\bibinitperiod},
+           given={Ida},
+           giveni={I\bibinitperiod}}}%
+        {{hash=c03998a9bebb672c557ed70e4b0026a1}{%
+           family={Pugach},
+           familyi={P\bibinitperiod},
+           given={Irina},
+           giveni={I\bibinitperiod}}}%
+        {{hash=90ef34e4a78127bc296dd2130124ae3e}{%
+           family={Korneliussen},
+           familyi={K\bibinitperiod},
+           given={Thorfinn\bibnamedelima S.},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=905fcd7eba76b76209d0373fbff4a9c7}{%
+           family={Levkivskyi},
+           familyi={L\bibinitperiod},
+           given={Ivan\bibnamedelima P.},
+           giveni={I\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=464b8cc19b4aac93d8a4785c97189042}{%
+           family={Moreno-Mayar},
+           familyi={M\bibinithyphendelim M\bibinitperiod},
+           given={J.\bibnamedelimi Víctor},
+           giveni={J\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=b4e66311131d1f45cba6e4fdd335da0c}{%
+           family={Ni},
+           familyi={N\bibinitperiod},
+           given={Shengyu},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c7b6107c2741f89610b45c207a9150c6}{%
+           family={Racimo},
+           familyi={R\bibinitperiod},
+           given={Fernando},
+           giveni={F\bibinitperiod}}}%
+        {{hash=3413cb794b033863bd42ad35e569cf53}{%
+           family={Sikora},
+           familyi={S\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b758ed12646b9315485bab59e2b35124}{%
+           family={Xue},
+           familyi={X\bibinitperiod},
+           given={Yali},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=0c65382cf78479f1a6363e2ff4e7111d}{%
+           family={Aghakhanian},
+           familyi={A\bibinitperiod},
+           given={Farhang\bibnamedelima A.},
+           giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=9cab47e62a8bf966bde383d550baf2fb}{%
+           family={Brucato},
+           familyi={B\bibinitperiod},
+           given={Nicolas},
+           giveni={N\bibinitperiod}}}%
+        {{hash=e8239bf102d8a4dddf1165a642a69798}{%
+           family={Brunak},
+           familyi={B\bibinitperiod},
+           given={S{ø}ren},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c0ecddb68cdbb178f4c036a9df73e1eb}{%
+           family={Campos},
+           familyi={C\bibinitperiod},
+           given={Paula\bibnamedelima F.},
+           giveni={P\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=55acb781a5be0324f49f07435fb46cb3}{%
+           family={Clark},
+           familyi={C\bibinitperiod},
+           given={Warren},
+           giveni={W\bibinitperiod}}}%
+        {{hash=26411788704ac7c6ba1ceda566389164}{%
+           family={Ellingvåg},
+           familyi={E\bibinitperiod},
+           given={Sturla},
+           giveni={S\bibinitperiod}}}%
+        {{hash=68f3efb90bcbd18d29e5286cc2a2b2c7}{%
+           family={Fourmile},
+           familyi={F\bibinitperiod},
+           given={Gudjugudju},
+           giveni={G\bibinitperiod}}}%
+        {{hash=4ea20457bc1b8b600745ed5fb85ef694}{%
+           family={Gerbault},
+           familyi={G\bibinitperiod},
+           given={Pascale},
+           giveni={P\bibinitperiod}}}%
+        {{hash=7c2ca1878020c0d5d7d5422abc08d5b0}{%
+           family={Injie},
+           familyi={I\bibinitperiod},
+           given={Darren},
+           giveni={D\bibinitperiod}}}%
+        {{hash=3533397a599b125b898ca2df71849ee9}{%
+           family={Koki},
+           familyi={K\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+        {{hash=a11776e0349001486c7a3548663740ab}{%
+           family={Leavesley},
+           familyi={L\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=efe0de45d224a4e36bb3736ebe61cad9}{%
+           family={Logan},
+           familyi={L\bibinitperiod},
+           given={Betty},
+           giveni={B\bibinitperiod}}}%
+        {{hash=2ff7a33881f2652947b6d6809ffbfa02}{%
+           family={Lynch},
+           familyi={L\bibinitperiod},
+           given={Aubrey},
+           giveni={A\bibinitperiod}}}%
+        {{hash=7bba689b91c7413b9b88f497eb782219}{%
+           family={Matisoo-Smith},
+           familyi={M\bibinithyphendelim S\bibinitperiod},
+           given={Elizabeth\bibnamedelima A.},
+           giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=45548561f677f5fc61b144911d3606b1}{%
+           family={McAllister},
+           familyi={M\bibinitperiod},
+           given={Peter\bibnamedelima J.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=d75f907a9452632d81d171c971482e3d}{%
+           family={Mentzer},
+           familyi={M\bibinitperiod},
+           given={Alexander\bibnamedelima J.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=ea58375911262bafa8a0e47f06a04cfd}{%
+           family={Metspalu},
+           familyi={M\bibinitperiod},
+           given={Mait},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9415be0b6fb6f1465b5b2aa6d30962bb}{%
+           family={Migliano},
+           familyi={M\bibinitperiod},
+           given={Andrea\bibnamedelima B.},
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=5d6be0a9f862cad641fc2850f174e5b4}{%
+           family={Murgha},
+           familyi={M\bibinitperiod},
+           given={Les},
+           giveni={L\bibinitperiod}}}%
+        {{hash=2e203025a9d462c7a9b49281fcbada7c}{%
+           family={Phipps},
+           familyi={P\bibinitperiod},
+           given={Maude\bibnamedelima E.},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=1193e50669a5d2d6ac5f1b2e9c3f4555}{%
+           family={Pomat},
+           familyi={P\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod}}}%
+        {{hash=9417bd19f2ccaba4754e6eb7fc291b5a}{%
+           family={Reynolds},
+           familyi={R\bibinitperiod},
+           given={Doc},
+           giveni={D\bibinitperiod}}}%
+        {{hash=b2efd88c54a5cfb647a901f83d458a5b}{%
+           family={Ricaut},
+           familyi={R\bibinitperiod},
+           given={Francois\bibnamedelima Xavier},
+           giveni={F\bibinitperiod\bibinitdelim X\bibinitperiod}}}%
+        {{hash=3b24c5312343f41e6e704885d07edede}{%
+           family={Siba},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=574558b2498b781ee9d1f00df36ce4bb}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={Mark\bibnamedelima G.},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=0bd3c2484f75ef1309f78cdee4415a17}{%
+           family={Wales},
+           familyi={W\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9c07001fa3e908a538af6849fa5cc90a}{%
+           family={Wall},
+           familyi={W\bibinitperiod},
+           given={Colleen\bibnamedelimb Ma\bibnamedelima Run},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=f61b3ff4c825dd37ef5acaae4c1bd576}{%
+           family={Oppenheimer},
+           familyi={O\bibinitperiod},
+           given={Stephen\bibnamedelima J.},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=19661a59649849249714ca72b6c26fff}{%
+           family={Tyler-Smith},
+           familyi={T\bibinithyphendelim S\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+        {{hash=517afe729b2eb59735ba80628d943bb0}{%
+           family={Durbin},
+           familyi={D\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=8c839951f63d1fdf5fb0fb221467244b}{%
+           family={Dortch},
+           familyi={D\bibinitperiod},
+           given={Joe},
+           giveni={J\bibinitperiod}}}%
+        {{hash=92d16d7ad939784c57cd626467a49f7e}{%
+           family={Manica},
+           familyi={M\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2bb2045436e76158874f6f7053416a46}{%
+           family={Schierup},
+           familyi={S\bibinitperiod},
+           given={Mikkel\bibnamedelima H.},
+           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=7f4dbdccbf06b2e55d49a9c24146c554}{%
+           family={Foley},
+           familyi={F\bibinitperiod},
+           given={Robert\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=51fd6a545db8b11874104bc0fadf8271}{%
+           family={Lahr},
+           familyi={L\bibinitperiod},
+           given={Marta\bibnamedelima Mirazón},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=f90172894f9291f9ad575466a9dbf303}{%
+           family={Bowern},
+           familyi={B\bibinitperiod},
+           given={Claire},
+           giveni={C\bibinitperiod}}}%
+        {{hash=5df411f02c36aa66a0a6a962a887fd54}{%
+           family={Wall},
+           familyi={W\bibinitperiod},
+           given={Jeffrey\bibnamedelima D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=92a93b31d806e838c1e398f964747a40}{%
+           family={Mailund},
+           familyi={M\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=a79fd2bee3625d6ec8bd2ef25ea513ad}{%
+           family={Stoneking},
+           familyi={S\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5645ae252263a070818e54fc1f241c23}{%
+           family={Nielsen},
+           familyi={N\bibinitperiod},
+           given={Rasmus},
+           giveni={R\bibinitperiod}}}%
+        {{hash=adb6855e5d739deb73ed03960e21762b}{%
+           family={Sandhu},
+           familyi={S\bibinitperiod},
+           given={Manjinder\bibnamedelima S.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=11cd3a5a3d4fb8b072309208716345cc}{%
+           family={Excoffier},
+           familyi={E\bibinitperiod},
+           given={Laurent},
+           giveni={L\bibinitperiod}}}%
+        {{hash=415b779a003627abe695d3746b98a712}{%
+           family={Lambert},
+           familyi={L\bibinitperiod},
+           given={David\bibnamedelima M.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=0940ace4c4b2a0ab2d5321e16c4a36fb}{%
+           family={Willerslev},
+           familyi={W\bibinitperiod},
+           given={Eske},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{d56af4af4ca0126718f213b0a7849f05}
+      \strng{fullhash}{09fa436f658e817a1823bd318f85c8ed}
+      \strng{authornamehash}{d56af4af4ca0126718f213b0a7849f05}
+      \strng{authorfullhash}{09fa436f658e817a1823bd318f85c8ed}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The population history of Aboriginal Australians remains largely uncharacterized. Here we generate high-coverage genomes for 83 Aboriginal Australians (speakers of Pama–Nyungan languages) and 25 Papuans from the New Guinea Highlands. We find that Papuan and Aboriginal Australian ancestors diversified 25–40 thousand years ago (kya), suggesting pre-Holocene population structure in the ancient continent of Sahul (Australia, New Guinea and Tasmania). However, all of the studied Aboriginal Australians descend from a single founding population that differentiated {\~{}}10–32 kya. We infer a population expansion in northeast Australia during the Holocene epoch (past 10,000 years) associated with limited gene flow from this region to the rest of Australia, consistent with the spread of the Pama–Nyungan languages. We estimate that Aboriginal Australians and Papuans diverged from Eurasians 51–72 kya, following a single out-of-Africa dispersal, and subsequently admixed with archaic populations. Finally, we report evidence of selection in Aboriginal Australians potentially associated with living in the desert.}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{0008-5472 (Print)$\backslash$r0008-5472 (Linking)}
+      \field{issn}{14764687}
+      \field{journaltitle}{Nature}
+      \field{number}{7624}
+      \field{title}{{A genomic history of Aboriginal Australia}}
+      \field{volume}{538}
+      \field{year}{2016}
+      \field{pages}{207\bibrangedash 214}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1038/nature18299
+      \endverb
+      \verb{eprint}
+      \verb NIHMS150003
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/nature18299.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/nature18299
+      \endverb
+    \endentry
+    \entry{Marjoram2006}{article}{}
+      \name{author}{2}{}{%
+        {{hash=8975150812eeabfb3955083a402560e1}{%
+           family={Marjoram},
+           familyi={M\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=28b9bffe126e3347ca0db32ade219b36}{%
+           family={Wall},
+           familyi={W\bibinitperiod},
+           given={Jeff\bibnamedelima D},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{973a4ab52392883227665094a65a9e7b}
+      \strng{fullhash}{973a4ab52392883227665094a65a9e7b}
+      \strng{authornamehash}{973a4ab52392883227665094a65a9e7b}
+      \strng{authorfullhash}{973a4ab52392883227665094a65a9e7b}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The amount of genome-wide molecular data is increasing rapidly, as is interest in developing methods appropriate for such data. There is a consequent increasing need for methods that are able to efficiently simulate such data. In this paper we implement the sequentially Markovian coalescent algorithm described by McVean and Cardin and present a further modification to that algorithm which slightly improves the closeness of the approximation to the full coalescent model. The algorithm ignores a class of recombination events known to affect the behavior of the genealogy of the sample, but which do not appear to affect the behavior of generated samples to any substantial degree.}
+      \field{issn}{1471-2156}
+      \field{journaltitle}{BMC Genetics}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{{Fast ``coalescent'' simulation}}
+      \field{volume}{7}
+      \field{year}{2006}
+      \field{pages}{16}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/1471-2156-7-16
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1186/1471-2156-7-16
+      \endverb
+    \endentry
+    \entry{Patterson2012}{article}{}
+      \name{author}{6}{}{%
+        {{hash=88c3ebd7390fa0517feb43783fbc46b2}{%
+           family={Patterson},
+           familyi={P\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod}}}%
+        {{hash=3037efdf32701af89f3bf5a57e757b34}{%
+           family={Moorjani},
+           familyi={M\bibinitperiod},
+           given={Priya},
+           giveni={P\bibinitperiod}}}%
+        {{hash=0a13f5bc2ee586cf9799e938b2b27ab8}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Yontao},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=d1013727e2f6ff90a885ffc35890400d}{%
+           family={Mallick},
+           familyi={M\bibinitperiod},
+           given={Swapan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d02c382e4ccc896f615b968e416b57e1}{%
+           family={Rohland},
+           familyi={R\bibinitperiod},
+           given={Nadin},
+           giveni={N\bibinitperiod}}}%
+        {{hash=08d645215ccd73a5325f3539a65f736f}{%
+           family={Zhan},
+           familyi={Z\bibinitperiod},
+           given={Yiping},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{770f7bc7e2c73ae6d6176ebe9a8be7b3}
+      \strng{fullhash}{46b325f2aa4a2e4b2870d3a1a41648ad}
+      \strng{authornamehash}{770f7bc7e2c73ae6d6176ebe9a8be7b3}
+      \strng{authorfullhash}{46b325f2aa4a2e4b2870d3a1a41648ad}
+      \field{sortinit}{P}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{November}
+      \field{title}{{Ancient Admixture in Human History}}
+      \field{volume}{192}
+      \field{year}{2012}
+      \field{pages}{1065\bibrangedash 1093}
+      \range{pages}{29}
+      \verb{doi}
+      \verb 10.1534/genetics.112.145037
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/ancient{\_}dna/1065.full.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Petr2019}{article}{}
+      \name{author}{3}{}{%
+        {{hash=5f36f4beea95d1e2aa0f9b4313eea5ae}{%
+           family={Petr},
+           familyi={P\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=1510a1328e79563f02e7fd80be83a925}{%
+           family={Vernot},
+           familyi={V\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=ba385ae7d278168d99875e967408525b}{%
+           family={Kelso},
+           familyi={K\bibinitperiod},
+           given={Janet},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{b4b89b9a1550bb788320c6f357f3592d}
+      \strng{fullhash}{b4b89b9a1550bb788320c6f357f3592d}
+      \strng{authornamehash}{b4b89b9a1550bb788320c6f357f3592d}
+      \strng{authorfullhash}{b4b89b9a1550bb788320c6f357f3592d}
+      \field{sortinit}{P}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1367-4803}
+      \field{journaltitle}{Bioinformatics}
+      \field{number}{January}
+      \field{title}{{ admixr —R package for reproducible analyses using ADMIXTOOLS }}
+      \field{year}{2019}
+      \field{pages}{1\bibrangedash 2}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btz030
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/btz030.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Quintana-Murci2008}{article}{}
+      \name{author}{23}{}{%
+        {{hash=e5e009a2a7350f140ba0b8b361932e6a}{%
+           family={Quintana-Murci},
+           familyi={Q\bibinithyphendelim M\bibinitperiod},
+           given={Lluís},
+           giveni={L\bibinitperiod}}}%
+        {{hash=36f22ec410e411aae91d6e6fe564de8e}{%
+           family={Quach},
+           familyi={Q\bibinitperiod},
+           given={Hélène},
+           giveni={H\bibinitperiod}}}%
+        {{hash=a58cf68cc7d0e60cc100ff0e4365d5fa}{%
+           family={Harmant},
+           familyi={H\bibinitperiod},
+           given={Christine},
+           giveni={C\bibinitperiod}}}%
+        {{hash=47af342816df42bba74a6061675d1ed1}{%
+           family={Luca},
+           familyi={L\bibinitperiod},
+           given={Francesca},
+           giveni={F\bibinitperiod}}}%
+        {{hash=f812605c8d331fb1d82aece661448661}{%
+           family={Massonnet},
+           familyi={M\bibinitperiod},
+           given={Blandine},
+           giveni={B\bibinitperiod}}}%
+        {{hash=2bf0c5fc5abbad71f3754875ce026689}{%
+           family={Patin},
+           familyi={P\bibinitperiod},
+           given={Etienne},
+           giveni={E\bibinitperiod}}}%
+        {{hash=1805e1e3870211240ab74a54e309cf51}{%
+           family={Sica},
+           familyi={S\bibinitperiod},
+           given={Lucas},
+           giveni={L\bibinitperiod}}}%
+        {{hash=27da81119f35821f86b8bf77960fadd0}{%
+           family={Mouguiama-Daouda},
+           familyi={M\bibinithyphendelim D\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=bbf4794e0caca8f3b1b43ddeda14736e}{%
+           family={Comas},
+           familyi={C\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=046aab893e06a0aef84397a2ed9f8b4b}{%
+           family={Tzur},
+           familyi={T\bibinitperiod},
+           given={Shay},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b349ce574aef1a43fbf8eec36dbd0d77}{%
+           family={Balanovsky},
+           familyi={B\bibinitperiod},
+           given={Oleg},
+           giveni={O\bibinitperiod}}}%
+        {{hash=1bf204f8d3d9dff6bf4620203b22357c}{%
+           family={Kidd},
+           familyi={K\bibinitperiod},
+           given={Kenneth\bibnamedelima K.},
+           giveni={K\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=4b01f5e3513bf6705402bdbd95a9859a}{%
+           family={Kidd},
+           familyi={K\bibinitperiod},
+           given={Judith\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=001078f6e7be8b24ecec7f78d1f96748}{%
+           family={{Van Der Veen}},
+           familyi={V\bibinitperiod},
+           given={Lolke},
+           giveni={L\bibinitperiod}}}%
+        {{hash=9a406721c7d336f4657c2fc0812413b9}{%
+           family={Hombert},
+           familyi={H\bibinitperiod},
+           given={Jean\bibnamedelima Marie},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=a3ed0a280e79931a1ddcf8f7b68d72df}{%
+           family={Gessain},
+           familyi={G\bibinitperiod},
+           given={Antoine},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b9783b2a01e663019c69a44b3601f7c3}{%
+           family={Verdu},
+           familyi={V\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=cac162f885938ce2eb5d189539980c01}{%
+           family={Froment},
+           familyi={F\bibinitperiod},
+           given={Alain},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a9cfcd958956e48401e8d1319c0d2e38}{%
+           family={Bahuchet},
+           familyi={B\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ace7ea06ac2a548ff6cf54543f35210f}{%
+           family={Heyer},
+           familyi={H\bibinitperiod},
+           given={Evelyne},
+           giveni={E\bibinitperiod}}}%
+        {{hash=5298472411330b5775dd2aa264543a4b}{%
+           family={Dausset},
+           familyi={D\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod}}}%
+        {{hash=4bfe7533887c407872d7b1e14cbe4725}{%
+           family={Salas},
+           familyi={S\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=7cd73edf38d593a2fd847edd198460ac}{%
+           family={Behar},
+           familyi={B\bibinitperiod},
+           given={Doron\bibnamedelima M.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6652c8bd3e49b2d85ec0c6616e614df6}
+      \strng{fullhash}{6fa58b661bfc5bb99e56d051c7986da2}
+      \strng{authornamehash}{6652c8bd3e49b2d85ec0c6616e614df6}
+      \strng{authorfullhash}{6fa58b661bfc5bb99e56d051c7986da2}
+      \field{sortinit}{Q}
+      \field{sortinithash}{605f5784956f0b01c606746ceb816bf5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Two groups of populations with completely different lifestyles-the Pygmy hunter-gatherers and the Bantu-speaking farmers-coexist in Central Africa. We investigated the origins of these two groups and the interactions between them, by analyzing mtDNA variation in 1,404 individuals from 20 farming populations and 9 Pygmy populations from Central Africa, with the aim of shedding light on one of the most fascinating cultural transitions in human evolution (the transition from hunting and gathering to agriculture). Our data indicate that this region was colonized gradually, with an initial L1c-rich ancestral population ultimately giving rise to current-day farmers, who display various L1c clades, and to Pygmies, in whom L1c1a is the only surviving clade. Detailed phylogenetic analysis of complete mtDNA sequences for L1c1a showed this clade to be autochthonous to Central Africa, with its most recent branches shared between farmers and Pygmies. Coalescence analyses revealed that these two groups arose through a complex evolutionary process characterized by (i) initial divergence of the ancestors of contemporary Pygmies from an ancestral Central African population no more than approximately 70,000 years ago, (ii) a period of isolation between the two groups, accounting for their phenotypic differences, (iii) long-standing asymmetric maternal gene flow from Pygmies to the ancestors of the farming populations, beginning no more than approximately 40,000 years ago and persisting until a few thousand years ago, and (iv) enrichment of the maternal gene pool of the ancestors of the farming populations by the arrival and/or subsequent demographic expansion of L0a, L2, and L3 carriers.}
+      \field{issn}{10916490}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences of the United States of America}
+      \field{title}{{Maternal traces of deep common ancestry and asymmetric gene flow between Pygmy hunter-gatherers and Bantu-speaking farmers}}
+      \field{year}{2008}
+      \verb{doi}
+      \verb 10.1073/pnas.0711467105
+      \endverb
+      \keyw{Africa,Evolution,Human,Populations,mtDNA}
+    \endentry
+    \entry{Racimo2015}{article}{}
+      \name{author}{4}{}{%
+        {{hash=c7b6107c2741f89610b45c207a9150c6}{%
+           family={Racimo},
+           familyi={R\bibinitperiod},
+           given={Fernando},
+           giveni={F\bibinitperiod}}}%
+        {{hash=42444e8073f744a3db61a499f44443f9}{%
+           family={Sankararaman},
+           familyi={S\bibinitperiod},
+           given={Sriram},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5645ae252263a070818e54fc1f241c23}{%
+           family={Nielsen},
+           familyi={N\bibinitperiod},
+           given={Rasmus},
+           giveni={R\bibinitperiod}}}%
+        {{hash=d93a9294d803a737efcd702073b15f5a}{%
+           family={Huerta-Sánchez},
+           familyi={H\bibinithyphendelim S\bibinitperiod},
+           given={Emilia},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group, a division of Macmillan Publishers Limited. All Rights Reserved.}%
+      }
+      \strng{namehash}{f2d5f20c8b005e70ae419d37428b2753}
+      \strng{fullhash}{6224f3dcd1d8fb3731e0007c8dab9e03}
+      \strng{authornamehash}{f2d5f20c8b005e70ae419d37428b2753}
+      \strng{authorfullhash}{6224f3dcd1d8fb3731e0007c8dab9e03}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Reviews Genetics}
+      \field{month}{5}
+      \field{title}{{Evidence for archaic adaptive introgression in humans}}
+      \field{volume}{16}
+      \field{year}{2015}
+      \field{pages}{359}
+      \range{pages}{1}
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/nrg3936.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/nrg3936%20http://10.0.4.14/nrg3936%20https://www.nature.com/articles/nrg3936%7B%5C#%7Dsupplementary-information
+      \endverb
+    \endentry
+    \entry{Schiffels2014}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a8c702b2c3ec1499428beeee33cf55e8}{%
+           family={Schiffels},
+           familyi={S\bibinitperiod},
+           given={Stephan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=517afe729b2eb59735ba80628d943bb0}{%
+           family={Durbin},
+           familyi={D\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e080ce29e3f52528c311466404a4952}
+      \strng{fullhash}{9e080ce29e3f52528c311466404a4952}
+      \strng{authornamehash}{9e080ce29e3f52528c311466404a4952}
+      \strng{authorfullhash}{9e080ce29e3f52528c311466404a4952}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The availability of complete human genome sequences from populations across the world has given rise to new population genetic inference methods that explicitly model ancestral relationships under recombination and mutation. So far, application of these methods to evolutionary history more recent than 20,000-30,000 years ago and to population separations has been limited. Here we present a new method that overcomes these shortcomings. The multiple sequentially Markovian coalescent (MSMC) analyzes the observed pattern of mutations in multiple individuals, focusing on the first coalescence between any two individuals. Results from applying MSMC to genome sequences from nine populations across the world suggest that the genetic separation of non-African ancestors from African Yoruban ancestors started long before 50,000 years ago and give information about human population history as recent as 2,000 years ago, including the bottleneck in the peopling of the Americas and separations within Africa, East Asia and Europe.}
+      \field{eprintclass}{10.1101}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{1061-4036}
+      \field{issn}{15461718}
+      \field{journaltitle}{Nature Genetics}
+      \field{number}{8}
+      \field{title}{{Inferring human population size and separation history from multiple genome sequences}}
+      \field{volume}{46}
+      \field{year}{2014}
+      \field{pages}{919\bibrangedash 925}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1038/ng.3015
+      \endverb
+      \verb{eprint}
+      \verb 005348
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/msmc{\_}supp.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Schiffels2014a}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a8c702b2c3ec1499428beeee33cf55e8}{%
+           family={Schiffels},
+           familyi={S\bibinitperiod},
+           given={Stephan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=517afe729b2eb59735ba80628d943bb0}{%
+           family={Durbin},
+           familyi={D\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{9e080ce29e3f52528c311466404a4952}
+      \strng{fullhash}{9e080ce29e3f52528c311466404a4952}
+      \strng{authornamehash}{9e080ce29e3f52528c311466404a4952}
+      \strng{authorfullhash}{9e080ce29e3f52528c311466404a4952}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The availability of complete human genome sequences from populations across the world has given rise to new population genetic inference methods that explicitly model ancestral relationships under recombination and mutation. So far, application of these methods to evolutionary history more recent than 20,000-30,000 years ago and to population separations has been limited. Here we present a new method that overcomes these shortcomings. The multiple sequentially Markovian coalescent (MSMC) analyzes the observed pattern of mutations in multiple individuals, focusing on the first coalescence between any two individuals. Results from applying MSMC to genome sequences from nine populations across the world suggest that the genetic separation of non-African ancestors from African Yoruban ancestors started long before 50,000 years ago and give information about human population history as recent as 2,000 years ago, including the bottleneck in the peopling of the Americas and separations within Africa, East Asia and Europe.}
+      \field{eprintclass}{10.1101}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{1061-4036}
+      \field{issn}{15461718}
+      \field{journaltitle}{Nature Genetics}
+      \field{number}{8}
+      \field{title}{{Inferring human population size and separation history from multiple genome sequences}}
+      \field{volume}{46}
+      \field{year}{2014}
+      \field{pages}{919\bibrangedash 925}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1038/ng.3015
+      \endverb
+      \verb{eprint}
+      \verb 005348
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/msmc.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/ng.3015
+      \endverb
+    \endentry
+    \entry{Schlebusch2012}{article}{}
+      \name{author}{7}{}{%
+        {{hash=6d5d28a72ec95ef2574f89ba36882a11}{%
+           family={Schlebusch},
+           familyi={S\bibinitperiod},
+           given={Carina\bibnamedelima M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=fd3da77dae108f57c34f398e42be0970}{%
+           family={Skoglund},
+           familyi={S\bibinitperiod},
+           given={Pontus},
+           giveni={P\bibinitperiod}}}%
+        {{hash=805075e8c8724a2656ff35c74c7a0687}{%
+           family={Sjödin},
+           familyi={S\bibinitperiod},
+           given={Per},
+           giveni={P\bibinitperiod}}}%
+        {{hash=610e78cf05c4b1ce93b42b50259fa316}{%
+           family={Gattepaille},
+           familyi={G\bibinitperiod},
+           given={Lucie\bibnamedelima M.},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=3f59c1221c9bd49eaa145cb422eb5cd5}{%
+           family={Blum},
+           familyi={B\bibinitperiod},
+           given={Michael\bibnamedelima G.B.},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=45452f4a6a9dd91c77d482b41bef1fd9}{%
+           family={Soodyall},
+           familyi={S\bibinitperiod},
+           given={Himla},
+           giveni={H\bibinitperiod}}}%
+        {{hash=510d4771684b5f9de8ab16d4d4e54f44}{%
+           family={Jakobsson},
+           familyi={J\bibinitperiod},
+           given={Mattias},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{53309dc4d11d7a3e96263c1a150e460a}
+      \strng{fullhash}{572e50653af76b88b3541345d979d93b}
+      \strng{authornamehash}{53309dc4d11d7a3e96263c1a150e460a}
+      \strng{authorfullhash}{572e50653af76b88b3541345d979d93b}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{October}
+      \field{title}{{Genomic Variation in Seven Khoe-San}}
+      \field{volume}{1187}
+      \field{year}{2012}
+      \field{pages}{374\bibrangedash 379}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1126/science.1227721
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/374.full.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Shi2010}{article}{}
+      \name{author}{10}{}{%
+        {{hash=c80703f2ceb4db1b89ddde25b8eda0fa}{%
+           family={Shi},
+           familyi={S\bibinitperiod},
+           given={Wentao},
+           giveni={W\bibinitperiod}}}%
+        {{hash=a9d8e9a4af5fa87d9bc80b02520c547a}{%
+           family={Ayub},
+           familyi={A\bibinitperiod},
+           given={Qasim},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=ac9ee29ebb13596914cb66f3d97551eb}{%
+           family={Vermeulen},
+           familyi={V\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5ccf6089102811f3ba3372a3a91808f6}{%
+           family={Shao},
+           familyi={S\bibinitperiod},
+           given={Rong\bibnamedelima Guang},
+           giveni={R\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=265dfa8343033c49151afe7efe607a28}{%
+           family={Zuniga},
+           familyi={Z\bibinitperiod},
+           given={Sofia},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a15fe2efa94abd5a9eb4443729a0c96d}{%
+           family={{Van Der Gaag}},
+           familyi={V\bibinitperiod},
+           given={Kristiaan},
+           giveni={K\bibinitperiod}}}%
+        {{hash=0bbc53be648731a3194e842ef6fea28b}{%
+           family={{De Knijff}},
+           familyi={D\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=4049505fce48c8a253ccfbd09749fae8}{%
+           family={Kayser},
+           familyi={K\bibinitperiod},
+           given={Manfred},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b758ed12646b9315485bab59e2b35124}{%
+           family={Xue},
+           familyi={X\bibinitperiod},
+           given={Yali},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=19661a59649849249714ca72b6c26fff}{%
+           family={Tyler-Smith},
+           familyi={T\bibinithyphendelim S\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{036ffe1d9c499749ee8ec347dcb8212d}
+      \strng{fullhash}{6bfe7a7e0e59e69926ab7ddd025882d9}
+      \strng{authornamehash}{036ffe1d9c499749ee8ec347dcb8212d}
+      \strng{authorfullhash}{6bfe7a7e0e59e69926ab7ddd025882d9}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We have investigated human male demographic history using 590 males from 51 populations in the Human Genome Diversity Project-Centre d'Étude du Polymorphisme Humain worldwide panel, typed with 37 Y-chromosomal Single Nucleotide Polymorphisms and 65 Y-chromosomal Short Tandem Repeats and analyzed with the program Bayesian Analysis of Trees With Internal Node Generation. The general patterns we observe show a gradient from the oldest population time to the most recent common ancestors (TMRCAs) and expansion times together with the largest effective population sizes in Africa, to the youngest times and smallest effective population sizes in the Americas. These parameters are significantly negatively correlated with distance from East Africa, and the patterns are consistent with most other studies of human variation and history. In contrast, growth rate showed a weaker correlation in the opposite direction. Y-lineage diversity and TMRCA also decrease with distance from East Africa, supporting a model of expansion with serial founder events starting from this source. A number of individual populations diverge from these general patterns, including previously documented examples such as recent expansions of the Yoruba in Africa, Basques in Europe, and Yakut in Northern Asia. However, some unexpected demographic histories were also found, including low growth rates in the Hazara and Kalash from Pakistan and recent expansion of the Mozabites in North Africa.}
+      \field{issn}{07374038}
+      \field{journaltitle}{Molecular Biology and Evolution}
+      \field{title}{{A worldwide survey of human male demographic history based on Y-SNP and Y-STR data from the HGDP-CEPH populations}}
+      \field{year}{2010}
+      \verb{doi}
+      \verb 10.1093/molbev/msp243
+      \endverb
+      \keyw{BATWING,HGDP-CEPH,Male demographic history,Serial founder model,Y-SNP,Y-STR}
+    \endentry
+    \entry{Staab2015}{article}{}
+      \name{author}{4}{}{%
+        {{hash=6b5dbc419f4730ddd97266c0c914913e}{%
+           family={Staab},
+           familyi={S\bibinitperiod},
+           given={Paul\bibnamedelima R.},
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=bad528d4793ecf1792b97bcd6f0d3383}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Sha},
+           giveni={S\bibinitperiod}}}%
+        {{hash=f1a4c1be915d3e66c29be22220c99ee0}{%
+           family={Metzler},
+           familyi={M\bibinitperiod},
+           given={Dirk},
+           giveni={D\bibinitperiod}}}%
+        {{hash=0d41f0b6ee7d2960b3eab2779e4dadb5}{%
+           family={Lunter},
+           familyi={L\bibinitperiod},
+           given={Gerton},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{0e939fa21736dd41c2f0a4644cb28263}
+      \strng{fullhash}{aa528fa7c37a47606c37abcbe5d8d02d}
+      \strng{authornamehash}{0e939fa21736dd41c2f0a4644cb28263}
+      \strng{authorfullhash}{aa528fa7c37a47606c37abcbe5d8d02d}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1460-2059}
+      \field{journaltitle}{Bioinformatics}
+      \field{month}{5}
+      \field{number}{10}
+      \field{title}{scrm: efficiently simulating long sequences using the approximated coalescent with recombination}
+      \field{volume}{31}
+      \field{year}{2015}
+      \field{pages}{1680\bibrangedash 1682}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btu861
+      \endverb
+      \verb{file}
+      \verb ::
+      \endverb
+      \verb{url}
+      \verb https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btu861
+      \endverb
+    \endentry
+    \entry{Timmermann2016}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4d6239efcb39d55645a144ee7804846a}{%
+           family={Timmermann},
+           familyi={T\bibinitperiod},
+           given={Axel},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d8710c5484bb5515242aefdef21875b0}{%
+           family={Friedrich},
+           familyi={F\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{e49b4dd57c6a83bd4f8772ee007ceb2c}
+      \strng{fullhash}{e49b4dd57c6a83bd4f8772ee007ceb2c}
+      \strng{authornamehash}{e49b4dd57c6a83bd4f8772ee007ceb2c}
+      \strng{authorfullhash}{e49b4dd57c6a83bd4f8772ee007ceb2c}
+      \field{sortinit}{T}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{On the basis of fossil and archaeological data it has been hypothesized that the exodus of Homo sapiens out of Africa and into Eurasia between ∼50-120 thousand years ago occurred in several orbitally paced migration episodes. Crossing vegetated pluvial corridors from northeastern Africa into the Arabian Peninsula and the Levant and expanding further into Eurasia, Australia and the Americas, early H. sapiens experienced massive time-varying climate and sea level conditions on a variety of timescales. Hitherto it has remained difficult to quantify the effect of glacial- and millennial-scale climate variability on early human dispersal and evolution. Here we present results from a numerical human dispersal model, which is forced by spatiotemporal estimates of climate and sea level changes over the past 125 thousand years. The model simulates the overall dispersal of H. sapiens in close agreement with archaeological and fossil data and features prominent glacial migration waves across the Arabian Peninsula and the Levant region around 106-94, 89-73, 59-47 and 45-29 thousand years ago. The findings document that orbital-scale global climate swings played a key role in shaping Late Pleistocene global population distributions, whereas millennial-scale abrupt climate changes, associated with Dansgaard-Oeschger events, had a more limited regional effect.}
+      \field{issn}{14764687}
+      \field{journaltitle}{Nature}
+      \field{number}{7623}
+      \field{title}{{Late Pleistocene climate drivers of early human migration}}
+      \field{volume}{538}
+      \field{year}{2016}
+      \field{pages}{92\bibrangedash 95}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1038/nature19365
+      \endverb
+      \verb{file}
+      \verb :Users/ccole/repos/papers/eurasian backflow/nature19365.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/nature19365
+      \endverb
+    \endentry
+  \endsortlist
+  \missing{McVeanCardin2005}
+\endrefsection
+\endinput
+

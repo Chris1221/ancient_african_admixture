@@ -4,7 +4,8 @@ library(dplyr)
 library(countrycode)
 library(ggplot2)
 library(heatmaply)
-
+library(ggpubr)
+library(xtable)
 
 anno <- fread("../lib/v37.2.1240K_HumanOrigins.clean4.anno")
 
@@ -87,4 +88,18 @@ ggplot(joined, aes(sample = z, shape = period)) + stat_qq() + stat_qq_line() + f
   xlab("Expected Z Score")
 
 ggsave("~/repos/dirmig/plot/dstats_qqplot.pdf")
-  
+
+
+# Find the average per population
+# this takes a while
+joined$lang <- ""
+for(lang in list_language_families()){
+  l = list_samples_from_lang(lang)
+  for(i in 1:nrow(joined)){
+    if(joined$sample[i] %in% l) joined$lang[i] <- lang
+    
+    if(i %% 1000 == 0) print(i)
+  }
+}
+
+summary = joined %>% group_by(lang, period, continent, Y, type) %>% summarise(mean = mean(D), sd = sd(D))

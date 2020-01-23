@@ -3,91 +3,204 @@
 \usepackage{pifont}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{color}
+\usepackage{todonotes}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[backend=biber]{biblatex}
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
 
-\title{Back-migration V2}
+\newcommand{\SMC}{{\tt smcsmc }}
+
+\title{Evidence for Directional Migration to Africa and Population Structure in the Paleolithic}
 \author{ccole }
 \date{January 2020}
 
+\addbibresource{migration-paper.bib}
+
 \begin{document}
 
-\maketitle
+%
+%\paragraph{Outline}
+%\begin{enumerate}
+%    \item Introduction
+%    \item Methods
+%    \item Current Results 
+%    \begin{enumerate}
+%        \item Effective population sizes from SMC2 and MSMC, which finds differences in the earlier periods. This is similar to what was seen in PSMC.
+%        \item To investigate this, we simulate things like PSMC, and find that we also can recover the incorrectly high population size. (What could be causing this high population size?)
+%        \item Migration rate inference shows a peak of migration after this time period, acting as a possible explanation for the inflated population size. This trend breaks down mostly by language group (which are also validated evolutionary phyla). 
+%        \item Concerns about the phasing methodology made us validate this in HGDP. Language groups main trends line up well with results from SGPD.
+%        \item Migration initialisation is important, talk about how different starting values can give different results. Include a brief supplemental section about seeding away from symmetric migration.
+%        \item We can isolate the segments with a migration event in their history by using SMC2's estimated ARG. We can use these segments to look at the relationship between these individuals and all of the others in SGDP. We find that our statistics in our segments are higher, meaning that the segments are indeed more Eurasian.
+%        \item Briefly talk about expectation of segment length, and how ours is consistent with a very large migration in that period, though we think this is unlikely, it does line up with the later evidence from the simulations. Caveats: not a single pulse (which makes it less than ideal, ideally would integrate similar to earlier paper (but this is very difficult to do analytically)), estimates not accurate with large values, selection almost certainly a factor.
+%        \item We simulate to find situations consistent with what we see, and find that we can recover basically the exact same thing with very large migration pulses. This is unrealistic, and means that we have some bias, at some level dependant upon the age of the migration, which is affecting inference. A large migration is consistent with the migration segments analysis, but is unlikely.
+%        \item {\textbf We use the segments we have to estimate relationships between the segments and a panel of ancient individuals, to try to get more clarity on the donating population. Ideally some estimate of consistency among populations, and pull in the average $D$ statistic calculation. Not sure what the results will be here.}
+%        \item We look at the relationship between the segments and Neanderthals, which are known to have contributed to OoA groups around this time period. Talk about the SMC2 analysis with Vindija, and Kay's analysis with the $D$ statistics (which I will have to rerun).
+%        \item  {\textbf We also use these $D$ statistics to estimate a demographic model with ADMIXTOOLS, and show the resulting best-fit graph. Not sure what the results will be here.}
+%    \end{enumerate}
+%    \item Discussion
+%\end{enumerate}
+%
+%
+%Things to (possibly) do.
+%    
+%\begin{enumerate}
+%    \item \xmark Run MSMC alongside the actual inference, get the MSMC $N_e$ estimates on the same samples, overlay the plots. Have a figure which directly compares them on one particular case, then a supplemental that will have all of them with this overlay. Will probably want to include the x-coal rate somewhere in here. Put it on the migration plots probably.
+%    \item \cmark PSMC simulations have to be re-run with the correct migration parameter. (These are actually only single haploid inference, so they're fine. The simulations in general have to be rerun, but these ones are okay as is.)
+%    \item \cmark Simulations have to be run with the same magnitudes...? Did I do these already? Yes, I have all the magnitudes that I want, and I've run more midpoints with the different initiationalisation values for migration. 
+%    \item (Long) Run all groups in Africa with the correct migration initiation. Ideally against a few different groups (French, Han, Papuan, something else)
+%    \item (Long) Replicate the SGDP runs with the HGDP.
+%    \item After the whole thing is done, do the $D$ statistics with all versus segments (ideally for all of the "ascertainment" schemes), and reproduce the plots from before.
+%    \item The segment length estimation has to be redone, but there isn't all that much to do here.
+%    \item Maybe redo a Vindija run, maybe not. 
+%    \item Kay's Neanderthal analysis has to be redone with the new segments. Hopefully this should be straightforward, as I'll just have a script that reruns his particular statistics. This will be a table, like the one in his Nddth paper, with the individdual statistics picked out. The rest can go in a Supplemental section.
+%    \item Admixturegraph if its possible.
+%\end{enumerate}
+%
+%
+%List of figures / tables:
+%
+%\paragraph{Figures}
+%
+%\begin{enumerate}
+%    \item a) SMC2 versus MSMC population size inference for a case or two b) PSMC simulation that shows the same thing.
+%    \item a) Migration inference by language phyla (possibly superimposed all on top of each other), along with HGDP validation. b) Initialisation conditions. c) Segment lengths (by replicate, and HGDP/SGDP)
+%    
+%\end{enumerate}
+%
+%\paragraph{Supplementary Figures / Sections}
+%
+%\begin{enumerate}
+%    \item All of the SMC2 versus MSMC $N_e$ inference
+%    \item All of the PSMC simulations.
+%    \item Migration rate inference in SGDP and HGDP (with error bars)
+%    \item Kay's statistics, and maybe add in an SMC2 run with the vindija. This is a low priority.
+%    \item Probably a section for the "rest" of the D statistics, because I probably won't be able to use all of them. Potentially this can be a file though, instead of a table. The table doesn't really tell you very much. 
+%\end{enumerate}
+%
+\newpage
 
-\paragraph{Outline}
-\begin{enumerate}
-    \item Introduction
-    \item Methods
-    \item Current Results 
-    \begin{enumerate}
-        \item Effective population sizes from SMC2 and MSMC, which finds differences in the earlier periods. This is similar to what was seen in PSMC.
-        \item To investigate this, we simulate things like PSMC, and find that we also can recover the incorrectly high population size. (What could be causing this high population size?)
-        \item Migration rate inference shows a peak of migration after this time period, acting as a possible explanation for the inflated population size. This trend breaks down mostly by language group (which are also validated evolutionary phyla). 
-        \item Concerns about the phasing methodology made us validate this in HGDP. Language groups main trends line up well with results from SGPD.
-        \item Migration initialisation is important, talk about how different starting values can give different results. Include a brief supplemental section about seeding away from symmetric migration.
-        \item We can isolate the segments with a migration event in their history by using SMC2's estimated ARG. We can use these segments to look at the relationship between these individuals and all of the others in SGDP. We find that our statistics in our segments are higher, meaning that the segments are indeed more Eurasian.
-        \item Briefly talk about expectation of segment length, and how ours is consistent with a very large migration in that period, though we think this is unlikely, it does line up with the later evidence from the simulations. Caveats: not a single pulse (which makes it less than ideal, ideally would integrate similar to earlier paper (but this is very difficult to do analytically)), estimates not accurate with large values, selection almost certainly a factor.
-        \item We simulate to find situations consistent with what we see, and find that we can recover basically the exact same thing with very large migration pulses. This is unrealistic, and means that we have some bias, at some level dependant upon the age of the migration, which is affecting inference. A large migration is consistent with the migration segments analysis, but is unlikely.
-        \item {\textbf We use the segments we have to estimate relationships between the segments and a panel of ancient individuals, to try to get more clarity on the donating population. Ideally some estimate of consistency among populations, and pull in the average $D$ statistic calculation. Not sure what the results will be here.}
-        \item We look at the relationship between the segments and Neanderthals, which are known to have contributed to OoA groups around this time period. Talk about the SMC2 analysis with Vindija, and Kay's analysis with the $D$ statistics (which I will have to rerun).
-        \item  {\textbf We also use these $D$ statistics to estimate a demographic model with ADMIXTOOLS, and show the resulting best-fit graph. Not sure what the results will be here.}
-    \end{enumerate}
-    \item Discussion
-\end{enumerate}
-
-
-Things to (possibly) do.
-    
-\begin{enumerate}
-    \item \xmark Run MSMC alongside the actual inference, get the MSMC $N_e$ estimates on the same samples, overlay the plots. Have a figure which directly compares them on one particular case, then a supplemental that will have all of them with this overlay. Will probably want to include the x-coal rate somewhere in here. Put it on the migration plots probably.
-    \item \cmark PSMC simulations have to be re-run with the correct migration parameter. (These are actually only single haploid inference, so they're fine. The simulations in general have to be rerun, but these ones are okay as is.)
-    \item \cmark Simulations have to be run with the same magnitudes...? Did I do these already? Yes, I have all the magnitudes that I want, and I've run more midpoints with the different initiationalisation values for migration. 
-    \item (Long) Run all groups in Africa with the correct migration initiation. Ideally against a few different groups (French, Han, Papuan, something else)
-    \item (Long) Replicate the SGDP runs with the HGDP.
-    \item After the whole thing is done, do the $D$ statistics with all versus segments (ideally for all of the "ascertainment" schemes), and reproduce the plots from before.
-    \item The segment length estimation has to be redone, but there isn't all that much to do here.
-    \item Maybe redo a Vindija run, maybe not. 
-    \item Kay's Neanderthal analysis has to be redone with the new segments. Hopefully this should be straightforward, as I'll just have a script that reruns his particular statistics. This will be a table, like the one in his Nddth paper, with the individdual statistics picked out. The rest can go in a Supplemental section.
-    \item Admixturegraph if its possible.
-\end{enumerate}
-
-
-List of figures / tables:
-
-\paragraph{Figures}
-
-\begin{enumerate}
-    \item a) SMC2 versus MSMC population size inference for a case or two b) PSMC simulation that shows the same thing.
-    \item a) Migration inference by language phyla (possibly superimposed all on top of each other), along with HGDP validation. b) Initialisation conditions. c) Segment lengths (by replicate, and HGDP/SGDP)
-    
-\end{enumerate}
-
-\paragraph{Supplementary Figures / Sections}
-
-\begin{enumerate}
-    \item All of the SMC2 versus MSMC $N_e$ inference
-    \item All of the PSMC simulations.
-    \item Migration rate inference in SGDP and HGDP (with error bars)
-    \item Kay's statistics, and maybe add in an SMC2 run with the vindija. This is a low priority.
-    \item Probably a section for the "rest" of the D statistics, because I probably won't be able to use all of them. Potentially this can be a file though, instead of a table. The table doesn't really tell you very much. 
-\end{enumerate}
+\listoftodos
 
 \newpage
 
+\maketitle
+
+\section{Introduction}
+The recent African origin, subsequent splintering, and eventual migration of anatomically modern humans into the Eurasian continent and beyond has shaped global patterns of genetic variation.
+
 \section{Results}
 
-Using a French individual as a representative for Western Eurasians, we infer effective population size ($N_e$) and directional migration to African populations in the Simons Genome Diversity Panel with {\tt smcsmc}. We simultaneously use MSMC with recommended parameters to infer effective population size on the same samples for comparison. Generally, both algorithms give comparable estimates of population size. However, around the divergence of the two lineages, MSMC shows an increase in African $N_e$ relative to Eurasian $N_e$. This is consistent with a previous artefact identified and discussed in Li and Durbin 2012. {\tt smcsmc}, on the other hand, shows both populations experiencing a similar bottleneck, and a much later effective divergence, more in line with generally accepted Out of Africa (OoA) timelines. We hypothesize that the difference between the two inferences is due to a migration from Eurasian populations to African populations directly after the period of population divergence. To test this hypothesis, we use {\tt scrm} to simulate a variety of historical situations with and without migration in either or both directions. We use a skeleton of population history given in Supplemental Section \ref{sim} and mimic PSMC inference by analysing one haploid from each population. As expected, we find the hypothesized inflation in $N_e$, with a magnitude proportional to the amount of simulated migration. A full discussion of these simulation results may be found in supplemental section \ref{ne}. 
+One individual was selected from each of the African populations in the Simons Genome Diversity Panel and their effective population size was modelled along with three seperate partner populations (French, Han Chinese, and Papuan) using both {\tt smcsmc} and MSMC (Figure \ref{neplot}). Directional migration rates between the African and Eurasian populations are simultaneously estimated; the converged parameter estimates represent the most likely set of piecewise constant parameter values. We choose to infer parameter values over 31 epochs equally spaced on the log scale. The inference of population size with MSMC and {\tt smcsmc} is mostly consistent, especially for the estimation of the Eurasian $N_e$. Both algorithms identify a clear bottleneck and subsequent expansion associated with the Out of Africa event. However, the estimation of African population size differs, in some areas substantially. In the ancient past, prior to the OoA event, MSMC identifies an early split between the two populations, followed by a transient increase in the African $N_e$ up to an average of approximately 40,000 individuals before coming back down to a stable estimate (Figure \ref{averages}). This contrasts with the inference from {\tt smcsmc}. In all populations, there is no inflation in the African $N_e$ relative to the Eurasian one prior to population divergence, and the split times are additionally delayed, bringing them more in line with current estimates. A smaller ancestral African population size is inferred, though the estimates begin to agree with MSMC more recently than approximately 100kya. We suspect that the differences in population size inference may be due to {\tt smcsmc} simultaneously fitting parameters for directional migration. To test whether systematic differences in the inference methods may be repsonsible, a single population model is fit to two Yoruban genomes. When no migration parameters are fit, {\tt smcsmc} and MSMC infer very similar histories (green in Figure \ref{neplot}). To verify that systematic errors in the statistical phasing of the SGDP were not confounding inference, we performed the same analysis on 32 individuals from the Human Genome Diversity Panel whose genomes have been physically phased (Supplemental Section \ref{hgdp_section}). All trends identified in the SGDP are additionally present in the physically phased HGDP.   
 
-In the populations with this trend, {\tt smcsmc} infers directional migration from Eurasian populations to African ones. Specifically, we select a representative from each African population in the Simons Genome Diversity and model migration to a French, Han, and Papuan individual in different analyses. In all cases, we initialise the inference with a symmetrical migration equal to 1.00 4$N_0$ proportion replaced per generation (henceforth, we assume an $N_0=14312$ {\bf CITE?}), a choice we justify through simulation in Supplemental Simulation \ref{minit}. A comparable magnitude of migration is found in Niger-Kordofanian and Nilo-Saharan populations, while analysis with Afroasiatic populations shows a sustained history of bidirectional migration consistent with the literature. San groups show a lower degree of migration, which is seen to a lower degree in Mbuti populations. 
+In order to more comprehensively explore this issue, {\tt scrm} was used to simulate one gigabase of sequence under a variety of demographic models involving directional migration. The timing of the migration, its duration, as well as its magnitude are varied systematically. Population size was inferred under a two island model with migration, performed similarly to the analysis of real data above. Additionally, the ``African'' genome in the analysis is isolated and modelled alone in a one-population analysis. A skeleton of Eurasian and African population size through time, given in Supplemental \ref{simproc}, is used as the truth in the simulations. Systematic underestimation of the African $N_e$ is found in the two-population analysis, while the $N_e$ is systematically inflated during the migration event and prior to population split in the single-population analysis (Figure \ref{sim}). 
+
+Examining the migration rates inferred by {\tt smcsmc} supports this hypothesis. In all populations studied, migration from Eurasia to Africa is higher than the reverse (Figure \ref{migrationplot}a). The choice of Out of Africa population significantly impacts the amount of migration inferred (Figure \ref{averages_of_sgdp}). In general, and in each specific language family, Papuans significantly contributed approximately 5 percent less (individual comparisons shown in Figure \ref{averages_of_sgdp}) to the ancestral African population than did Han and French, which were statistically indistinguishable in all language groups (P $>$ 0.05, two-tailed paired $T$ test). For convenience, the following values are given for Han Chinese comparison, though all comparison averages are available in Table \ref{average_sgdp_migration_table}. Afroasiatic populations, which are known to have experienced Eurasian admixture during the Holocene, show up to a 72.1\ $\pm$ 2.9 replacement by Eurasian sources, though they contributed more to Western European (35.1 $\pm$ 9.2 percent contribution to French) than to Eastern Eurasian (24.1 $\pm$ 5.5 percent contribution to Han Chinese) populations. Nilo-Saharan and Niger-Kordofanian  populations show similar levels of migration, at 59.5 $\pm$ 7.9 and 51.4 $\pm$ 5.9 percent respectively. Khoesan show the least migration, averaging only 30.4 $\pm$ 0.5 proportion replaced over the last 100ky. MSMC inference clearly shows a different relatively cross-coalescent curve between Yoruban and San populations, which supports different migration histories for the two populations (Figure \ref{migrationplot}b,c). Compared to the MSMC inference, {\tt smcsmc} finds coalescent events across populations more recently, though a direct comparison between the magnitudes is infeasible. 
+
+Without an understanding of the true demography, various demographic models are explored via simulation. {\tt scrm} is once again used to simulate directional migration in either direction and bidirectionally. The timing of the migration, its duration, and its magnitude are varied systematically. \todo[inline]{The simulation results are not on my computer, but I need to plot them and look at the heatmaps to see the power that we have to recover migration, and the fact that what we see is most consistent with a particular scenario.}
+ 
+We use the estimate of the posterior distribution generated with the {\tt smcsmc} particle filter and isolate the individual trees which contain migration events from Eurasians to Africans between 50 and 75 kya on a sample-by-sample basis. We construct migration segments from these trees, and use these segments to calculate drift statistics. For each African individual $A$, we find a partner in the same population $A_p$ and calculate D(A, A$_p$, Y, Chimp) for a panel of global populations Y from the Reich Lab genotype dataset. $D$ statistics which significantly differ from zero indicate evidence for admixture, with the sign indicating the direction. We compare these ``segment statistics'' against statistics calculated for all available markers, which, up to noise, should be equal to zero. The segments of the African genomes isolated by {\tt smcsmc} show higher drift with global populations, both modern and ancient (Figure \ref{dstats}a). Overall, statistics are higher in the segments, which is consistent with our expectations, given that {\tt smcsmc} effectively isolates parts of the African genome that appear to be more Eurasian (Figure \ref{dstats}b,c). We look specifically at the samples in the Reich dataset which have been dated to the Paleolithic (>11.7kya) and find no sample which is consistently closer to all segments. However, we find that Denisovan and Neanderthal drift statistics are not inflated in the segments (Figure \ref{dstats}d). 
+
+\todo[inline]{I want to have an actual run with the Vindija to confirm this. Just in case the weird migration initiation was blinding us before}
+
+\section{Discussion}
+
+As a geographically complex region with the longest history of continuous AMH occupation, patterns of genetic variation within the African continent contain a wealth of information about evolutionary history. Here, we analyse individuals from two global datasets and study ancient directional migration. Our analysis suggests that the ancestral African population was structured, with at least two distinct groups recieving substantially different amounts of migrants from Eurasia between 50 and 70kya. The San peoples, who are known to have branched from the ancestral population prior to the split of Out of Africa populations, received a small amount of migration from Eurasian sources, while the remainder of populations show a high degree of migrations from an unsampled population closer to modern day Han Chinese and French individuals than to modern day Papuans. 
+
+Analysing the effective population size of the African population with MSMC shows a temporarily deflated coalescent rate in African populations immediately prior (as in, more ancient) to the inferred migration event. This same inference was made by the Pairwise Sequentially Markovian Coalescent (PSMC) model, where Li and Durbin theorised that this ``bump'' in the African $N_e$ was not a historical event but rather a consequence of substructure within the ancestral African population. While population substructure may play a role, we expect that delaying coalescences within a population would not result in a directional increase in cross-population coalescences such as we observe with {\tt smcsmc}. We are able to replicate this temporary $N_e$ inflation in a single population analysis, though when we simultaneously fit parameters for directional migration over time, the artifact is resolved in all populations. This effect is not driven by errors in statistical phasing, as analysis in a physically phased subset of the HGDP behaves in the same manner. Several simulated demographic scenarios involving directional migration also support this conclusion. From this we conclude that migration in the history of African populations may cause the inverse instantaneous coalescent rate (IICR) to deviate from the true population size, a known result in structured populations \cite{Chikhi2018}.
+
+Languages in Africa may be broadly classified, with the exception of the Austronesian group in Madagascar, into four families which broadly align with the phylogeny of the continent \cite{Blench2007, Fan2019}. Niger-Kordofanian and Nilo-Saharan groups show the highest levels of migration from this ``ghost'' population, between 50 and 60 percent replacement, while we strongly believe that inference in Afroasiatic populations such as the Mozabite may be confounded by established recent admixture in the Holocene \cite{Busby2016}. The Khoesan, a representative of South African Hunter Gatherers (SAHG), show the lowest levels of inferred migration, amounting to approximately 30\% replacement over the last 100ky. Though the specifics of population divergences are contested, recent evidence strongly supports an early divergence and distinct geographical distribution of SAHGs with limited interaction with the majority of other African groups \cite{Excoffier2013, Behar2008a, Batini2011, Shi2010, Schlebusch2012}. The Mbuti, and to a lesser degree the Biaka, show the lowest non-Khoesan rates. Recent evidence places the divergence times of Central African Hunter Gatherers between 200-250kya; though yet to be resolved, this would be consistent with our results \cite{Lipson2019}. In this study, the Biaka were found to have a much higher Bantu-related component than the Mbuti, consistent with previous evidence of Bantu gene flow to Eastern CAHG, but not Western \cite{Quintana-Murci2008}. Interestingly, the next lowest migration magnitude is found in Bantu speakers in Botswana, known to have high levels of gene flow from the Khoesan \cite{Patterson2012}. Simulations show that {\tt smcsmc} has weak power to detect the actual magnitude of ancient migrations, so we suggest that care is taken in the interpretation of these values. An admixture event into the common ancestor of non-Khoesan, non-CAHG groups with some historical gene flow would be a parsimonious explanation for the observed migration. 
+
+For several decades, evidence for an ancient directional migration ``back to Africa'' has been mounting. A recent pulse of admixture c.3kya has been well supported by ancient DNA \cite{Lopez2015, GallegoLlorente2015}. However, a much earlier migration during the Paleolithic period has been suggested to explain the spatial distribution of several haplogroups, such as E-M96, L3, M1, U6*, and DE*, proposed to have a Eurasian origin and subsequent back-flow variously dated to between 40 and 75kya \cite{Altheide1997, Hammer1998, Cruciani2002, Chandrasekar2007, Cabrera2018, Hervella2016, Haber2019}. Evidence also comes from studies on whole genome sequencing data, where a clean split between African and OoA groups is inconsistent with MSMC X-Coal curves \cite{Schiffels2014}, and supports gene flow between the ancestors of Niger-Kordofanian groups and Eurasians, but not Papuans \cite{Malaspinas2016}. We find lower levels of overall migration in the Papuans than Han Chinese and French, broadly supporting this assertion. In addition, we use the posterior ancestral recombination graph (ARG) generated by the {\tt smcsmc} particle filter to isolate segments of the African genome with a migration event in this period. These segments do not show more drift with Neanderthals or Denisovans, consistent either with a scenario where the admixing population either has not yet seen the introgression event from Neanderthals, or where this material was donated but subsequently selected against. It is currently unclear whether the inferred migration events may be confounded by super-archaic introgression \cite{Durvasula2019, Lachance2012} from populations not represented in the fossil record.  
+
+With the relative scarcity of ancient DNA in Africa, it is difficult to explain the historical situation leading to a directional migration. Because we know that the ghost population is more genetically similar to modern day Eurasians than modern day Africans, we can be fairly certain that it was not the result of a failed earlier migration OoA as has been previously suggested. Instead we suggest that the source may be related to a group splintering off of the main OoA population (known as a ``ghost'' population in \cite{Malaspinas2016}) after its divergence with the group who would eventually inhabit Sahul. Periodic changes in the climate created a vegetated migration path between Eurasia and Africa, providing the requisite periods of isolation and genetic differentiation followed by migration \cite{Timmermann2016}. A more parsimonious explanation for the ghost population from \cite{Malaspinas2016} may be a retreat back to Africa during one of these green periods, causing an effective directional migration of Eurasian-like genetic material into the African gene pool.
+
+Our results imply that a portion of sub-Saharan African ancestry derives from a group related to the main OoA migration. We identify directional migration in two large databases, extensively verify its plausibility through simulation, and improve the estimation of population divergence times by explaining artificially low intra-population coalescence rates. This work calls for a more nuanced investigation of gene flow in the ancient past, and reinforces the importance of fully parameterizing demographic inference models. Additional genome sequences from unsampled groups, both ancient and modern, may help to resolve the circumstances leading to a migration Back to Africa.
+
+\section{Methods}
 
 
+\paragraph{A Particle Filter for Demographic Inference} Details of the Sequential Monte Carlo for the Sequentially Markovian Coalescent (\SMC) algorithm have been previously published \cite{Henderson2018} (see the URLs for an implementation). Briefly, \SMC builds an approximation of the posterior distribution of genealogical trees along the genome using sequential Monte Carlo, also known as a particle filter. It does so by simulating a number of sequences of genealogical trees (particles) under a fixed set of demographic parameters $\theta$. Simulated recombination events may change the local trees along the sequence. Particles are then weighted according to their conditional likelihood given observed polymorphisms.  To avoid sample depletion, the set of particles is regularly resampled, which tends to remove and duplicate particles with low and high weight respectively.  To further increase the efficiency of the procedure, the
+resampling procedure targets not the partial posterior distribution that includes polymorhpisms up to the current location,
+but also includes a "lookahead likelihood" term that approximates a particle's likelihood's dependence on subsequent polymorphisms,
+while ensuring that the estimate of the posterior tree distribution remains asymptotically exact.  From an approximate sample
+of trees from the posterior, Variational Bayes (VB) or Stochastic Expectation Maximization (SEM) is used to update the estimates of demographic parameters $\theta$. This is repeated over a given number of iterations, or until the demographic parameters $\theta$ have converged.
+
+We use \SMC to infer effective population sizes and migration matrices in pairs of unrelated individuals from the phased release of the Simons Global Diversity Panel. We set a uniform recombination rate of $3\times10^{-9}$ and a neutral mutation rate of $1.25\times10^{-8}$, both in units of events per nucleotide per generation; previous results indicate that modeling recombination
+hotspots minimally affects results \cite{Li2011}. %\todo{Better reference here} 
+We seed the model with an initial constant symmetric  migration rate of 0.0092 ($M_{i,j}$; proportion per generation of the sink population replaced by migrants from the source backwards in time).
+
+\paragraph{Coalescent Simulation} Coalescent simulations were performed under the sequential coalescent with recombination model (SCRM) \cite{Staab2015}. 1 gigabase (Gb) of sequence was simulated.  In addition to branches in local
+genealogical trees, SCRM retains non-local
+branches in the ancestral recombination
+graph (ARG) within a user-specified sliding
+window.  In the limit of a chromosome-sized
+windows SCRM is equivalent to the CwR, while
+for a zero-length window it is equivalent to
+the sequentially Markovian coalescent (SMC')
+\cite{McVeanCardin2005,Marjoram2006}; we use a
+100 kilobase (kb) sliding window to approximate the CwR and improve accuracy over SMC' while retaining tractable inference. We simulated a model of exponentially decreasing migration into Eurasia from Africa between 200 and 100 thousand years ago (kya).
+
+We modelled migration back to Africa as an epoch  with a constant migration rate, parameterized by the total proportion migrated (0.4, 0.55, and 0.7), 
+the total duration of the migration event (10000, 30000, or 50000 years), and the midpoint of the migration (50kya, 60kya, or 70kya). The proportions simulated are unrealistically high, in order to obtain estimates of migration that resemble observations from real data. To obtain the total migrated fraction, we used the approximation $P_n$ = $N_{sink} p(1-p)^n$ given in Supplemental Section \ref{fraction}. We then used \SMC to infer the demographic parameters using 10000 particles and 30 iterations of the VB procedure. We started inference at a reasonable approximation of human demographic history to aid in convergence, and set 31 logarithmically spaced epochs from 133 to 133016 generations in the past. We use a generation
+time of 29 years throughout %\cite{??}. 
+%\todo{Generation time citation... why do we use 29 yrs}  
+For computational reasons, individual genomes were split into 120 chunks and processed in parallel, with sufficient statistics collected and
+processed together in the VB steps.
+
+
+
+\paragraph{Isolating Anciently Admixed Segments} We sampled genealogical trees with migration events from the posterior distribution estimated by the particle filter under the final, converged, demographic parameters. We scan along the sequence and identified trees with migration events from the source (Eurasian) population to the sink (African) population (forward in time) within the desired time period along with the beginning and end position of that tree in the genome sequence. In this process, we ignore recombination event that alter a tree in such a way that the migration event is retained.  
+
+ 
+\paragraph{Expectation of tract length} Under the Markovian model of the SMC', the length of admixed tracts $L$ is an exponential process with scale factor $2N (1 - m ) \left( 1 - e^{-T / 2N} \right)$, with a proportion $m$ of the sink population being replaced with the source $T$ generations in the past and an effective population size of $N$ \cite{Marjoram2006,Liang953}. This gives an approximate mean length $\left[ (1 -m)r(T-1) \right]^{-1}$ with recombination rate $r$ in units of Morgans, which is well approximated
+by  $(rT)^{-1}$ \cite{Racimo2015}; we use this approximation to derive expected distribution of fragment sizes. When analysing populations with \SMC, we fix the recombination rate at $3 \times 10^{-9}$ uniformly across the genome, in line with that used by MSMC in simulations \cite[Supp.\ section 7]{Schiffels2014a}.
+This value is a conservative underestimate, accounting for the presence of recombination hotspots and \SMC's inability to deconvolve recombinations in these areas, effectively underestimating the true $r$.  For estimates of ancestral tract lengths, we use the more universally accepted value of $1 \times 10^{-8}$, equivalent to a one percent chance of a cross-over per megabase and per generation \cite{Dumont2008}. 
+%\todo{better reference for recombination rate value}
+
+\paragraph{Sequence Data and Preparation}
+
+We download whole genome sequence (WGS) data from the phased release of the Simons Genome Diversity Panel and convert it to seg file format using a utility provided by the {\tt smcsmc} software implementation ({\tt smcsmc.vcf\_to\_seg}). We apply two masks to the data. Firstly, we mask the data with the strict accesibility mask provided by the 1000 genomes project (see URLs). Secondly, we mask any sites absent chimpanzee ancestry, due to a known issue in calling which resulted in artificially long runs of homozygosity. We develop a {\tt snakemake} pipeline for efficiently analysing sequence data with both {\tt smcsmc} and MSMC, available at the project's github page (see URLs). We assume a mutation rate of $1.25\times10^{-8}$ and a recombination rate of $3\times10^{-9}$, in line with recent literature. Two parameters must be set on a run-by-run basis. As the inference portion of {\tt smcsmc} uses a variational Bayesian approach, a number of maximum epochs must be set. Additionally, the number of particles to be used must be specified. 
+
+
+\paragraph{Formal Statistics} Patterson's formal statistics were calculated with {\tt ADMIXTOOLS} \cite{Patterson2012} and the {\tt admixr} package \cite{Petr2019} in {\tt R}. We converted the above sequence data to Eigenstrat format with {\tt vcf2eigenstrat} %\url{https://github.com/bodkan/vcf2eigenstrat} 
+formerly distributed with {\tt admixr}. We merged SGDP and archaic Eigenstrat datasets with {\tt convertf} and {\tt mergeit} implemented in {\tt ADMIXTOOLS}. 
+
+
+\paragraph{Integrating Migration Rates over Time}
+We wish to find the total fraction of a particular population replaced during a particular time period. We track the probability that a particular individual has not migrated after time $T$ (in generations). Let $\rho(t)$ be the instantaneous rate of migration per unit of time. In this formulation, $\frac{d}{dt} F(t) = - \rho(t) F(t)$, whose solution is $F(t) = e^{- \int_{t=0}^T \rho(t) dt}$; this gives a total migration probability in a range of epochs $E$ of  $1-F(T) = 1 - e^{\sum_{i \in E} r_i}$. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../plot/ne/figure.pdf}
+	\caption{Inferred effective population size using {\tt smcsmc} and MSMC from real and simulated whole genome sequence data. A. Inferred $N_e$ of Han Chinese and Yoruban individuals from the SGDP in both MSMC and {\tt smcsmc}. B. $N_e$ of Han Chinese and Yoruban individuals from the physically phased subset of the HGDP. C, D, and E simulate demographic histories with a 33\%, 42.5\%, and 50\% total replacement 60kya, over the span of 10ky, in {\tt scrm} and reinfer the $N_e$ with {\tt smcsmc}. We replicate a PSMC-like analysis by analysing one diploid Yoruban with {\tt smcsmc} (PSMC$^2$).}
+	\label{neplot}
+\end{figure}
+
+%In the populations with this trend, {\tt smcsmc} infers directional migration from Eurasian populations to African ones. Specifically, we select a representative from each African population in the Simons Genome Diversity and model migration to a French, Han, and Papuan individual in different analyses. We initialise the inference with a symmetrical migration equal to 1.00 4$N_0$ proportion replaced per generation (henceforth, we assume an $N_0=14312$ {\bf CITE?}), a choice we justify through simulation in Supplemental Simulation \ref{minit}. A comparable magnitude of migration is found in Niger-Kordofanian and Nilo-Saharan populations, while analysis with Afroasiatic populations shows a sustained history of bidirectional migration consistent with the literature. San groups show a lower degree of migration, which is seen to a lesser degree in Mbuti populations. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../plot/ne/PLACEHOLDER_sims.pdf}
+	\caption{One gigabase of sequence was simulated by {\tt scrm} under models with increasing migration from an ``African'' population to a ``Eurasian'' population. The magnitude of the population replaced by the migration is indicated in the grey ribbon. In Figure S we additionally vary the timing and duration of the migration, which for this figure are fixed at 60kya and 10ky respectively. Dotted line indicates a single diploid ``African'' genome which was analysed in a one-population model. Grey indicates the true population size simulated.}
+	\label{sim}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../plot/mig/mig.pdf}
+	\caption{Migration estimates from the Simons Genome Diversity Panel. A. shows three replicates of {\tt smcsmc} inferred migration to with a Han Chinese individual in three contrasting populations representing Niger-Kordofanian and San populations, with the Mbuti a unique intermediate. Analysis used 10000 particles and 25 iterations of variation Bayesian inference to converge. Trend line represents the mean of the replications, while the shaded regions denote the standard deviation. B. and C. show relative cross-coalescent (x-coal) curves for the Yoruban and San individuals modelled with a panel of Out of Africa OoA populations showing contrasting migration histories.}
+	\label{migrationplot}
+\end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{../plot/dstats.pdf}
-	\caption{blah}
+	\caption{Analysis of $D(A, A_p, Y, Chimp)$ statistics for all analysed African populations $A$ paired with a partner from the same population $A_p$ and analysed for gene flow with a global population $Y$ from the Reich Lab genotype database. A. compares average $D$ statistic by continent in different African populations, calculated for both all available markers and for the portion of the genome whose tree contains a back-migration event. This is stratified by the age of the comparison sample, either Modern (Present - 1kya), Holocene (1kya - 11.7kya), or Pleistocene ($>11.7$kya). B. displays the distribution of $D$ statistics for both sections, while C. gives a QQ plot of their Z statistics. D. shows a heatmap of D statistics for all of the Pleistocene samples, with E. being a blow-out of the Denisovan and Neanderthal statistics.}
+	\label{dstats}
 \end{figure}
-\newpage
 
 %\subsection*{URLs}
 %\paragraph{Simons Genome Diversity Panel Phased Release} \url{https://sharehost.hms.harvard.edu/genetics/reich_lab/sgdp/phased_data/}
@@ -100,6 +213,11 @@ In the populations with this trend, {\tt smcsmc} infers directional migration fr
 %\paragraph{admixr} \url{https://github.com/bodkan/admixr}
 
 
+
+\newpage
+
+\printbibliography
+
 \newpage
 \setcounter{section}{0}
 \renewcommand{\thesection}{S\arabic{section}}%
@@ -110,59 +228,150 @@ In the populations with this trend, {\tt smcsmc} infers directional migration fr
 
 \section{Analysis of Simons Genome Diversity Panel}
 
-We download variant call format (VCF) whole genome sequence (WGS) data from the phased release of the Simons Genome Diversity Panel and convert it to seg file format using a utility provided by the {\tt smcsmc} software implementation ({\tt smcsmc.vcf\_to\_seg}). We apply two masks to the data. Firstly, we mask the data with the strict accesibility mask provided by the 1000 genomes project (see URLs). Secondly, we mask any sites absent chimpanzee ancestry, due to a known issue in calling which resulted in artificially long runs of homozygosity. We develop a {\tt snakemake} pipeline for efficiently analysing sequence data with both {\tt smcsmc} and MSMC, available at the project's github page (see URLs). We assume a mutation rate of $1.25\times10^{-8}$ and a recombination rate of $3\times10^{-9}$, in line with recent literature. Two parameters must be set on a run-by-run basis. As the inference portion of {\tt smcsmc} uses a variational Bayesian approach, a number of maximum epochs must be set. Additionally, the number of particles to be used must be specified. All of the following analyses were run three times. 
-
-We select one individual from each of the African populations in the SGDP and model their effective population size using both {\tt smcsmc} and MSMC (Figure \ref{sgdp_ne}). We simultaneously estimate directional migration rates in either direction with {\tt smcsmc}, with the converged solution representing a joint optimisation. Overall, both estimates are relatively consistent, especially in the estimation of the Eurasian $N_e$. However, in all cases, MSMC finds a higher African $N_e$ than does {\tt smcsmc} in the ancient past ($>$ 100kya). We expect that this is due to {\tt smcsmc} simultaneously estimating a high migration rate during this period in most of the African groups (Figure \ref{sgdp_mig}). A more thorough discussion of the discrepencies in effective population size estimates may be found in the main text. There are several interesting trends apparent in the estimated migration rates. Firstly, it appears that in almost all cases, the migration rate from African to Eurasian population exceeds that in the opposite direction. Secondly, the qualatative trends appear to break down by language phyla. Afroasiatic populations appear to have a large amount of migration in either direction, which is consistent with the literature. [TD1] Niger-Kordofanian and Nilo-Saharan populations appear to have comparable levels of migration at comparable times, approximatley peaking at between 2.5-3.0$\times 10^{-4}$ 40-70kya. Khoesan populations have a much lower level of migration, around 1$\times 10^{-4}$, though the timing of the peak is consistent with other groups. We wish to find the total fraction of a particular population replaced during a particular time period. We track the probability that a particular individual has not migrated after time $T$ (in generations). Let $\rho(t)$ be the instantaneous rate of migration per unit of time. In this formulation, $\frac{d}{dt} F(t) = - \rho(t) F(t)$, whose solution is $F(t) = e^{- \int_{t=0}^T \rho(t) dt}$; this gives a total migration probability in a range of epochs $E$ of  $1-F(T) = 1 - e^{\sum_{i \in E} r_i}$. We use this formulation to integrate all migration in the last 100ky (Figure \ref{sgdp_heatmap}). Even from a very abstracted statistic, Khoesan populations cluster distinctly at the extreme low end of migration, with Mbuti and Biaka (anciently diverged Pygmy populations) showing a transitional migration rate. Afroasiatic populations such as the Saharawi, Mozabite, and Somali show a qualitatively higher migration from Han and French than from Papuans, indicating recent admixture. 
-
-To ensure that these results are reliable, we replicate our analysis in a subset of the HGDP which has been physically phased. This will additionally confirm that such trends are not the result of errors made during statistical phasing.
-
 \begin{figure}
 	\centering
-	\label{sgdp_ne}
 	\includegraphics[width=\linewidth]{../plot/sgdp_ne.png}
 	\caption{Estimated effective population size in different African and Eurasian groups with {\tt smcsmc}. 5000 particles and 10 variational Bayes interations were used to achieve convergence.}	
+	\label{sgdp_ne}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\label{sgdp_mig}
+	\includegraphics[width=\linewidth]{../plot/ne/average_ne_by_method.pdf}
+	\caption{Average $N_e$ estimate across all populations in SGDP modelled with a Han Chinese individual for MSMC and {\tt smcsmc}. Points represent means while bars indicate standard deviations.}
+	\label{averages}
+\end{figure}
+
+\begin{figure}
+	\centering
 	\includegraphics[width=\linewidth]{../plot/sgdp_mig.png}
 	\caption{Estimated directional migration between African and Eurasian groups in the SGDP with {\tt smcsmc}. 5000 particles and 10 variational Bayes interations were used to achieve convergence.}	
+	\label{sgdp_mig}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\label{sgdp_heatmap}
-	\includegraphics[width=\textwidth]{../plot/sgdp_heatmap.png}
+	\includegraphics[width=\textwidth]{../plot/sgdp_heatmap_figure.pdf}
 	\caption{Integrated migration proportion in {\tt smcsmc} analysed SGDP populations.}
+	\label{sgdp_heatmap}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../plot/mig/sgdp_averages.pdf}
+	\caption{Integrated migration proportion over the last 100 thousand years (ky) between language families by comparison population. Papuans contributed significantly less to African populations across all populations in a two tailed paired T test. ns = Not Significant, * = $P<0.05$, ** = $P<0.01$, *** = $P<0.001$, **** = $P<0.0001$.}
+	\label{averages_of_sgdp}
+\end{figure}
 
-\begin{enumerate}
-    \item Whole analysis
-    \item HGDP 
-    \item HGDP subset in SGDP
-\end{enumerate}
+% latex table generated in R 3.5.3 by xtable 1.8-3 package
+% Wed Jan 22 11:49:06 2020
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{llll}
+		\hline
+		Language Family & Partner Population & $M_{Eurasia, Africa}$ (SD) & $M_{Africa, Eurasia}$ (SD) \\ 
+		\hline
+		Afroasiatic & French & 0.722(0.014) & 0.351(0.092) \\ 
+		Afroasiatic & Han & 0.721(0.029) & 0.241(0.055) \\ 
+		Afroasiatic & Papuan & 0.642(0.018) & 0.218(0.043) \\ 
+		Khoesan & French & 0.304(0.005) & 0.079(0.006) \\ 
+		Khoesan & Han & 0.292(0.002) & 0.065(0.004) \\ 
+		Khoesan & Papuan & 0.257(0.001) & 0.063(0.004) \\ 
+		Niger-Kordofanian & French & 0.514(0.059) & 0.151(0.024) \\ 
+		Niger-Kordofanian & Han & 0.513(0.061) & 0.121(0.016) \\ 
+		Niger-Kordofanian & Papuan & 0.462(0.059) & 0.114(0.016) \\ 
+		Nilo-Saharan & French & 0.595(0.079) & 0.186(0.028) \\ 
+		Nilo-Saharan & Han & 0.581(0.055) & 0.152(0.012) \\ 
+		Nilo-Saharan & Papuan & 0.525(0.048) & 0.134(0.014) \\ 
+		\hline
+	\end{tabular}
+	\caption{Average plus or minus standard deviation integrated directional migration from Eurasian to African populations in the last 100 thousand years (ky)} 
+	\label{average_sgdp_migration_table}
+\end{table}
 
 To directly compare these results to those obtained in the SGDP, we select the closest matching samples to those in the physically phased HGDP dataset and analyse these with MSMC and {\tt smcmsc} using 10k particles and 25 iterations to achieve convergence (Figure \ref{hgdp_sgdp_ne}). The effective sample size around the OoA migration is similarly inflated in MSMC analyses, while the estimation of the Eurasian population size remains largely consistent.  
 
 \begin{figure}
     \centering
-    \label{hgdp_sgdp_ne}
     \includegraphics[width=\linewidth]{../plot/sgdp_subset_ne.png}
     \caption{{\tt smcsmc} and MSMC inferred effective population size of several populations in the Simons Genome Diversity Panel. These samples were selected to match, as closely as possible, those in the physically phased subet of the Human Genome Diversity Project panel. 10,000 particles and 25 iterations were used for {\tt smcsmc} and 40 iterations for MSMC.}
+    \label{hgdp_sgdp_ne}
 \end{figure}
 
-\section{Statistical Analysis of Migrated Segments} \label{dstats}
+\section{Replication in the Physically Phased Subset of the Human Genome Diversity Panel} \label{hgdp_section}
+
+\section{Statistical Analysis of Migrated Segments} \label{dstats_section}
 
 
 \begin{enumerate}
 	\item 
 \end{enumerate}
 
-\section{Simulation procedure} \label{sim}
-\section{Population size simulations} \label{ne}
+\section{Simulation procedure} \label{simproc}
+\section{Population size simulations} \label{nesim}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../plot/old_all_li_durbin.pdf}
+	\caption{Simulated directional migration from effective ``African'' to ``Eurasian'' populations. For this figure, duration of the migration was fixed at 10ky. Simulations performed in {\tt scrm} with one gigabase of sequence. Inference performed in {\tt smcsmc} with five iterations of variational Bayes and 5000 particles.}
+	\label{nesims_10ky}
+\end{figure}
+
 \section{Choice of initiation parameters} \label{minit}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../plot/mig/yri_dif_migs.pdf}
+	\caption{Effective population size and migration history of a Yoruban ({\tt S\_Yoruba-1}) and a French ({\tt S\_French-1}) individual from the Simons Genome Diversity panel. The initial migration proportion was varied along the X axis, while the number of particles is varied along the Y. 10 iterations of variational Bayes was used for parameter inference, while 5000 particles were used to sample from the posterior distribution of trees.}
+	\label{init_yri}
+\end{figure}
+
+
+% Cut out bits (trash can)
+
+%The choice of out of Africa population does not make a substantive difference to the inferred migration rates, with the exception of Afroasiatic populations such as the Saharawi and Mozabite who are known to have experienced admixture during the Holocene (Figure \ref{sgdp_heatmap}). Rates of migration in Niger-Kordofanian and Nilo-Saharan groups such as Yorubans, Mbuti, luhya, and Bantu speaking populations across Africa peak at approximately 0.0003 percent population replacement per generation, with the peak of migration between 40 and 75kya (Figure \ref{sgdp_mig}). When migration rates over the last 100ky are integrated to give a total proportion replaced, {\tt smcsmc} infers that 
+
+%We examine the estimated rate of migration in either direction and find several interesting trends. Firstly, it appears that in almost all cases, the forward-in-time migration rate from Eurasian to African population exceeds that in the opposite direction. Secondly, the qualitative trends appear to break down by language phyla. Afroasiatic populations appear to have a large amount of migration in either direction, which is consistent with the literature. [TD1] Niger-Kordofanian and Nilo-Saharan populations appear to have comparable levels of migration at comparable times, approximately peaking at between 2.5-3.0$\times 10^{-4}$ (proportion replaced per generation) 40-70kya. Khoesan populations have a much lower level of migration, around 1$\times 10^{-4}$, though the timing of the peak is consistent with other groups. We integrate all migration in either direction over the last 100ky.  Even from a very abstracted statistic, Khoesan populations cluster distinctly at the extreme low end of migration, with Mbuti and Biaka (anciently diverged Pygmy populations) showing a transitional migration rate. Afroasiatic populations such as the Saharawi, Mozabite, and Somali show a qualitatively higher migration from Han and French than from Papuans, once again indicating recent admixture.  
+
+
+%We infer population size under a two-population model with directional migration, and additionally isolate the ``African'' diploid individual and estimate population size with a single population model. We vary the timing of the migration event, the duration, and the magnitude. In all cases, we find a similarly inflated African $N_e$ during and prior to the migration event, consistent to real data (a subset of the simulations are shown in Figure \ref{sim}, while the remainder may be found in supplemental section S). 
+
+
+
+%in all cases, MSMC finds a higher African $N_e$ than does {\tt smcsmc} in the ancient past ($>$ 100kya) (Figure \ref{neplot}b). Moreover, MSMC shows that African population size temporarily increases immediately following the Eurasian divergence, increasing to a maximum of approximately 40,000 250kya (Figure \ref{neplot}c). This inference is consistent with PSMC, where the authors showed that substructure in the African population would cause an artificially high $N_e$. The inference from {\tt smcsmc} does not show this ``bump'', and the split time between the populations is accordingly delayed. We hypothesize that directional migration from Eurasian populations to Africa could also explain this difference. To test this, we use {\tt scrm} to simulate a variety of historical situations with and without migration in either or both directions. We use a skeleton of population history given in Supplemental Section \ref{sim} and mimic PSMC inference by analysing the ``African'' diploid alone with {\tt smcsmc}. As expected, we find the hypothesized inflation in $N_e$, with a magnitude proportional to the amount of simulated migration. A full discussion of these simulation results may be found in supplemental section \ref{ne}. We then replicate this finding in a subset of the Human Genome Diversity Panel which has been physically phased, in order to confirm that these results have not been affected by errors made during statistical phasing (Figure \ref{neplot}d).  
+
+
+%Usiddng a Han Chinese individual as a representative for Eurasians, we infer effective population size ($N_e$) and directional migration to African populations in the Simons Genome Diversity Panel with {\tt smcsmc} (Figure \ref{neplot}a). We simultaneously use MSMC with recommended parameters to infer effective population size on the same samples for comparison. Generally, both algorithms give comparable estimates of population size. However, MSMC shows that African population size temporarily increases immediately following the Eurasian divergence, increasing to a maximum of approximately 40,000 250kya (Figure \ref{neplot}c). This inference is consistent with PSMC, where the authors showed that substructure in the African population would cause an artificially high $N_e$. The inference from {\tt smcsmc} does not show this ``bump'', and the split time between the populations is accordingly delayed. We hypothesize that directional migration from Eurasian populations to Africa could also explain this difference. To test this, we use {\tt scrm} to simulate a variety of historical situations with and without migration in either or both directions. We use a skeleton of population history given in Supplemental Section \ref{sim} and mimic PSMC inference by analysing the ``African'' diploid alone with {\tt smcsmc}. As expected, we find the hypothesized inflation in $N_e$, with a magnitude proportional to the amount of simulated migration. A full discussion of these simulation results may be found in supplemental section \ref{ne}. 
+
+\newpage
+\section{Average $D$ Statistics Amung Populations}
+
+Here we consider the case of instantaneous admixture explored by Durand et al 2011 when a representative sample from the admixing population is available. Here, the expectation of $D$ is reduced to 
+\small 
+$$ \begin{aligned} E[  D(P_2, P_1, P0, O)] 
+	&= \frac{\text{Pr(ABBA)} - \text{Pr(BABA)}}{\text{Pr(ABBA)} + \text{Pr(BABA)}} \\
+&= \frac{3f[t_{P3} - t_{GF}]}{3f [t_{P3} - t_{GF}] + 4N(1-f) (1 - \frac{1}{2N})^{t_{P3}-  t_{P2}} + 4Nf (1 - \frac{1}{2N})^{t_{P3}-t_{GF}}} \end{aligned}$$
+
+where $t_{P_i}$ is the expected time to coalescence of any two lineages in $P_i$, $f$ is the proportion of gene flow while $t_{GF}$ is its timing, and $N$ is the population size. We consider the case where $D$ statistics $D(A_i, A_{pi}, Y, C)$ are summed and divided by their count. In this case, both $A_i$ and $A_{pi}$ are drawn from the same population, which implies that $t_{P_3}$ is constant (with the exception of the San, who are excluded from these calculations). Since we assume that $t_{P_3}$, $f$, $t_{GF}$ are held constant, we straightforwardly rearrange the definition of the $D$ statistic to show that the expectation of averaging over the log of $D$ values for $n$ populations gives the expectation of a $D$ statistic with the average $t_{P2}$, or time to divergence of lineages within the population.  
+
+\small
+$$ \begin{aligned}
+\mathbb{E} [\frac{1}{n} \sum^n_i \ln D(P2, P1, P0, O)] &= \frac{1}{n} \sum^n_i \mathbb{E}[ \ln D(P2, P1, P0, O)] \\
+&= \frac{1}{n} \sum^n_i \ln \frac{3f[t_{P3} - t_{GF}]}{3f [t_{P3} - t_{GF}] + 4N(1-f) (1 - \frac{1}{2N})^{t_{P3}-  t_{P2}} + 4Nf (1 - \frac{1}{2N})^{t_{P3}-t_{GF}}} \\
+&= \frac{1}{n} \sum^n_i \ln \left( 3f[t_{P3} - t_{GF} \right) - \ln ( 3f [t_{P3} - t_{GF}] + 4N(1-f) (1 - \frac{1}{2N})^{t_{P3}-  t_{P2}} \\  &+ 4Nf (1 - \frac{1}{2N})^{t_{P3}-t_{GF}}) \\
+&= \frac{1}{n} \sum^n_i \ln \left( 3f[t_{P3} - t_{GF} \right) - \ln \left( 3f [t_{P3} - t_{GF}] \right) + \ln \left( 4N(1-f) (1 - \frac{1}{2N})^{t_{P3}-  t_{P2}} \right) \\  &- \ln \left( 4Nf (1 - \frac{1}{2N})^{t_{P3}-t_{GF}} \right) \\
+&= \frac{1}{n} \left( n \left( \ln \left( 3f[t_{P3} - t_{GF} \right) + \ln \left( 3f [t_{P3} - t_{GF}] \right) +  + \ln \left( 4Nf (1 - \frac{1}{2N})^{t_{P3}-t_{GF}} \right) \right) \right) \\ &+ \sum^n_i \ln \left( 4N(1-f) (1 - \frac{1}{2N})^{t_{P3}-  t_{P2}} \right) \\
+&= \ldots \sum^n_i (t_{P3}-  t_{P2} ) \ln \left( 4N(1-f) (1 - \frac{1}{2N}) \right) \\
+&= \ldots n \ln \left( 4N(1-f) (1 - \frac{1}{2N}) \right) \sum^n_i (t_{P3}-  t_{P2} ) \\
+&= \ldots n \ln \left( 4N(1-f) (1 - \frac{1}{2N}) \right) \left( \sum^n_i t_{P3} - \sum^n_i t_{P2} \right) \\
+&= \ldots n t_{P3}\ln \left( 4N(1-f) (1 - \frac{1}{2N}) \right) \left(- \sum^n_i t_{P2} \right) \\
+& \text{multiply through the } \frac{1}{n} \ldots \\
+&= \ln \left( 3f[t_{P3} - t_{GF} \right) + \ln \left( 3f [t_{P3} - t_{GF}] \right) +  \ln \left( 4Nf (1 - \frac{1}{2N})^{t_{P3}-t_{GF}} \right) \\ &+ t_{P3} \ln \left( 4N(1-f) (1 - \frac{1}{2N}) \right) \left(- \frac{1}{n} \sum^n_i t_{P2} \right) \\
+&= \ln \left( 3f[t_{P3} - t_{GF} \right) + \ln \left( 3f [t_{P3} - t_{GF}] \right) +  \ln \left( 4Nf (1 - \frac{1}{2N})^{t_{P3}-t_{GF}} \right) \\ &+ \ln \left( 4N(1-f) (1 - \frac{1}{2N})^{t_{P3} - \frac{1}{n} \sum^n_i t_{P2}} \right) \\
+&= \ln \frac{3f[t_{P3} - t_{GF}]}{3f [t_{P3} - t_{GF}] + 4N(1-f) (1 - \frac{1}{2N})^{t_{P3}-  \frac{1}{n} \sum^n_i t_{P2}} + 4Nf (1 - \frac{1}{2N})^{t_{P3}-t_{GF}}} \\
+&= \ln D(\bar{P2}, \bar{P1}, P0, O)
+\end{aligned} $$
+
+Therefore, the expectation of average $D$ statistics where both $P_1$ and $P_2$ are drawn from the same population produces the expectation of the $D$ statistic with the average within-population coalescent rate. 
 
 \end{document}
