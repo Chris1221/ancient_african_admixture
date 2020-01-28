@@ -6,14 +6,14 @@ library(GGally)
 library(dplyr)
 
 
-config = fromJSON(file = "~/repos/dirmig/analyses/sgdp_replication.json")
+config = fromJSON(file = "~/repos/dirmig/analyses/hgdp_physically_phased.json")
 source = names_from_config(config$source) # from tools
 source_strings = vapply(source, ids_to_names, character(1)) %>% as.vector
 sink = names_from_config(config$sink) # from tools
 sink_strings = vapply(sink, ids_to_names, character(1)) %>% as.vector
 seed = "1791095846"
-smc2_path = "~/repos/dirmig/data/sgdp_subset/"
-msmc_path = "~/repos/dirmig/data/sgdp_subset/"
+smc2_path = "~/repos/dirmig/data/hgdp_low_mig/"
+msmc_path = "~/repos/dirmig/data/hgdp_low_mig/"
 
 plots = list()
 
@@ -33,7 +33,7 @@ for (si in sink){
 }
 
 ggmatrix(plots, nrow = length(source), ncol = length(sink), byrow = FALSE,xlab = "Years Before Present", ylab = "Estimated Effective Population Size", yAxisLabels = source_strings, xAxisLabels = sink_strings, legend = leg) + theme(legend.position = "bottom")
-ggsave("~/repos/dirmig/plot/sgdp_subet_ne.pdf", height = 10, width = 8, unit = "in")
+#ggsave("~/repos/dirmig/plot/sgdp_subet_ne.pdf", height = 10, width = 8, unit = "in")
 
 han <- plots[[18]]
 

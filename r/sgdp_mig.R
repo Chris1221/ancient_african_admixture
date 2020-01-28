@@ -14,7 +14,7 @@ j = 1
 matrices = list()
 
 
-orientation = c("long", "wide", "long", "long")
+orientation = c("long", "long", "long", "long")
 
 for(language in list_language_families()){
   source = names_from_config(config$source) # from tools
@@ -62,7 +62,62 @@ layout = rbind( c(3,3,3,1,1,1,4,4,4),
                 c(2,2,2,2,2,2,2,2,2),
                 c(2,2,2,2,2,2,2,2,2),
                 c(2,2,2,2,2,2,2,2,2))
+new_layout = rbind(c(3, 2),
+                   c(3, 2),
+                   c(5, 2),
+                   c(1, 2),
+                   c(1, 2), 
+                   c(1, 2), 
+                   c(5, 2), 
+                   c(4, 2),
+                   c(4, 2))
 
 # Just directly save it
 # Alternatively could do a newpage then draw it.
-ggsave( arrange_ggmatrix(matrices, layout), file = "~/repos/dirmig/plot/sgdp_mig.png", dpi = 300, width = 13.6, height = 12.1, unit = "in")
+ggsave( arrange_ggmatrix(matrices, new_layout), file = "~/repos/dirmig/plot/sgdp_mig.pdf", dpi = 300, width = 13.6, height = 12.1, unit = "in")
+
+
+# LONG VERSION
+# 
+j = 1
+
+source = names_from_config(config$source) # from tools
+source_strings = vapply(source, ids_to_names, character(1)) %>% as.vector
+sink = names_from_config(config$sink) # from tools
+#sink = sink[0:10]
+#sink = sink[sink %in% list_samples_from_lang(language)]
+sink_strings = vapply(sink, ids_to_names, character(1)) %>% as.vector
+seed = "1791095846"
+smc2_path = "~/repos/dirmig/data/sgdp/"
+msmc_path = "~/repos/dirmig/data/sgdp/"
+
+plots = list()
+
+i = 1
+
+orientation = "long"
+
+orientation = c("long", "long", "long", "long")
+
+# This is weird, but I want some of them to be long and some to be wide
+# No legend for the long ones for now...
+if( orientation == "long") {
+  for (so in source){
+    for (si in sink){
+      smcsmc_file = new("smcsmc", file = paste0(smc2_path, seed, ".", so, ".", si, ".out"))
+      plots[[i]] = plot(smcsmc_file,ylim = c(0, 1e-3), xlim = c(1e4, 1e6))
+      #leg = grab_legend(plots[[i]])
+      i = i + 1 }}
+  ggmatrix(plots, nrow = length(sink), ncol = length(source), byrow = FALSE, yAxisLabels = sink_strings, xAxisLabels = source_strings)
+  j = j+ 1
+} else if (orientation == "wide"){
+  for (si in sink){
+    for (so in source){
+      smcsmc_file = new("smcsmc", file = paste0(smc2_path, seed, ".", so, ".", si, ".out"))
+      plots[[i]] = plot(smcsmc_file, ylim = c(0, 1e-3), xlim = c(1e4, 1e6))
+      leg = grab_legend(plots[[i]])
+      i = i + 1 }}
+  ggmatrix(plots, nrow = length(source), ncol = length(sink), byrow = FALSE,xlab = "Years Before Present", ylab = "Estimated Effective Population Size", yAxisLabels = source_strings, xAxisLabels = sink_strings, legend = leg) + theme(legend.position = "bottom")
+  j = j+ 1
+}
+}

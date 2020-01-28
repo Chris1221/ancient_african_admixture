@@ -7,6 +7,7 @@ library(dplyr)
 library(cowplot)
 library(grid)
 library(gridExtra)
+library(ggplot2)
 
 
 config = fromJSON(file = "~/repos/eurasian-backmigration/analyses/whole_sgdp.json")
@@ -15,6 +16,7 @@ matrices = list()
 
 
 orientation = c("long", "wide", "long", "long")
+orientation = c("long", "long", "long", "long")
   
 for(language in list_language_families()){
   source = names_from_config(config$source) # from tools
@@ -62,10 +64,19 @@ layout = rbind( c(3,3,3,1,1,1,4,4,4),
                 c(2,2,2,2,2,2,2,2,2),
                 c(2,2,2,2,2,2,2,2,2),
                 c(2,2,2,2,2,2,2,2,2))
+new_layout = rbind(c(3, 2),
+                   c(3, 2),
+                   c(5, 2),
+                   c(1, 2),
+                   c(1, 2), 
+                   c(1, 2), 
+                   c(5, 2), 
+                   c(4, 2),
+                   c(4, 2))
 
 # Just directly save it
 # Alternatively could do a newpage then draw it.
-ggsave( arrange_ggmatrix(matrices, layout), file = "~/repos/dirmig/plot/sgdp_ne.png", dpi = 300, width = 13.6, height = 12.1, unit = "in")
+ggsave( arrange_ggmatrix(matrices, new_layout), file = "~/repos/dirmig/plot/sgdp_ne.pdf", dpi = 300, width = 13.6, height = 12.1, unit = "in")
 
 #grid.newpage()
 #grid.draw(arranged_matrix)

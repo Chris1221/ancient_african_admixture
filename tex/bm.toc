@@ -1,0 +1,43 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Introduction}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Results}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Discussion}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Methods}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{A Particle Filter for Demographic Inference}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Coalescent Simulation}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Isolating Anciently Admixed Segments}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Expectation of tract length}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sequence Data and Preparation}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Formal Statistics}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Integrating Migration Rates over Time}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {S1}Details of Data Analysis}{20}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {S1.1}Inferring population size and migration rates in the Simons Genome Diversity Panel}{20}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {S1.2}Analysis of a phased subset of the Human Genome Diversity Panel (HGDP)}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {S1.3}Patterns in population size and migration fully replicate in an equivalent subset of the SGDP}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {S2}Replication in the Physically Phased Subset of the Human Genome Diversity Panel}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {S3}Statistical Analysis of Migrated Segments}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {S4}Simulation procedure}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {S5}Population size simulations}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {S6}Choice of initiation parameters}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {S7}Average $D$ Statistics Amung Populations}{31}

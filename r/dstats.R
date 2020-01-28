@@ -4,7 +4,7 @@ library(dplyr)
 library(countrycode)
 library(ggplot2)
 
-anno <- fread("../lib/v37.2.1240K_HumanOrigins.clean4.anno")
+anno <- fread("lib/v37.2.1240K_HumanOrigins.clean4.anno")
 
 exclude <- c("Ancestor.REF", "Href.REF", "Chimp.REF", "Gorilla.REF", "Href", "Href_HO", "Gorilla", "Orang", "Chimp_HO", "Macaque", "Marmoset")
 clean_anno <- anno %>% 
@@ -72,3 +72,9 @@ ggplot(s, aes(x = W, y = means, color = type, shape = as.factor(continent))) +
 
 ggsave("~/repos/dirmig/plot/dstats-lineplot.png", dpi = 300, height = 15.8, width = 7.11, unit = "in") 
 
+# Papuan Signal replication
+
+segs %>% filter(grepl(Y, pattern = "Papuan")) %>% mutate(cat = "Papuan") -> P
+segs %>% filter(grepl(Y, pattern = "Han")) %>% mutate(cat = "Han") -> f
+
+fp <- rbind(f, P) %>% group_by(X, cat) %>% summarise(mean = mean(D), sd = sd(D))

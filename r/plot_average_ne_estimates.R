@@ -9,41 +9,66 @@ times <- c(300e3, 200e3, 250e3, 150e3, 120e3, 100e3, 75e3)
 path <- "~/repos/dirmig/data/sgdp_subset/"
 seed <- "1791095846"
 
-msmc_files <- list.files(path, pattern = "final.txt", full.names = T)
-smc2_files <- list.files(path, pattern = "out", full.names = T) %>% grep(pattern = seed, value = T)
+samples = c("Biaka", "Mbuti", "Yoruba", "Khomani_San")
 
-pid = 1
+plots <- list()
+i = 1
 
-df <- data.frame(
-  time = numeric(),
-  est = numeric(),
-  pop = integer(),
-  method = character()
-)
-
-for(time in times){
-  smc2 = lapply(smc2_files, smcsmc) %>% lapply(ne_at, time) %>% unlist %>% matrix(ncol = 2, byrow = T)
-  msmc = lapply(msmc_files, msmc) %>% lapply(ne_at, time) %>% unlist %>% matrix(ncol = 2, byrow = T)
+for(samp in samples){
+  msmc_files <- list.files(path, pattern = "final.txt", full.names = T) %>% grep(pattern= samp, value = T)
+  smc2_files <- list.files(path, pattern = "out", full.names = T) %>% grep(pattern = seed, value = T) %>%grep(pattern = samp, value = T)
   
-  df <- rbind(df, data.frame(time = time, est = smc2[,1], pop = "Eurasian", method = "smcsmc"))
-  df <- rbind(df, data.frame(time = time, est = smc2[,2], pop = "African", method = "smcsmc"))
-  df <- rbind(df, data.frame(time = time, est = msmc[,1], pop = "Eurasian", method = "MSMC"))
-  df <- rbind(df, data.frame(time = time, est = msmc[,2], pop = "African", method = "MSMC"))
-  # Slow but its a small loop
-  #df <- rbind(df, data.frame(time = time, smc_1 = smc2[,1], smc_2 = smc2[,2], msmc_1 = msmc[,1], msmc_2=msmc[,2]))
+  smc2 <- NA 
+  msmc_df <- NA
+  for(s in lapply(smc2_files, smcsmc)){
+    if(is.na(smc2)){
+      smc2 <- s@data
+    } else {
+      smc2 <- rbind(smc2, s@data)
+    }
+  }
+  for(s in lapply(msmc_files, msmc)){
+    if(is.na(msmc_df)){
+      msmc_df <- s@data
+    } else {
+      msmc_df <- rbind(msmc_df, s@data)
+    }
+  }
+  
+  mu = 1.25e-8
+  g = 29
+  smc2_g <- smc2 %>% filter(Iter == max(Iter), Type == "Coal") %>% group_by(From, Start) %>% summarise(mean = mean(Ne), sd = sd(Ne))
+  msmc_g <- msmc_df %>%
+    mutate(left_time_boundary = (left_time_boundary / mu) * g) %>%
+    mutate(right_time_boundary = (right_time_boundary / mu) * g) %>%
+    mutate(lambda_00 = (1 / lambda_00) / (2*mu)) %>% 
+    mutate(lambda_11 = (1 / lambda_11) / (2*mu)) %>% 
+    reshape2::melt(id.vars =c("time_index", "left_time_boundary", "right_time_boundary"), factorsAsStrings = F) %>%
+    filter(variable != "lambda_01") %>% 
+    group_by(time_index, variable) %>%
+    summarise(time = mean(left_time_boundary), mean = mean(value), sd = sd(value)) 
+  
+  plots[[i]] <- ggplot(smc2_g, aes(x = Start*g, y = mean, ymin = mean-sd, max = mean+sd, fill = factor(From))) + 
+    geom_step(data = smc2_g, aes(col = factor(From), linetype = factor(From))) + 
+    geom_ribbon(stat = "stepribbon", alpha = 0.3) + 
+    geom_step(data = msmc_g, inherit.aes = F, aes(x = time, y = mean, col = factor(variable), linetype = factor(variable)) ) + 
+    geom_ribbon(stat = "stepribbon", alpha = 0.3, data = msmc_g, inherit.aes = F, aes(x = time, ymin = mean-sd, ymax = mean+sd, fill = factor(variable))) +
+    scale_x_log10(limits = c(1e4, 1e6), labels = label_comma(scale = 0.001)) + 
+    scale_y_log10(limits = c(1e3, 1e5), labels = label_comma()) + 
+    scale_color_manual(values = c("blue", "blue", "red", "red"), labels = c("SMC2 Eurasian", "SMC2 African", "MSMC Eurasian", "MSMC African")) +
+    scale_fill_manual(values = c("blue", "blue", "red", "red"), labels = c("SMC2 Eurasian", "SMC2 African", "MSMC Eurasian", "MSMC African")) +
+    scale_linetype_manual(values = c(1, 2, 1, 2), labels = c("SMC2 Eurasian", "SMC2 African", "MSMC Eurasian", "MSMC African")) +
+    ylab("Effective Population Size") + 
+    xlab("Thousands of Years before Present") + 
+    theme_bw() +
+    theme(legend.title = element_blank(),
+          panel.grid = element_blank())
+  
+  leg <- grab_legend(plots[[1]])
+  
+  i = i + 1
 }
 
-s <- df %>% group_by(time, pop, method) %>% summarise(mean = mean(est), sd = sd(est))  %>% mutate(upper = mean + sd) %>% mutate(lower = mean - sd)
 
-ggplot(s, aes(x = time, y =mean, col = method)) + 
-  geom_point() + 
-  geom_errorbar(aes(ymin = lower, ymax = upper)) + 
-  facet_wrap(~pop) + 
-  ylab("Average Ne \u00B1 Standard Deviation") +
-  xlab("Thousands of Years before Present") +
-  scale_x_continuous(labels = label_comma(scale = 0.001)) +
-  theme_bw() + 
-  theme(legend.title = element_blank()) + 
-  theme(legend.position = "bottom") + theme(panel.grid = element_blank())
-
-ggsave("~/repos/dirmig/plot/ne/average_ne_by_method.pdf")
+ggmatrix(plots, ncol = 4, nrow = 1, ylab = "Effective Population Size", xlab = "Thousands of Years before Present", xAxisLabels = samples, legend = leg) 
+ggsave("~/repos/dirmig/plot/ne/average_ne_subset.pdf", height = 5.87, width = 16.5, unit = "in")
