@@ -1,9 +1,10 @@
-# Supplemental figure
-
 library(smcsmcTools)
 library(rjson)
 library(GGally)
 library(dplyr)
+library(stringi)
+library(scales)
+library(ggalt)
 
 
 config = fromJSON(file = "~/repos/eurasian-backmigration/analyses/sgdp_replication.json")
@@ -60,23 +61,26 @@ summary <- dfs %>%
             sd = sd(Rate))
 
 ggplot(data = summary, aes(x = Start*g, fill = pop, linetype = From, y = mean, ymin=mean-sd, ymax=mean+sd)) + 
+  geom_rect(aes(xmin = 1e5, xmax=3e5, ymin=0, ymax=4e-4), fill = "lightgrey", alpha = 0.05, inherit.aes = F) +
+  geom_vline(xintercept = seq(1e4,1e5,1e4), col = "grey", alpha = 0.3) +
+  geom_vline(xintercept = seq(1e5,1e6,1e5), col = "grey", alpha = 0.3) +
   geom_step(aes(col = pop)) +
   geom_ribbon(stat="stepribbon",
               alpha = 0.3) + 
-  scale_y_continuous(limits = ylim, 
+  scale_y_continuous(limits = c(0,4e-4), 
                      labels = label_comma()) +
-  scale_x_log10(limits = xlim,
+  scale_x_log10(limits = c(1e4,3e5),
                 labels = label_comma(scale = 0.001)) + 
-  scale_color_manual(values = c('blue', 'purple', "red"), labels = c("Khomani San", "Mbuti", "Yoruba")) +
+  scale_color_manual(values = c('blue', 'green', "red"), labels = c("Khomani San", "Mbuti", "Yoruba")) +
   ylab("Proportion Replaced per Generation") + 
   xlab("Thousands of Years before Present") + 
   scale_linetype_manual(values = c(2,1), labels = c("Eur to Afr", "Afr to Eur")) + 
-  scale_fill_manual(values = c('blue', 'purple', "red"), labels = c("Khomani San", "Mbuti", "Yoruba")) + 
+  scale_fill_manual(values = c('blue', 'green', "red"), labels = c("Khomani San", "Mbuti", "Yoruba")) + 
   #scale_fill_manual(values = c('blue', 'red', 'black'), labels = c("Afr to Eur", "Eur to Afr")) +
   theme_bw() + 
   theme(legend.position = "right",
         legend.title = element_blank(), 
-        panel.grid = element_blank())
+        panel.grid.minor = element_blank())
     
 ggsave("~/repos/dirmig/plot/mig/sgdp_subet_three_pop.pdf", height = 9.61, width = 11.3, unit = "in")
 

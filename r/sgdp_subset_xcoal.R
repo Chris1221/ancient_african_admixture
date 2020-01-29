@@ -30,6 +30,8 @@ for (si in sink){
     }}}
 
 ggplot(data = list_of_msmc %>% filter(sink == "S_Yoruba-1"), aes(x = left_time_boundary, y = value, col = source)) + 
+  geom_vline(xintercept = seq(1e4,1e5,1e4), col = "grey", alpha = 0.3) +
+  geom_vline(xintercept = seq(1e5,1e6,1e5), col = "grey", alpha = 0.3) +
   geom_step() + 
   scale_x_log10(labels = label_comma(scale = 0.001)) + 
   geom_hline(yintercept = 0.5, alpha = 0.2)+ 
@@ -44,6 +46,8 @@ ggplot(data = list_of_msmc %>% filter(sink == "S_Yoruba-1"), aes(x = left_time_b
 ggsave("~/repos/dirmig/plot/mig/yoruba-xcoal.pdf", height = 6.49, width = 7.64, units = "in")
 
 ggplot(data = list_of_msmc %>% filter(sink == "S_Khomani_San-1"), aes(x = left_time_boundary, y = value, col = source)) + 
+  geom_vline(xintercept = seq(1e4,1e5,1e4), col = "grey", alpha = 0.3) +
+  geom_vline(xintercept = seq(1e5,1e6,1e5), col = "grey", alpha = 0.3) +
   geom_step() + 
   scale_x_log10(labels = label_comma(scale = 0.001)) + 
   geom_hline(yintercept = 0.5, alpha = 0.2)+ 

@@ -62,7 +62,8 @@ for(samp in samples){
     xlab("Thousands of Years before Present") + 
     theme_bw() +
     theme(legend.title = element_blank(),
-          panel.grid = element_blank())
+          panel.grid = element_blank(),
+          legend.position = "top")
   
   leg <- grab_legend(plots[[1]])
   
@@ -70,5 +71,5 @@ for(samp in samples){
 }
 
 
-ggmatrix(plots, ncol = 4, nrow = 1, ylab = "Effective Population Size", xlab = "Thousands of Years before Present", xAxisLabels = samples, legend = leg) 
+ggmatrix(plots, ncol = 4, nrow = 1, ylab = "Effective Population Size", xlab = "Thousands of Years before Present", xAxisLabels = samples, legend = leg) + theme(legend.position = "top") 
 ggsave("~/repos/dirmig/plot/ne/average_ne_subset.pdf", height = 5.87, width = 16.5, unit = "in")

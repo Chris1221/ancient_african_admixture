@@ -42,8 +42,38 @@ Sys.setenv(MAPBOX_TOKEN = 11122223333444)
 heatmaply(mat, dendrogram = "column", limits = c(0, 1), file = "plot/sgdp_heatmap_af.pdf")
 heatmaply(eur_mat, dendrogram = "column", limits = c(0, 1), file = "plot/sgdp_heatmap_eur.pdf")
 
+# New version
 
+a <- reshape2::melt(mat) %>% as.data.frame
 
+a_plot <- ggplot(a, aes(x = fct_reorder(factor(Var2),value), y = Var1, fill = value)) + 
+  geom_tile() + 
+  geom_text(aes(label=round(value, 3)), color="white") +
+  xlab("African Group") +
+  ylab("Eurasian Group") +
+  scale_fill_gradient(limits = c(0, 0.8)) + 
+  theme_bw() + 
+  theme(legend.position = "none") + 
+  theme(panel.border = element_blank(), 
+        panel.grid = element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+e <- reshape2::melt(eur_mat) %>% as.data.frame
+
+e_plot <- ggplot(e, aes(x = fct_reorder(factor(Var2),value), y = Var1, fill = value)) + 
+  geom_tile() + 
+  geom_text(aes(label=round(value, 3)), color="white") +
+  xlab("African Group") +
+  ylab("Eurasian Group") +
+  scale_fill_gradient(limits = c(0, 0.8)) + 
+  theme_bw() + 
+  theme(legend.position = "none") + 
+  theme(panel.border = element_blank(), 
+        panel.grid = element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+p <- ggmatrix(list(a_plot, e_plot), nrow = 2, ncol = 1, ylab = "Eurasian Group", xlab = "African Group", yAxisLabels = c("African Migration", "Eurasian Migration"))
+ggsave(p, file = "~/repos/dirmig/plot/mig/integrated_sgdp.pdf", height = 5.18, width = 14.9, unit = "in")
 # Because of bug with heatmaply, have to save it through Rstudio then edit in illustrator. (but not actually, orca works now)
 # 
 # 

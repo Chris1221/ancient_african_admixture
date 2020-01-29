@@ -46,31 +46,37 @@ for (sit in situations){
     rownames(emat) <- midpoints
     colnames(emat) <- factor(round(1-exp(-as.numeric(migs)), 3))
     
-    df <- melt(t(mat)) %>% as.data.frame() %>%  mutate(Var1 = as.character(Var1))
-    df2 <- melt(t(emat)) %>% as.data.frame() %>%  mutate(Var1 = as.character(Var1))
+    df <- reshape2::melt(t(mat)) %>% as.data.frame() %>%  mutate(Var1 = as.character(Var1))
+    df2 <- reshape2::melt(t(emat)) %>% as.data.frame() %>%  mutate(Var1 = as.character(Var1))
     plots[[i]] <- ggplot(df, aes(x = factor(Var1), y = Var2, fill = value)) + 
       geom_tile() + 
       geom_text(aes(label=round(value, 3)), color="white") +
-      xlab("Simulated Replacement") +
-      ylab("Simulated Midpoint") +
+      xlab("Amount of Migration \n(Proportion Replaced per Generation)") +
+      ylab("Time of Migration \n(years before present)") +
       scale_fill_gradient(limits = c(0, 0.6)) + 
       theme_bw() + 
-      theme(legend.position = "none") + 
-      theme(panel.border = element_blank(), panel.grid = element_blank())
+      theme(legend.position = "none",
+            panel.border = element_blank(), 
+            panel.grid = element_blank(),
+            axis.title.y = element_text(size = rel(1)),
+            axis.title.x = element_text(size = rel(1)))
     
     eplots[[i]] <- ggplot(df2, aes(x = factor(Var1), y = Var2, fill = value)) + 
       geom_tile() + 
       geom_text(aes(label=round(value, 3)), color="white") +
-      xlab("Simulated Replacement") +
-      ylab("Simulated Midpoint") + 
+      xlab("Amount of Migration \n(Proportion Replaced per Generation)") +
+      ylab("Time of Migration \n(years before present)") +
       scale_fill_gradient(limits = c(0, 0.6)) + 
       theme_bw() + 
-      theme(legend.position = "none") + 
-      theme(panel.border = element_blank(), panel.grid = element_blank())
+      theme(legend.position = "none",
+            panel.border = element_blank(), 
+            panel.grid = element_blank(),
+            axis.title.y = element_text(size = rel(2)),
+            axis.title.x = element_text(size = rel(2)))
     
     i = i + 1
     
   }
-  p <- ggmatrix(c(plots, eplots), nrow=3, ncol = 2, byrow = F, xlab = "Simulated Migration", ylab = "Simulated Midpoint", yAxisLabels = c("Backwards", "Forwards", "Bidirectional"), xAxisLabels = c("African Migration", "Eurasian Migration"))
-  ggsave(p, file = paste0("~/repos/dirmig/plot/sims/recovered_migration_", sit, ".pdf"))
+  p <- ggmatrix(c(plots, eplots), nrow=3, ncol = 2, byrow = F, xlab = "Amount of Migration \n(Proportion Replaced per Generation)", ylab = "Time of Migration \n(years before present)", yAxisLabels = c("Backwards", "Forwards", "Bidirectional"), xAxisLabels = c("Inferred Backwards Migration", "Inferred Forwards Migration")) + theme(axis.title.x = element_text(size = rel(1.25)), axis.title.y = element_text(size = rel(1.25)))
+  ggsave(p, file = paste0("~/repos/dirmig/plot/sims/recovered_migration_", sit, ".pdf"), height = 7.11, width = 14.5, units = "in")
 }
