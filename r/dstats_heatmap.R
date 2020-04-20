@@ -116,20 +116,20 @@ if(F){
 }
 
 if(F){
-
-ggplot(rbind(all, segs), aes(W, Y, fill = D)) + 
-  geom_tile() + 
-  facet_grid(. ~ type, scales = "free", space = "free") + 
-  theme_bw() + 
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
-  theme(axis.text.x = element_text(size = 4)) + 
-  theme(axis.text.y = element_text(size = 4)) +
-  ylab("Eurasian Populations") + 
-  xlab("African Individuals") + 
-  theme(legend.text = element_text(angle = 90, hjust = 1)) + 
-  theme(axis.title.y=element_blank(),
-  axis.text.y=element_blank(),
-  axis.ticks.y=element_blank())
+  
+  ggplot(rbind(all, segs), aes(W, Y, fill = D)) + 
+    geom_tile() + 
+    facet_grid(. ~ type, scales = "free", space = "free") + 
+    theme_bw() + 
+    theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
+    theme(axis.text.x = element_text(size = 4)) + 
+    theme(axis.text.y = element_text(size = 4)) +
+    ylab("Eurasian Populations") + 
+    xlab("African Individuals") + 
+    theme(legend.text = element_text(angle = 90, hjust = 1)) + 
+    theme(axis.title.y=element_blank(),
+          axis.text.y=element_blank(),
+          axis.ticks.y=element_blank())
 }
 
 if(F){
@@ -144,7 +144,7 @@ if(F){
   ggplot(s %>% filter(Y == "Japan_Jomon.SG_LowCov"), aes(x = fct_reorder(W, D), y = D, ymin = D-STERR, ymax=D+STERR)) + geom_point() + geom_errorbar() + coord_flip() + ggtitle("Japanese Joman Period Contribution to African Populations D(Jomon, Chimp; A1, A2)")
   
   # Looking at ALL the Y for a particular W                                                                                                                                                                              
-
+  
   s %>% filter(W == "S_Yoruba-1.DG") %>% group_by(Y, type, period) %>% summarise(D = D, STDERR = STDERR) -> s2
   
   s <- segs

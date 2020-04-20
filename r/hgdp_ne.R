@@ -8,9 +8,9 @@ library(dplyr)
 
 config = fromJSON(file = "~/repos/dirmig/analyses/hgdp_physically_phased.json")
 source = names_from_config(config$source) # from tools
-source_strings = vapply(source, ids_to_names, character(1)) %>% as.vector
+source_strings = vapply(source, id_to_name, character(1), source = 'hgdp') %>% as.vector
 sink = names_from_config(config$sink) # from tools
-sink_strings = vapply(sink, ids_to_names, character(1)) %>% as.vector
+sink_strings = vapply(sink, ids_to_names, character(1), source = "hgdp") %>% as.vector
 seed = "1791095846"
 smc2_path = "~/repos/dirmig/data/hgdp_low_mig/"
 msmc_path = "~/repos/dirmig/data/hgdp_low_mig/"
@@ -32,14 +32,5 @@ for (si in sink){
   }
 }
 
-ggmatrix(plots, nrow = length(source), ncol = length(sink), byrow = FALSE,xlab = "Years Before Present", ylab = "Estimated Effective Population Size", yAxisLabels = source_strings, xAxisLabels = sink_strings, legend = leg) + theme(legend.position = "bottom")
-#ggsave("~/repos/dirmig/plot/sgdp_subet_ne.pdf", height = 10, width = 8, unit = "in")
-
-han <- plots[[18]]
-
-two <- plot(smcsmc("~/repos/ancient_migration/data/yri4-vb.out"), type = "ne", ylim = c(1e3, 1e5), return_df = T)
-
-han + geom_step(data = two, aes(x = Start * 29, y = Ne), col = "green") + scale_y_log10(limits = c(2e3, 5e4))
-
-# Need to have some confidence interval for this probably
-ggsave("~/repos/dirmig/plot/ne/figure.pdf")
+hgdp <- ggmatrix(plots, nrow = length(source), ncol = length(sink), byrow = F,xlab = "Thousands of Years Before Present", ylab = "Estimated Effective Population Size", yAxisLabels = source_strings, xAxisLabels = sink_strings) + theme(legend.position = "bottom")
+ggsave(hgdp, file= "~/repos/dirmig/plot/hgdp_ne.pdf", height = 10, width = 8)

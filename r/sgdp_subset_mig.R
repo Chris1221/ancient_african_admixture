@@ -20,8 +20,8 @@ plots = list()
 i = 1
 for (si in sink){
   for (so in source){
-    smcsmc_file = new("smcsmc", file = paste0(smc2_path, seed, ".", so, ".", si, ".out"))
-    msmc_file = new("msmc", file = paste0(msmc_path, so, ".", si, ".final.txt"))
+    smcsmc_file = smcsmc(paste0(smc2_path, seed, ".", so, ".", si, ".out"))
+    msmc_file = msmc(paste0(msmc_path, so, ".", si, ".final.txt"))
     
     plots[[i]] = plot_both_msmc_and_smcsmc(smcsmc = smcsmc_file, msmc = msmc_file, type = "migration", ylim = c(0, 5e-4))
     
@@ -32,5 +32,5 @@ for (si in sink){
   }
 }
 
-ggmatrix(plots, nrow = length(source), ncol = length(sink), byrow = FALSE,xlab = "Years Before Present", ylab = "Estimated Effective Population Size", yAxisLabels = source_strings, xAxisLabels = sink_strings, legend = leg) + theme(legend.position = "bottom")
-ggsave("~/repos/dirmig/plot/sgdp_subet_mig.pdf", dpi = 300, height = 10, width = 8, unit = "in")
+subset_sgdp <- ggmatrix(plots, nrow = length(source), ncol = length(sink), byrow = FALSE,xlab = "Years Before Present", ylab = "Estimated Effective Population Size", yAxisLabels = source_strings, xAxisLabels = sink_strings, legend = leg) + theme(legend.position = "bottom")
+ggsave(subset_sgdp, file = "~/repos/dirmig/plot/sgdp_subet_mig.pdf", dpi = 300, height = 10, width = 8, unit = "in")

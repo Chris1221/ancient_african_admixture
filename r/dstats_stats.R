@@ -53,9 +53,9 @@ ggplot( rbind(segs, all), aes(x = D, fill= type, group = type))  +
   geom_histogram(aes(y = ..density..), position = "identity", alpha = 0.6, binwidth = 0.001) + 
   theme_bw() + 
   xlim(c(-0.15, 0.15))
-  theme(legend.position = "bottom", legend.title = element_blank()) + 
+theme(legend.position = "bottom", legend.title = element_blank()) + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
-                                                                                                                                                                                                     panel.background = element_blank(), axis.line = element_line(colour = "black")) + ylab("Density") + xlab("Z Score")
+panel.background = element_blank(), axis.line = element_line(colour = "black")) + ylab("Density") + xlab("Z Score")
 ggsave("~/repos/dirmig/plot/dstats_hist.pdf")
 
 joined <- rbind(segs, all) 
@@ -103,3 +103,39 @@ for(lang in list_language_families()){
 }
 
 summary = joined %>% group_by(lang, period, continent, Y, type) %>% summarise(mean = mean(D), sd = sd(D))
+
+
+##### Top 10 table
+merged <- merge(all, segs, by = c("W", "X", "Y", "Z"), suffixes = c(".all", ".segs"))
+
+top20 <- merged %>% 
+  filter(!grepl(Y, pattern = "Chimp")) %>%
+  filter(na.segs + nb.segs > 1000) %>%
+  #mutate(W = paste0("D(", W, ", ", X, ", ", Y, ", ", Z, ")")) %>%
+  select(W, Y, D.segs, STERR.segs, z.segs, D.all, STERR.all, z.all) %>%
+  arrange(-D.segs) %>%
+  filter(!grepl(Y, pattern= "LowCov")) %>%
+  head(20) 
+
+top20$W <- lapply(top20$W, ids_to_names)
+colnames(top20) <- c("African", "Eurasian", "D", "Std. Err.", "Z", "D", "Std. Err", "Z")
+label = "dstats:top20"
+legend = "Top 20 D Statistics for D(Test African, Partner African; Eurasian, Chimp) calculated for variants in putatively migrated segments. Statistics with less than a thousand combined variants were excluded. Segments were isolated in the first individual (ID-1) and compared to the second individual (ID-2). Segments were isolated using a Han Chinese individual to estimate migration."
+print(xtable(top20, digits = 3, caption = legend, label = label), file = "~/repos/dirmig/table/top20.tex", include.rownames = FALSE,  append = T)
+
+
+### Modern populations
+top20m <- merged %>% 
+  filter(!grepl(Y, pattern = "Chimp")) %>%
+  filter(na.segs + nb.segs > 10000) %>%
+  #mutate(W = paste0("D(", W, ", ", X, ", ", Y, ", ", Z, ")")) %>%
+  select(W, Y, D.segs, STERR.segs, z.segs, D.all, STERR.all, z.all) %>%
+  arrange(-D.segs) %>%
+  filter(!grepl(Y, pattern= "LowCov")) %>%
+  head(20) 
+
+top20m$W <- lapply(top20m$W, ids_to_names)
+colnames(top20m) <- c("African", "Eurasian", "D", "Std. Err.", "Z", "D", "Std. Err", "Z")
+label = "dstats:top20m"
+legend = "Top 20 D Statistics for D(Test African, Partner African; Eurasian, Chimp) calculated for variants in putatively migrated segments with more than a combined 10,000 variants. Segments were isolated in a test individual (Sample-1) and compared to a partner individual (Sample-2) from the Simons Genome Diversity Panel. Segments were isolated using a Han Chinese individual to estimate migration, and the populations isolated are representative of Han affinity."
+print(xtable(top20m, digits = 3, caption = legend, label = label), include.rownames = FALSE,  append = T)

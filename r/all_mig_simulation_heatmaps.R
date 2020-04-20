@@ -34,9 +34,9 @@ for (sit in situations){
     for(mid in midpoints){
       k = 1
       for(mig in migs){
-          emat[j, k] <- avg_migr( file = paste0("~/repos/dirmig/data/spvaryingmig/", s, "_", mid, "_10000_", mig, "_", sit, ".out"), ancient = 100000, modern = 0, g = 29)$integrated[1]
-          mat[j,k] <- avg_migr( file = paste0("~/repos/dirmig/data/spvaryingmig/", s, "_", mid, "_10000_", mig, "_", sit, ".out"), ancient = 100000, modern = 0, g = 29)$integrated[2]
-          k = k+1
+        emat[j, k] <- avg_migr( file = paste0("~/repos/dirmig/data/spvaryingmig/", s, "_", mid, "_10000_", mig, "_", sit, ".out"), ancient = 100000, modern = 0, g = 29)$integrated[1]
+        mat[j,k] <- avg_migr( file = paste0("~/repos/dirmig/data/spvaryingmig/", s, "_", mid, "_10000_", mig, "_", sit, ".out"), ancient = 100000, modern = 0, g = 29)$integrated[2]
+        k = k+1
       }
       j = j + 1
     }
@@ -58,8 +58,8 @@ for (sit in situations){
       theme(legend.position = "none",
             panel.border = element_blank(), 
             panel.grid = element_blank(),
-            axis.title.y = element_text(size = rel(1)),
-            axis.title.x = element_text(size = rel(1)))
+            axis.title.y = element_text(size = 15),
+            axis.title.x = element_text(size = 15))
     
     eplots[[i]] <- ggplot(df2, aes(x = factor(Var1), y = Var2, fill = value)) + 
       geom_tile() + 
@@ -71,12 +71,12 @@ for (sit in situations){
       theme(legend.position = "none",
             panel.border = element_blank(), 
             panel.grid = element_blank(),
-            axis.title.y = element_text(size = rel(2)),
-            axis.title.x = element_text(size = rel(2)))
+            axis.title.y = element_text(size = 15),
+            axis.title.x = element_text(size = 15))
     
     i = i + 1
     
   }
-  p <- ggmatrix(c(plots, eplots), nrow=3, ncol = 2, byrow = F, xlab = "Amount of Migration \n(Proportion Replaced per Generation)", ylab = "Time of Migration \n(years before present)", yAxisLabels = c("Backwards", "Forwards", "Bidirectional"), xAxisLabels = c("Inferred Backwards Migration", "Inferred Forwards Migration")) + theme(axis.title.x = element_text(size = rel(1.25)), axis.title.y = element_text(size = rel(1.25)))
-  ggsave(p, file = paste0("~/repos/dirmig/plot/sims/recovered_migration_", sit, ".pdf"), height = 7.11, width = 14.5, units = "in")
+  p <- ggmatrix(c(plots, eplots), nrow=3, ncol = 2, byrow = F, xlab = "Amount of Migration (Proportion Replaced per Generation)", ylab = "Time of Migration (years before present)", yAxisLabels = c("Backwards", "Forwards", "Bidirectional"), xAxisLabels = c("Inferred Backwards Migration", "Inferred Forwards Migration")) + theme(axis.title.x = element_text(size = 12), axis.title.y = element_text(size = 12))
+  ggsave(p, file = paste0("~/repos/dirmig/plot/sims/recovered_migration_", sit, ".pdf"), height = 4, width = 10, units = "in")
 }

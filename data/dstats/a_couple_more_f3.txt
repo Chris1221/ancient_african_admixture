@@ -1,0 +1,17 @@
+A B C f3 stderr Zscore nsnps Source
+S_Yoruba-2.DG Vindija.DG S_Yoruba-1.DG -0.003047 0.002402 -1.269 302964 All
+S_Yoruba-2.DG S_French-1.DG S_Yoruba-1.DG -0.002004 0.002506 -0.8 340923 All
+S_Yoruba-2.DG S_Han-1.DG S_Yoruba-1.DG -0.000902 0.00245 -0.368 342123 All
+S_Yoruba-2.DG S_Papuan-1.DG S_Yoruba-1.DG 0.000885 0.0025 0.354 338323 All
+S_Yoruba-2.DG Vindija.DG S_Yoruba-1.DG -0.014062 0.00367 -3.832 126783 French
+S_Yoruba-2.DG S_French-1.DG S_Yoruba-1.DG -0.039 0.003398 -11.477 139338 French
+S_Yoruba-2.DG S_Han-1.DG S_Yoruba-1.DG -0.027981 0.003335 -8.391 140889 French
+S_Yoruba-2.DG S_Papuan-1.DG S_Yoruba-1.DG -0.023654 0.003478 -6.801 139704 French
+S_Yoruba-2.DG Vindija.DG S_Yoruba-1.DG -0.018064 0.003479 -5.193 132704 Han
+S_Yoruba-2.DG S_French-1.DG S_Yoruba-1.DG -0.032264 0.00316 -10.211 147536 Han
+S_Yoruba-2.DG S_Han-1.DG S_Yoruba-1.DG -0.039831 0.003183 -12.515 146334 Han
+S_Yoruba-2.DG S_Papuan-1.DG S_Yoruba-1.DG -0.025013 0.00345 -7.251 146335 Han
+S_Yoruba-2.DG Vindija.DG S_Yoruba-1.DG -0.024052 0.003238 -7.429 124253 Papuan
+S_Yoruba-2.DG S_French-1.DG S_Yoruba-1.DG -0.038108 0.003375 -11.291 137823 Papuan
+S_Yoruba-2.DG S_Han-1.DG S_Yoruba-1.DG -0.035879 0.00333 -10.775 138105 Papuan
+S_Yoruba-2.DG S_Papuan-1.DG S_Yoruba-1.DG -0.0473 0.003362 -14.071 135121 Papuan

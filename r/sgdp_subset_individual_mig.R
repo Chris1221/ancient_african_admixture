@@ -78,9 +78,9 @@ ggplot(data = summary, aes(x = Start*g, fill = pop, linetype = From, y = mean, y
   scale_fill_manual(values = c('blue', 'green', "red"), labels = c("Khomani San", "Mbuti", "Yoruba")) + 
   #scale_fill_manual(values = c('blue', 'red', 'black'), labels = c("Afr to Eur", "Eur to Afr")) +
   theme_bw() + 
-  theme(legend.position = "right",
+  theme(legend.position = "none",
         legend.title = element_blank(), 
         panel.grid.minor = element_blank())
-    
-ggsave("~/repos/dirmig/plot/mig/sgdp_subet_three_pop.pdf", height = 9.61, width = 11.3, unit = "in")
+
+ggsave("~/repos/dirmig/plot/mig/sgdp_subet_three_pop.pdf", height = 4, width = 4, unit = "in")
 
