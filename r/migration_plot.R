@@ -184,7 +184,8 @@ hgdp_three_pop_curve = function(){
                   limits = c(1e4,3e5),
                   labels = label_comma(scale = 0.001, suffix = "k")) + 
     scale_color_manual(values = c('green', 'blue', "red", "orange"), labels = c("Khomani San", "Mbuti", "Yoruba", "Mozabite")) +
-    ylab(TeX("Migration Rate (10^{-4})")) + 
+    #ylab(TeX("Migration Rate (10^{-4})")) + 
+    ylab("") + 
     xlab("Years ago") + 
     scale_linetype_manual(values = c(2,1), labels = c("Afr to Eur", "Eur to Afr")) + 
     scale_fill_manual(values = c('green', 'blue', "red", "orange"), labels = c("Khomani San", "Mbuti", "Yoruba", "Mozabite")) + 
@@ -361,7 +362,9 @@ for(i in 1:nrow(df_lang)){
 }
 df_lang <- df_lang %>% gather(comparison, migration, French:Papuan)
 
-df_lang$lang <- factor(df_lang$lang, levels = c("Afroasiatic", "Nilo-Saharan", "Niger-Kordofanian", "Khoesan"),)
+df_lang$lang[df_lang$lang == "Khoesan"] = "Khoe-San"
+
+df_lang$lang <- factor(df_lang$lang, levels = c("Afroasiatic", "Nilo-Saharan", "Niger-Kordofanian", "Khoe-San"),)
 
 boxplot <- ggplot(df_lang, aes(y = migration, x = lang, col = comparison)) + 
   geom_boxplot() + 
@@ -371,10 +374,10 @@ boxplot <- ggplot(df_lang, aes(y = migration, x = lang, col = comparison)) +
   scale_color_manual(values = c("purple", "orange", "brown")) +
   theme(legend.position = "top", legend.title = element_blank(),
         panel.grid.major.x = element_blank(),
-        aspect.ratio = 1/3) + 
-  annotate(geom="text", x=2.5, y=0.2, label="Mbuti",
-                                       color="blue") +
-  annotate("segment", x = 2.7, xend = 2.9, y = 0.2, yend = 0.24, colour = "blue", size=0.5, alpha=1, arrow=arrow())
+        aspect.ratio = 1/3)
+  #annotate(geom="text", x=2.5, y=0.2, label="Mbuti",
+  #                                     color="blue") +
+  #annotate("segment", x = 2.7, xend = 2.9, y = 0.2, yend = 0.24, colour = "blue", size=0.5, alpha=1, arrow=arrow())
 
   return(boxplot)
 

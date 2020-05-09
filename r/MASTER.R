@@ -85,3 +85,11 @@ length_plot()[["plot"]] %>% ggsave(file = "plot/both_length.pdf", height = 8, wi
 # Simulation line plot
 source("r/sim_line_plot.R")
 simulation_line_plot() %>% ggsave(file = "~/repos/dirmig/plot/sim_line_plot.pdf", h = 6, w = 10)
+
+source("r/new_dstats_figure.R")
+plot_reich_figure(
+  dotchart = reich_all_dotchart(),
+  ancientheatmap = reich_ancientheatmap(),
+  modern_bar_plot = reich_modern_density(),
+  archaic_bar_plot = reich_archaic_density()
+) %>% ggsave(file = "~/repos/dirmig/plot/new_dstats.pdf", height = 8, width = 12)

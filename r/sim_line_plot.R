@@ -119,7 +119,7 @@ simulation_line_plot = function(){
   bind_rows(dfs) %>% mutate(recovered_m = 0.13, source = "e", sim = "real", mid = "YRI-Han Inference") -> fm
   
   df = bind_rows(dfs, edfs, bm, fm) %>% mutate(simulated_m = as.factor(simulated_m), sit = as.factor(sit)) 
-  levels(df$sit) <- c("Backward", "Symmetric", "Forward")
+  levels(df$sit) <- c("Backward", "Bidirectional", "Forward")
   
     mids[[j]] = df
     j = j + 1
@@ -127,18 +127,40 @@ simulation_line_plot = function(){
   }
   
   df = bind_rows(mids)
+  
+  template = df %>% filter(sit == "Backward", mid == 40000)
+  
+  # backward
+  bw_truth = template %>%
+    mutate(recovered_m = ifelse(source == "a", as.numeric(as.character(simulated_m)), 0))
+  
+  sym_truth = template %>%
+    mutate(recovered_m = simulated_m, sit = "Bidirectional")
+  
+  fwd_truth = template %>%
+    mutate(recovered_m = ifelse(source == "a", 0, as.numeric(as.character(simulated_m))),
+           sit = "Forward")
+  
+  truth = rbind(bw_truth, sym_truth, fwd_truth) %>% 
+    mutate(mid = "Truth")
+  
+  df = rbind(df, truth)
+  
   df$source <- as.factor(df$source)
   levels(df$source) =  c("Recovered Backwards", "Recovered Forwards")
+  df$t = df$mid == "Truth"
   
-  p <- ggplot(df, aes(x = simulated_m, y = recovered_m, group = interaction(source, sim, mid), col= interaction(mid), sim), lty = as.factor(sim)) + 
-    geom_point(aes(size = sim)) + 
+  p <- ggplot(df, aes(x = as.numeric(as.character(simulated_m)), y = as.numeric(recovered_m), group = interaction(source, sim, mid), col= interaction(mid), sim), lty = as.factor(sim)) + 
+    geom_point(aes(size = sim, shape = interaction(mid))) + 
     geom_line(aes(lty = sim)) + 
     facet_grid(source~sit) + 
     scale_linetype_manual(values = c(5, 1), labels = c("SGDP Yoruban-Han", "Simulation")) +
-    scale_color_manual(values = c("blue", "green", "red", "brown", "black"), breaks = c("40000", "50000", "60000", "70000")) + 
+    scale_color_manual(values = c("blue", "green", "red", "brown", "black", "black"), breaks = c("40000", "50000", "60000", "70000", "Truth")) + 
     scale_size_manual(values = c(-1, 2), guide = F) +
+    scale_shape_manual(values = c(16, 16, 16, 16, 15, 1), breaks = c("40000", "50000", "60000", "70000", "Truth")) + 
     theme_bw() + 
     ylab("Recovered IMF") +
+    ylim(-0.05, 0.7) + 
     xlab("Simulated IMF") +
     theme(axis.text.x = element_text(angle = 45, hjust = 1),
           legend.position = "top",
