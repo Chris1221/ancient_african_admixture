@@ -1,0 +1,16 @@
+{
+	"name": "malaspinas",
+	"source": {
+		"S_Khomani_San-1": "SGDP",
+		"S_Yoruba-1": "SGDP"},
+	"sink" : { 
+		"S_Papuan-1": "SGDP",
+		"S_French-1": "SGDP"},
+	"sink_segs" : { 
+		"S_Biaka-1": "SGDP",	
+		"S_Yoruba-1": "SGDP"},
+	"Np": 5000,
+	"EM": 10,
+	"seed": 1,
+	"replicates": 1
+}

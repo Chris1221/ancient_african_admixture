@@ -1,0 +1,28 @@
+{
+	"name": "hgdp_low_mig",
+	"description": "Analyse only physically phased samples.",
+	"source": {
+		"HGDP00562": "HGDP_PP",
+		"HGDP00774": "HGDP_PP",
+		"HGDP01013": "HGDP_PP",
+		"HGDP00549": "HGDP_PP",
+		"HGDP00542": "HGDP_PP",
+		"HGDP00224": "HGDP_PP",
+		"HGDP01043": "HGDP_PP",
+		"HGDP00670": "HGDP_PP",
+		"HGDP00946": "HGDP_PP"},
+	"sink" : { 
+		"HGDP00930":  "HGDP_PP",
+		"HGDP01029": "HGDP_PP",
+		"HGDP00450": "HGDP_PP",
+		"HGDP00460": "HGDP_PP"},
+	"sink_segs" : { 
+		"HGDP00930":  "HGDP_PP",
+		"HGDP01029": "HGDP_PP",
+		"HGDP00450": "HGDP_PP",
+		"HGDP00460": "HGDP_PP"},
+	"Np": 5000,
+	"EM": 10,
+	"seed": 1,
+	"replicates": 3
+}

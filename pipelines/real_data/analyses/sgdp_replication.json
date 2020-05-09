@@ -1,0 +1,26 @@
+{
+	"name": "sgpd_replication2",
+	"source": {
+		"S_Druze-1": "SGDP",
+		"S_Han-1": "SGDP",
+		"S_Karitiana-1": "SGDP",
+		"S_Papuan-1": "SGDP",
+		"S_Pathan-1": "SGDP",
+		"S_Pima-1": "SGDP",
+		"S_Sardinian-1": "SGDP",
+		"S_Yakut-1": "SGDP"},
+	"sink" : { 
+		"S_Biaka-1": "SGDP",
+		"S_Mbuti-1": "SGDP",
+		"S_Yoruba-1": "SGDP",
+		"S_Khomani_San-1": "SGDP"},
+	"sink_segs" : { 
+		"S_Biaka-1": "SGDP",	
+		"S_Mbuti-1": "SGDP",
+		"S_Yoruba-1": "SGDP",
+		"S_Khomani_San-1": "SGDP"},
+	"Np": 10000,
+	"EM": 25,
+	"seed": 1,
+	"replicates": 3
+}
