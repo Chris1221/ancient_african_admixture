@@ -1,0 +1,526 @@
+"""
+This pipeline runs coalescent simulations in various configurations
+in order to support the idea that migration from Eurasia to Africa
+was more common in the ancient past than is currently appreciated.
+
+(c) Christopher Cole
+"""
+
+import smcsmc
+import smcsmc.utils
+import json
+from pathlib import Path
+
+configfile: 		"analyses/sp_varyingmid.json"
+name = 			config['name']
+haps = 			int(config['haps'])
+half_haps = 		int(haps / 2)
+times = 		[int(x) for x in config['times'].split()]
+durations = 		[int(x) for x in config['durations'].split()]
+#yri_migr = 		[float(x) for x in config['yri_migr'].split()]
+#ceu_migr = 		[int(x) for x in config['ceu_migr'].split()]
+proportions = 		[float(x) for x in config['proportions'].split()]
+scenarios = 		[x for x in config['scenarios'].split()]
+#particles = 		[int(x) for x in config['particles'].split()]
+L = 			config['L']
+#data = 			config['data']
+
+Np = 			str(config['Np'])
+EM = 			str(config['EM'])
+env = 			os.getenv("CONDA_PREFIX")
+
+localrules: smc2cli
+
+wildcard_constraints:
+	name="[a-z]+", # A word, no directories
+	scenario="[a-z]+",
+	time="\d{5}",
+	duration="\d{5}",
+	proportion="\d\.\d",
+	case="\d",
+	yri="(\d{2}|\d)",
+	ceu="(\d{2}|\d)"
+
+
+rule seg_files:
+	input: 
+	output: 
+		"data/{name}/{scenario}_{time}_{duration}_{proportion}.seg",
+		"data/{name}/{scenario}_{time}_{duration}_{proportion}.txt",
+		"data/{name}/{scenario}_{time}_{duration}_{proportion}.csv",
+	run:
+		print(smcsmc.__file__)
+		sim = smcsmc.Simulation(L=L,haps={haps}, midpoint={wildcards.time},duration={wildcards.duration},proportion={wildcards.proportion}, direction={wildcards.scenario})
+		sim.run_scrm( f"data/{name}/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}.txt" )
+		sim.scrm_to_seg (f"data/{name}/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}.txt", f"data/{name}/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}.seg" )
+		sim.write_df ( f"data/{name}/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}.csv")
+
+rule li_and_durbin:
+	input: "data/{scenario}_{time}_{duration}_{proportion}.seg"
+	output: "data/{scenario}_{time}_{duration}_{proportion}_dip{dip}.seg"
+	threads: 9
+	run: 
+		with open(input[0], 'r') as f, open(output[0], 'a') as o0:
+			for line in f.readlines():
+				line = line.strip().split('\t')
+				if int(wildcards.dip) == 0:
+					dip = line[-1][:2] + '\n'
+				elif int(wildcards.dip) == 1:
+					dip = line[-1][2:] + '\n'
+				else: 
+					print("Dip not right")
+					print(wildcards.dip)
+				dip_line = line[:-1] + [dip]
+				o0.write('\t'.join(dip_line))
+
+''' 13/11/2019
+This analysis looks at the single population estimates of some forward
+simulations along with a psmc-like single haplotype from each population analysis'''
+rule SP_single_versus_psmc:
+	input: seg = "data/{name}/{scenario}_{time}_{duration}_{proportion}.seg" 
+	output: "data/{name}/{scenario}_{time}_{duration}_{proportion}_{case}.seg"	
+	threads: 9
+	run: 
+		with open(input.seg, 'r') as f, open(output[0], 'a') as o0:
+			for line in f.readlines():
+				line = line.strip().split('\t')
+				if int(wildcards.case) == 0:
+					dip = line[-1][:4] + '\n'
+				elif int(wildcards.case) == 1:
+					dip = line[-1][4:] + '\n'
+				elif int(wildcards.case) == 2:
+					dip = line[-1][0] + line[-1][-1] + '\n'
+				elif int(wildcards.case) == 3:
+					dip = line[-1] + '\n'
+				elif int(wildcards.case) == 9:
+					dip = line[-1][4:] + '\n'
+				else: 
+					print("This case is not recognized.")
+					print(wildcards.case)
+				dip_line = line[:-1] + [dip]
+				o0.write('\t'.join(dip_line))
+rule SP_run_single:
+	input: "data/{name}/{scenario}_{time}_{duration}_{proportion}_{case}.seg"
+	output: "run/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+	wildcard_constraints:
+		case="(0|1)"
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c  -chunks 100 -no_infer_recomb -nsam 4 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/sp.{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_{wildcards.case} -seg {input[0]} -smcsmcpath ~/repos/smcsmc-core-clean/build/smcsmc
+		"""
+
+rule mimic_psmc:
+	input: "data/{name}/{scenario}_{time}_{duration}_{proportion}_{case}.seg"
+	output: "run/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+	wildcard_constraints:
+		case="9"
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 4 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/sp.{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_{wildcards.case} -seg {input[0]} -smcsmcpath ~/repos/smcsmc_older_version/smcsmc
+		"""
+
+
+
+#localrules: SP_run_two
+#rule SP_run_two:
+#	input: "data/{name}/{scenario}_{time}_{duration}_{proportion}_{case}.seg"
+#	output: "run/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+#	wildcard_constraints:
+#		case="2"
+#	threads: 9
+#	shell:
+#		"""
+#		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 2 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 1 1 -ej 0.2324 2 1 -eM 0 5 -eM 0.0092 10 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/sp.{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_{wildcards.case} -seg {input[0]} -smcsmcpath ~/repos/smcsmc-core-clean/build/smcsmc
+#		"""
+
+''' I have changed this rule to have no migration for an experiment. CHanged this to ONE for real analyses.'''
+localrules: SP_run_two
+rule SP_run_two:
+	input: "data/{name}/{scenario}_{time}_{duration}_{proportion}_{case}.seg"
+	output: "run/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+	wildcard_constraints:
+		case="2"
+	threads: 9
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 2 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 1 1 -ej 0.2324 2 1 -eM 0 1 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/sp.{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_{wildcards.case} -seg {input[0]} -smcsmcpath ~/repos/smcsmc_older_version/smcsmc
+		"""
+
+''' ALso no initial migration'''
+#localrules: SP_run_three
+rule SP_run_three:
+	input: "data/{name}/{scenario}_{time}_{duration}_{proportion}_{case}.seg"
+	output: "run/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+	wildcard_constraints:
+		case="3"
+	threads: 9
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 8 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 4 4 -ej 0.2324 2 1 -eM 0 0 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/sp.{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_{wildcards.case} -seg {input[0]} -smcsmcpath ~/repos/smcsmc-core-clean/build/smcsmc
+		"""
+
+rule smc2cli:
+	input: rules.seg_files.output
+	output: "run/{name}/{scenario}_{time}_{duration}_{proportion}/result.out"
+	#wildcard_constraints:
+#		scenario="\w+"
+	threads: 9
+	shell: 	
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam {haps} -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 {half_haps} {half_haps} -ej 0.2324 2 1 -eM 0 5 -eM 0.0092 10 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion} -seg {input[0]} -smcsmcpath ~/repos/smcsmc-core-clean/build/smcsmc
+		"""
+
+rule smc2cli_exact_model:
+	input: rules.seg_files.output
+	output: "run/{name}/EXACT/{scenario}_{time}_{duration}_{proportion}/result.out"
+	wildcard_constraints:
+		name="\w+", # A word, no directories
+		scenario="\w+",
+		time="\d+",
+		duration="\d+"
+	threads: 9
+	shell: 	
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam {haps} -mu 1.25e-8 -rho 3e-9 -calibrate_lag 2.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 {half_haps} {half_haps} -ej 0.2324 2 1 -en 0.0 1 36.91244788075014 -en 0.0 2 1.1442221643917323 -ema 0.0 0.0 0 0 0.0 -en 0.002299993012856344 1 14.897817703054107 -en 0.002299993012856344 2 1.1442221643917323 -ema 0.002299993012856344 0.0 0 0 0.0 -en 0.002999943955702517 1 7.04453212824083 -en 0.002999943955702517 2 1.1442221643917323 -ema 0.002999943955702517 0.0 0 0 0.0 -en 0.003912909164093264 1 3.6896122183036897 -en 0.003912909164093264 2 1.1442221643917323 -ema 0.003912909164093264 0.0 0 0 0.0 -en 0.005103714720183697 1 2.0658747631563488 -en 0.005103714720183697 2 1.1442221643917323 -ema 0.005103714720183697 0.0 0 0 0.0 -en 0.006656915060550817 1 1.2161701042289077 -en 0.006656915060550817 2 1.1442221643917323 -ema 0.006656915060550817 0.0 0 0 0.0 -en 0.008682796855423234 1 0.753623922217417 -en 0.008682796855423234 2 1.1442221643917323 -ema 0.008682796855423234 0.0 0 0 0.0 -en 0.011325210032995296 1 0.4992796750176852 \
+		-en 0.011325210032995296 2 1.1442221643917323 -ema 0.011325210032995296 0.0 0 0 0.0 -en 0.014771781999177664 1 0.362583322504241 -en 0.014771781999177664 2 1.1442221643917323 -ema 0.014771781999177664 0.0 0 0 0.0 -en 0.019267240324506208 1 0.2968725345828801 -en 0.019267240324506208 2 1.1442221643917323 -ema 0.019267240324506208 0.0 0 0 0.0 -en 0.025130789890004064 1 0.2807169418427646 -en 0.025130789890004064 2 1.1442221643917323 -ema 0.025130789890004064 0.0 132.81536 0 0.0 -en 0.02710529866425088 1 0.284250785466863 -en 0.02710529866425088 2 1.1442221643917323 -ema 0.02710529866425088 0.0 132.81536 0 0.0 -en 0.03277877837503519 1 0.31028767973446025 -en 0.03277877837503519 2 1.1442221643917323 -ema 0.03277877837503519 0.0 0 0 0.0 -en 0.03312869836741774 1 0.31253782027673405 -en 0.03312869836741774 2 1.1442221643917323 -ema 0.03312869836741774 0.0 0 0 0.0 -en 0.04275425947463135 1 0.39815181178994635 -en 0.04275425947463135 2 1.1442221643917323 -ema 0.04275425947463135 0.0 0 0 0.0 -en 0.055765553014516224 1 0.5752878696316018 -en 0.055765553014516224 2 1.1442221643917323 -ema 0.055765553014516224 0.0 0 0 0.0 -en 0.07273653996650431 1 0.8870105402709897 \
+		-en 0.07273653996650431 2 1.1442221643917323 -ema 0.07273653996650431 0.0 0 0 0.0 -en 0.09487226361624525 1 1.3601405288365245 -en 0.09487226361624525 2 1.3601405288365245 -ema 0.09487226361624525 0.0 0 0 0.0 -en 0.12374449496518858 1 1.9257363867414072 -en 0.12374449496518858 2 1.9257363867414072 -en 0.1614033380306902 1 2.3683289398626104 -en 0.1614033380306902 2 2.3683289398626104 -en 0.2105227996993144 1 2.4528403797683147 -en 0.2105227996993144 2 2.4528403797683147 -en 0.2745906604782269 1 2.1622256370286173 -en 0.2745906604782269 2 2.1622256370286173 -en 0.3581561281227553 1 1.7114603212814727 -en 0.3581561281227553 2 1.7114603212814727 -en 0.4671528590538307 1 1.323889657752565 -en 0.4671528590538307 2 1.323889657752565 -en 0.6093202840504548 1 1.0977874593797183 -en 0.6093202840504548 2 1.0977874593797183 -en 0.7947531549037257 1 1.0466912322866575 -en 0.7947531549037257 2 1.0466912322866575 -en 1.036618333187021 1 1.1696976810589326 -en 1.036618333187021 2 1.1696976810589326 -en 1.3520897175043092 1 1.4578865585640426 -en 1.3520897175043092 2 1.4578865585640426 -en 1.7635676947371328 1 1.8007731264782807 -en 1.7635676947371328 2 1.8007731264782807 -en 2.3002697037451068 1 1.8994236867977172 -en 2.3002697037451068 2 1.8994236867977172 -arg -P 133 133016 31*1 -o run/{name}/EXACT/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion} -seg {input[0]} -smcsmcpath ~/repos/smcsmc-core-clean/build/smcsmc
+		"""
+
+rule smc2cli_exact_ne:
+	input: rules.seg_files.output
+	output: "run/{name}/EXACT_NE/{scenario}_{time}_{duration}_{proportion}/result.out"
+	threads: 9
+	shell: 	
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam {haps} -mu 1.25e-8 -rho 3e-9 -calibrate_lag 2.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 {half_haps} {half_haps} -eM 0 5 -ema 0.0092 0.0 10 0 0.0 -ema 0.0092 0.0 0 5 0.0 -en 0.0 1 36.91244788075014 -en 0.0 2 1.1442221643917323 -en 0.002299993012856344 1 14.897817703054107 -en 0.002299993012856344 2 1.1442221643917323 -en 0.002999943955702517 1 7.04453212824083 -en 0.002999943955702517 2 1.1442221643917323 -en 0.003912909164093264 1 3.6896122183036897 -en 0.003912909164093264 2 1.1442221643917323 -en 0.005103714720183697 1 2.0658747631563488 -en 0.005103714720183697 2 1.1442221643917323 -en 0.006656915060550817 1 1.2161701042289077 -en 0.006656915060550817 2 1.1442221643917323 -en 0.008682796855423234 1 0.753623922217417 -en 0.008682796855423234 2 1.1442221643917323 -en 0.011325210032995296 1 0.4992796750176852 -en 0.011325210032995296 2 1.1442221643917323 -en 0.014771781999177664 1 0.362583322504241 -en 0.014771781999177664 2 1.1442221643917323 -en 0.019267240324506208 1 0.2968725345828801 -en 0.019267240324506208 2 1.1442221643917323 \
+		-en 0.025130789890004064 1 0.2807169418427646 -en 0.025130789890004064 2 1.1442221643917323 -en 0.02710529866425088 1 0.284250785466863 -en 0.02710529866425088 2 1.1442221643917323 -en 0.03277877837503519 1 0.31028767973446025 -en 0.03277877837503519 2 1.1442221643917323 -en 0.03312869836741774 1 0.31253782027673405 -en 0.03312869836741774 2 1.1442221643917323 -en 0.04275425947463135 1 0.39815181178994635 -en 0.04275425947463135 2 1.1442221643917323 -en 0.055765553014516224 1 0.5752878696316018 -en 0.055765553014516224 2 1.1442221643917323 -en 0.07273653996650431 1 0.8870105402709897 -en 0.07273653996650431 2 1.1442221643917323 -en 0.09487226361624525 1 1.3601405288365245 -en 0.09487226361624525 2 1.3601405288365245 -en 0.12374449496518858 1 1.9257363867414072 -en 0.12374449496518858 2 1.9257363867414072 \
+		-en 0.1614033380306902 1 2.3683289398626104 -en 0.1614033380306902 2 2.3683289398626104 -en 0.2105227996993144 1 2.4528403797683147 -en 0.2105227996993144 2 2.4528403797683147 -en 0.2745906604782269 1 2.1622256370286173 -ej 0.2324 2 1 -en 0.2745906604782269 2 2.1622256370286173 -en 0.3581561281227553 1 1.7114603212814727 -en 0.3581561281227553 2 1.7114603212814727 -en 0.4671528590538307 1 1.323889657752565 -en 0.4671528590538307 2 1.323889657752565 -en 0.6093202840504548 1 1.0977874593797183 -en 0.6093202840504548 2 1.0977874593797183 -en 0.7947531549037257 1 1.0466912322866575 -en 0.7947531549037257 2 1.0466912322866575 -en 1.036618333187021 1 1.1696976810589326 -en 1.036618333187021 2 1.1696976810589326 -en 1.3520897175043092 1 1.4578865585640426 -en 1.3520897175043092 2 1.4578865585640426 -en 1.7635676947371328 1 1.8007731264782807 -en 1.7635676947371328 2 1.8007731264782807 -en 2.3002697037451068 1 1.8994236867977172 -en 2.3002697037451068 2 1.8994236867977172 -arg -P 133 133016 31*1 -o run/{name}/EXACT_NE/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion} -seg {input[0]} -smcsmcpath ~/repos/smcsmc-core-clean/build/smcsmc
+		"""
+
+
+rule li_and_durbin_run:
+	input: rules.li_and_durbin.output
+	output: "run/{scenario}_{time}_{duration}_{proportion}_dip{dip}/result.out"
+	threads: 9
+	shell: 
+		"""
+		smc2 -c -chunks 100 -no_infer_recomb -nsam 2 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 2.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_dip{wildcards.dip} -seg {input[0]} -smcsmcpath {env}/bin/smcsmc
+		"""
+
+rule li_and_durbin_rule:
+	input: expand( "run/{scenario}_{time}_{duration}_{proportion}_dip{dip}/result.out", scenario = scenarios, time = times, duration = durations, proportion=proportions, dip = [0, 1])
+
+rule forward_sim_exploration_rule:
+	input: expand("run/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}/result.out", scenario = scenarios, name = name, time = times, duration = durations, proportion=proportions, case = [0, 1, 2])
+
+
+
+localrules: move_output
+rule move_output: 
+	input: "run/{name}/{scenario}_{time}_{duration}_{proportion}/result.out"
+	wildcard_constraints:
+		name="\w+", # A word, no directories
+		scenario="\w+",
+		time="\d+",
+		duratio="\d+"
+	output: "output/{name}/{scenario}_{time}_{duration}_{proportion}.out"
+	shell: "cp {input} {output}"
+
+localrules: move_output_exact
+rule move_output_exact: 
+	input: exact="run/{name}/EXACT/{scenario}_{time}_{duration}_{proportion}/result.out", 
+		exact_ne="run/{name}/EXACT_NE/{scenario}_{time}_{duration}_{proportion}/result.out"
+	wildcard_constraints:
+		name="\w+", # A word, no directories
+		scenario="\w+",
+		time="\d+",
+		duration="\d+"
+
+	output: exact="output/{name}/EXACT/{scenario}_{time}_{duration}_{proportion}.out",
+		exact_ne="output/{name}/EXACT_NE/{scenario}_{time}_{duration}_{proportion}.out"
+	shell: 
+		'''
+		cp {input.exact} {output.exact}
+		cp {input.exact_ne} {output.exact_ne}
+		'''
+
+localrules: move_output_sp
+rule move_output_sp: 
+	input: out="run/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}/result.out", 
+	#wildcard_constraints:
+		#name="\w+", # A word, no directories
+		#scenario="\w+",
+		#time="\d+",
+		#duration="\d+",
+		#case = "(0|1|2|3)"
+	output: out="output/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}.out",
+	shell: 
+		'''
+		cp {input.out} {output.out}
+		'''
+
+		
+localrules: plots
+rule plots: 
+	input: 
+		output = "output/{name}/{scenario}_{time}_{duration}_{proportion}.out",
+		result = "run/{name}/{scenario}_{time}_{duration}_{proportion}/result.out",
+		csv = "data/{name}/{scenario}_{time}_{duration}_{proportion}.csv"
+	output:
+		"plots/{name}/{scenario}_{time}_{duration}_{proportion}.png"
+	run:
+		smcsmc.plot_with_guide(input.result, input.csv, output[0], ymax = 0.001)
+
+localrules: plots_sp
+rule plots_sp: 
+	input: 
+		output = "output/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}.out",
+		result = "run/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}/result.out",
+		csv = "data/{name}/{scenario}_{time}_{duration}_{proportion}.csv",
+	output:
+		"plots/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}.png"
+	run:
+		smcsmc.plot_with_guide(input.result, input.csv, output[0], ymax = 0.001)
+
+
+# Changed to just case 2 for now.
+rule sp:
+	input: expand("plots/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}.png", scenario = scenarios, time = times, name = name,duration = durations, proportion=proportions, case = [9])
+
+
+
+## TARGETS
+
+### Default
+# This rule runs the default simulation analysis with the parameters given in the analysis file.
+rule all: 
+	input: 	
+		expand("plots/{name}/{scenario}_{time}_{duration}_{proportion}.png", name = name, scenario = scenarios, time = times, duration = durations, proportion = proportions)		
+
+### Identifying local optima
+# This runs a specialised analysis for figuring out if the forward migration issue is because of a local EM optima
+rule optima:
+	input:
+		expand("output/{name}/EXACT/{scenario}_{time}_{duration}_{proportion}.out", name = name, scenario = scenarios, time = times, duration = durations, proportion = proportions)	
+		
+
+rule clean: 
+	shell: "rm -rf data plots run"
+
+
+########################################################################################################
+# 				varying migr rate and initial rate
+#						21/11/19
+# ----------------------------------------------------------------------------------------------------- #
+
+rule no_migration:
+	input: "data/{name}/{scenario}_{time}_{duration}_{proportion}.seg"
+	output: "run/{name}/{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+	wildcard_constraints:
+		case="0"
+	#threads: 9
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 8 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 4 4 -ej 0.2324 2 1 -ema 0 0 0 0 0 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_{wildcards.case} -seg {input[0]} -smcsmcpath ~/repos/smcsmc_older_version/smcsmc
+		"""
+
+rule small_initial_rate_for_ceu:
+	input: "data/{name}/{scenario}_{time}_{duration}_{proportion}.seg"
+	output: "run/{name}/{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+	wildcard_constraints:
+		case="1"
+	#threads: 9
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 8 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 4 4 -ej 0.2324 2 1 -ema 0 0 1.0 0.0 0 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_{wildcards.case} -seg {input[0]} -smcsmcpath ~/repos/smcsmc-core-clean/build/smcsmc
+		"""
+
+rule small_bidirectional_rate:
+	input: "data/{name}/{scenario}_{time}_{duration}_{proportion}.seg"
+	output: "run/{name}/{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+	wildcard_constraints:
+		case="2"
+	#threads: 9
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 8 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 4 4 -ej 0.2324 2 1 -ema 0 0 1.0 1.0 0 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_{wildcards.case} -seg {input[0]} -smcsmcpath ~/repos/smcsmc_older_version/smcsmc
+		"""
+
+rule medium_ceu_small_yri: 
+	input: "data/{name}/{scenario}_{time}_{duration}_{proportion}.seg"
+	output: "run/{name}/{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+	wildcard_constraints:
+		case="3"
+	#threads: 9
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 8 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 4 4 -ej 0.2324 2 1 -ema 0 0 5.0 1.0 0 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_{wildcards.case} -seg {input[0]} -smcsmcpath ~/repos/smcsmc-core-clean/build/smcsmc
+		"""
+
+rule bidirectional_more: 
+	input: "data/{name}/{scenario}_{time}_{duration}_{proportion}.seg"
+	output: "run/{name}/{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+	wildcard_constraints:
+		case="4"
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 8 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 4 4 -ej 0.2324 2 1 -ema 0 0 5.0 5.0 0 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_{wildcards.case} -seg {input[0]} -smcsmcpath ~/repos/smcsmc_older_version/smcsmc 
+		"""
+
+rule flip_small: 
+	input: "data/{name}/{scenario}_{time}_{duration}_{proportion}.seg"
+	output: "run/{name}/{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+	wildcard_constraints:
+		case="5"
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 8 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 4 4 -ej 0.2324 2 1 -ema 0 0 0.0 1.0 0 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_{wildcards.case} -seg {input[0]} -smcsmcpath ~/repos/smcsmc-core-clean/build/smcsmc
+		"""
+
+rule flip_medium: 
+	input: "data/{name}/{scenario}_{time}_{duration}_{proportion}.seg"
+	output: "run/{name}/{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+	wildcard_constraints:
+		case="6"
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 8 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 4 4 -ej 0.2324 2 1 -ema 0 0 1.0 5.0 0 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/{wildcards.scenario}_{wildcards.time}_{wildcards.duration}_{wildcards.proportion}_{wildcards.case} -seg {input[0]} -smcsmcpath ~/repos/smcsmc-core-clean/build/smcsmc
+		"""
+
+localrules: move_output_migr
+rule move_output_migr: 
+	input: out="run/{name}/{scenario}_{time}_{duration}_{proportion}_{case}/result.out", 
+	output: out="output/{name}/{scenario}_{time}_{duration}_{proportion}_{case}.out",
+	shell: 
+		'''
+		cp {input.out} {output.out}
+		'''
+
+
+localrules: plots_migr
+rule plots_migr: 
+	input: 
+		output = "output/{name}/{scenario}_{time}_{duration}_{proportion}_{case}.out",
+		result = "run/{name}/{scenario}_{time}_{duration}_{proportion}_{case}/result.out",
+		csv = "data/{name}/{scenario}_{time}_{duration}_{proportion}.csv",
+	output:
+		"plots/{name}/{scenario}_{time}_{duration}_{proportion}_{case}.png"
+	run:
+		smcsmc.plot_with_guide(input.result, input.csv, output[0], ymax = 0.001)
+
+
+rule explore_migration:
+	input: expand("plots/{name}/{scenario}_{time}_{duration}_{proportion}_{case}.png", scenario = scenarios, time = times, name = name,duration = durations, proportion=proportions, case = [0,2,4])
+
+###############################################################################################
+#		YRI Migration w different starts
+#			config: yri_varyingmig.json
+#				22/11/19
+###############################################################################################
+
+rule yri_migration:	
+	output: "run/{name}/yri_{ceu}_{yri}/result.out"
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 4 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 2 2 -ej 0.2324 2 1 -ema 0 0 {wildcards.ceu} {wildcards.yri} 0 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/yri_{wildcards.ceu}_{wildcards.yri} -segs {data} -smcsmcpath ~/repos/smcsmc-core-clean/build/smcsmc
+		"""
+
+localrules: yri_mv
+rule yri_mv: 
+	input: out="run/{name}/yri_{ceu}_{yri}/result.out"
+	output: out="output/{name}/yri_{ceu}_{yri}.out",
+	shell: 
+		'''
+		cp {input.out} {output.out}
+		'''
+
+#rule yri:
+#	input: expand("output/{name}/yri_{ceu}_{yri}.out", name = name, ceu = ceu_migr, yri = yri_migr)
+
+###############################################################################################
+#		YRI Migration w different SYMMETRIC starts
+#			config: symig.json
+#				27/11/19
+###############################################################################################
+
+rule run_symig:	
+	output: "run/{name}/yri_{migr}_{particles}/result.out"
+	shell:
+		"""
+		~/repos/smcsmc-core-clean/smc2 -c -chunks 100 -no_infer_recomb -nsam 4 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 4.0 -cap 10000000 -alpha 0 -apf 2 -Np {wildcards.particles} -VB -N0 14312 -I 2 2 2 -ej 0.2324 2 1 -eM 0 {wildcards.migr} -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o run/{name}/yri_{wildcards.migr}_{wildcards.particles} -segs {data} -smcsmcpath ~/repos/smcsmc-core-clean/build/smcsmc
+		"""
+
+localrules: mv_yrisymig
+rule mv_yrisymig: 
+	input: out="run/{name}/yri_{migr}_{particles}/result.out"
+	output: out="output/{name}/yri_{migr}_{particles}.out",
+	shell: 
+		'''
+		cp {input.out} {output.out}
+		'''
+
+#rule yrisymig:
+#	input: expand("output/{name}/yri_{migr}_{particles}.out", name = name, migr = yri_migr, particles = particles)
+
+###############################################################################################
+#	 	MSMC confirmation of simulation inference	
+#			config: msmc_ne.json
+#				13/01/20
+###############################################################################################
+
+rule seg_to_msmc: 
+	input: seg = "data/{name}/{scenario}_{time}_{duration}_{proportion}.seg"
+	output: msmc = "data/{name}/msmc_{scenario}_{time}_{duration}_{proportion}.txt"
+	params:	script="py/smc2-to-msmc.py"
+	shell:
+		"""
+		python {params.script} -s {input.seg} -c 1 -o {output.msmc}
+		"""
+
+nchunk = 20
+def two_digit_range(start, finish, digits):
+	'''Returns a character list from *start* to 
+	*finish* (half-open) with *digits* digits.'''
+	list_of_chars = [str(r) for r in range(start, finish)]
+	return [r if len(r) == digits else '0'*(digits-len(r))+r for r in list_of_chars]
+
+rule split_msmc:
+	input: msmc = "data/{name}/msmc_{scenario}_{time}_{duration}_{proportion}.txt"
+	output: expand("data/{{name}}/msmc_{{scenario}}_{{time}}_{{duration}}_{{proportion}}.txt_{chunk}", chunk = two_digit_range(0, nchunk, len(str(nchunk))))
+	shell: "split -n {nchunk} -d {input.msmc} {input.msmc}_"
+
+
+
+rule run_msmc:
+	input: expand("data/{{name}}/msmc_{{scenario}}_{{time}}_{{duration}}_{{proportion}}.txt_{chunk}", chunk = two_digit_range(0, nchunk, len(str(nchunk))))
+	#input: msmc = "data/{name}/msmc_{scenario}_{time}_{duration}_{proportion}.txt"
+	output: final = "run/{name}/msmc_{scenario}_{time}_{duration}_{proportion}/msmc.final.txt"
+	threads: 8
+	run:
+		output_prefix = Path(output.final).with_suffix('').with_suffix('')
+		shell("msmc --fixedRecombination --skipAmbiguous -P 0,0,0,0,1,1,1,1 -t 8 -o {output_prefix} -i 40 {input}")
+
+#rule msmc: 
+#	input: 	expand("run/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}/result.out", scenario = scenarios, name = name, time = times, duration = durations, proportion=proportions, case = [9])
+#expand("run/{name}/msmc_{scenario}_{time}_{duration}_{proportion}/msmc.final.txt", scenario = scenarios, time = times, name = name,duration = durations, proportion=proportions), 
+
+rule msmc_test:
+	input: "run/ld/sp.forward_40000_10000_0.0_9/result.out"
+
+
+#rule mv_msmc:
+#	input: out = "run/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}/result.out"
+#	output: out = "output/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}.out"
+#	shell: "cp {input.out} {output.out}"
+
+rule msmc:
+	input: expand("output/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}.out", scenario = scenarios, name = name, time = times, duration = durations, proportion=proportions, case = [9]), expand("output/{name}/{scenario}_{time}_{duration}_{proportion}_{case}.out", scenario = scenarios, time = times, name = name,duration = durations, proportion=proportions, case = [2,4])
+
+	
+
+
+
+#rule forward_sim_exploration_rule:
+#	input: expand("run/{name}/sp.{scenario}_{time}_{duration}_{proportion}_{case}/result.out", scenario = scenarios, name = name, time = times, duration = durations, proportion=proportions^i, case = [0, 1, 2])
+
+

@@ -1,0 +1,11 @@
+{
+	"name": "sp",
+	"haps": "8",
+	"times": "60000",
+	"durations": "10000",
+	"proportions": "0.3 0.1 0.0",
+	"L": 1000000000,
+	"EM": 10,
+	"Np": 5000,
+	"scenarios": "forward"
+}

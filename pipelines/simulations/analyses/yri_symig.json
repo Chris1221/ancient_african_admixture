@@ -1,0 +1,15 @@
+{
+	"name": "yrisymig",
+	"haps": "4",
+	"times": "60000",
+	"durations": "10000",
+	"proportions": "0.9 0.7 0.5 0.3 0.1 0.0",
+	"L": 1000000000,
+	"data": "/users/lunter/ccole/repos/ancient_migration/analyses/general/segs/1165313290/S_French-1.S_Yoruba-1.chr*.seg.gz",
+	"ceu_migr": "0 1 5 10",
+	"yri_migr": "0 0.5 1 2 4 5 10",
+	"EM": 25,
+	"Np": 5000,
+	"particles": "1000 5000 10000",
+	"scenarios": "backward bidirectional"
+}

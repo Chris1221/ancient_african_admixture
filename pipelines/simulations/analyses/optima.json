@@ -1,0 +1,11 @@
+{
+	"name": "optima",
+	"haps": "4",
+	"times": "60000 70000",
+	"durations": "10000",
+	"proportions": "0.5 0.3 0.1",
+	"L": 1000000000,
+	"EM": 5,
+	"Np": 5000,
+	"scenarios": "forward"
+}

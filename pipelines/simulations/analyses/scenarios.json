@@ -1,0 +1,11 @@
+{
+	"name": "eight_w_more_particles",
+	"haps": "8",
+	"times": "50000 60000 70000",
+	"durations": "10000",
+	"proportions": "0.8",
+	"L": 1000000000,
+	"EM": 5,
+	"Np": 50000,
+	"scenarios": "forward backward none"
+}
