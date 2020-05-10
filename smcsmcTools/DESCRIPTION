@@ -1,0 +1,19 @@
+Package: smcsmcTools
+Title: Helper functions for interpreting smcsmc analyses. 
+Version: 0.1
+Authors@R: 
+    person(given = "Chris",
+           family = "Cole",
+           role = c("aut", "cre"),
+           email = "ccole@well.ox.ac.uk")
+Description: This package provides various utilities for plotting and interpreting the output of smcsmc, a particle filter for demographic inference. It implements methods for calculating the integrated migration fraction (IMF), convenience functions for SGDP and HGDP genomic data, and plotting scripts for smcsmc and msmc2 output. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    dplyr,
+    ggplot2,
+    data.table,
+    assertthat
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.2
