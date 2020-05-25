@@ -1,20 +1,37 @@
 """
 A general framework for analysing two population migration with smcsmc.
-"""
 
+This pipeline implements the majority of the analyses on
+SGDP and HGDP samples in the article. See the README.md 
+for a full description of the relevant rules and their 
+associated results in the manuscript.
+"""
 import smcsmc
 import smcsmc.utils
 import os
 import numpy as np
 from pathlib import Path
-#configfile: "analyses/sgdp_replication.json"
+
+# Chose a configuration file from the analyses
+# subdirectory. This file describes the samples
+# to be analysed, as well as parameters for the
+# analysis. For convenience, segment files used in 
+# this paper have been precomputed and included
 configfile: "analyses/whole_sgdp.json"
-#configfile: "analyses/hgdp_physically_phased.json"
-
-
 
 '''
 ** Part 1: smcsmc
+
+The following targets run a simple two population
+SMCSMC analysis with a given initialization model 
+as described in Supplemental Section 1.1.
+
+Before running any of the following, please install
+the conda environment which includes (cruciall) smc2
+and msmc(2)/-IM.
+
+Main target rules:
+	- all
 '''
 source = [pop for pop in config["source"].keys()]
 sink_segs = [pop for pop in config["sink_segs"].keys()]
@@ -26,16 +43,28 @@ env = os.getenv("CONDA_PREFIX")
 EM = int(config["EM"])
 Np = int(config["Np"])
 name = config["name"]
+
+# Use your own R here.
 Rpath = "~/R/bin/Rscript"
 
-np.random.seed(config["seed"])
 
+# This seed is ONLY used for the folder structure 
+# construction, not in any analyses.
+np.random.seed(config["seed"])
 seeds_array = np.random.random_integers(1,2**31,replicates)
 
+# Switch the comments to analyse 
+# SGDP or HGDP respectively. 
+#
+# They require different wildcard
+# constraints because the sample IDs
+# are different.
 ''' SGDP '''
 wildcard_constraints:
+	seeds="\d+",
 	si="[S|B]_\w+-\d+",
 	sj="[S|B]_\w+-\d+",
+	sa="[S|B]_\w+-\d+",
 	chr="\d+"
 
 ''' HGDP 
@@ -45,7 +74,15 @@ wildcard_constraints:
 	chr="\d+"
 '''
 
-
+# Create segment files from VCF. This rule assumes 
+# consistently named files seperated by database.
+#
+# i.e. HGDP/chr1.vcf.gz
+# i.e. SGDP/chr7.vcf.gz
+#
+# Instead of preprocessing data, we have provided segment
+# files for these datasets instead. All analyses can be run 
+# from these files without any need for modification.
 rule make_seg:
 	input:
 	output: seg = "segs/{seeds}/{si}.{sj}.chr{chr}.seg.gz"
@@ -62,9 +99,22 @@ rule make_seg:
 			output=output.seg,
 			chroms = [int(wildcards.chr)])
 
-#localrules: smc2cli
+# Run SMC2. 
+#
+# Requires the conda environment to 
+# be installed. See the supplemental 
+# material for a rational for the arguements 
+# and citations for the chosen parameters 
+# (mutation, recombination rate, Ne, and 
+# generation time).
+#
+# NOTE: If you are not using a cluster system
+# 	(here QSUB is assumed), remove the
+#	-c flag to run chunks sequentially. 
+# 
+#	See the documentation on how to run 
+# 	using multiple threads.
 rule smc2cli:
-	#input: expand("segs/{{seeds}}/{{si}}.{{sj}}.chr{chr}.seg.gz", chr = range(1,23))
 	input: expand("segs/1791095846/{{si}}.{{sj}}.chr{chr}.seg.gz", chr = range(1,23))
 	output: "output/{name}/{seeds}/{si}.{sj}/result.out"
 	message: "Starting SMC2 particle filtering."
@@ -74,6 +124,7 @@ rule smc2cli:
 		smc2 -c -chunks 100 -no_infer_recomb -nsam 4 -mu 1.25e-8 -rho 3e-9 -calibrate_lag 1.0 -EM {EM} -tmax 3.5 -alpha 0.0 -apf 2 -Np {Np} -VB -N0 14312 -I 2 2 2 -ej 0.2324 2 1 -eM 0 1 -eN 0.0 6 -eN 0.0037 4.4 -eN 0.0046 3 -eN 0.0058 2 -eN 0.0073 1.4 -eN 0.0092 0.85 -eN 0.093 1.2 -eN 0.12 1.7 -eN 0.15 2.2 -eN 0.19 2.5 -eN 0.24 2.4 -eN 0.30 2.0 -eN 0.37 1.7 -eN 0.47 1.4 -eN 0.59 1.2 -eN 0.74 1.0 -eN 0.93 0.91 -eN 1.2 1.6 -P 133 133016 31*1 -o output/{name}/{wildcards.seeds}/{wildcards.si}.{wildcards.sj} -segs segs/1791095846/{wildcards.si}.{wildcards.sj}.chr*.seg.gz -smcsmcpath ~/repos/smcsmc_older_version/smcsmc 
 		"""
 
+# Rename output files.
 localrules: mv_out
 rule mv_out:
 	input: result = "output/{name}/{seeds}/{si}.{sj}/result.out"
@@ -82,14 +133,27 @@ rule mv_out:
 		"""
 		cp {input.result} {output.result}
 		"""
-
+# TARGET RULE: Perform all SMC2 analyses for
+# a configuration file.
 rule all:
 	input: expand("results/{name}/{seeds}.{si}.{sj}.out", si = source, sj = sink, name = name, seeds=seeds_array)
 
 '''
 ** Part 2: Segments and D statistics
+
+Uses the ancestral recombination graph from above to calculate
+segments containing a migration event in a specified period.
+
+Haplotypes use bitflags, see the documentation for details. 
+
+Main target rules:
+	- run_segments
 '''
 
+# Find segments.
+# 
+# This setup assumes that the population of interest 
+# is the second population in the segment files. 
 rule segments:
 	input: result = "output/{name}/{seeds}/{si}.{sj}/result.out"
 	output: segments = "output/{name}/segments/{seeds}/{si}.{sj}.bed"
@@ -100,14 +164,19 @@ rule segments:
 		segs = smcsmc.utils.find_segments(path, frm=1,to=0,time_range= (1000,2500),hap=12)
 		segs.to_csv(segment_path, sep = "\t", index = False)
 
+# TARGET RULE: Create segments.
 rule run_segments:
 	input: expand("output/{name}/segments/{seeds}/{si}.{sj}.bed", name = name, si = source, sj = sink_segs, seeds = seeds_array[0])
 
 
-'''Blow out all the rules, becuase we dont need the wildcards anymore after this rule (at least in this pipeline). Also, only use one seed. 
-So, we can only use this AFTER all the other things have been run (becuase it will only grab one seed).
 
-Also, I'm only going to focus on using the segs from one particular comparison. I don't really know how ot scale it up right now (what the interpretation would be...?)'''
+# Compute D statistics.
+#
+# Rules:
+#	- statistics: Whole Reich dataset (change the paths here)
+#	- statistics_f: f3 statistics with Reich panel (change paths)
+#	- run_stats / run_stats_f: Target rules.
+#	- test_stats: Test rule (just make sure things are working).
 comparison_population = "S_Han-1"
 rule statistics:
 	input: 	bed="output/{name}/segments/{seeds}/" + comparison_population + ".{sj}.bed",
@@ -135,8 +204,9 @@ rule test_stats:
 
 
 '''
-** Part 3: MSMC analysis.
-	Mostly to test the non-overlapping x-coal of papuan/yri vs eurasian/yri
+** Part 3: MSMC2 analysis.
+
+OLD. Use the msmc2 rules below.
 '''
 
 rule segs_to_msmc:
