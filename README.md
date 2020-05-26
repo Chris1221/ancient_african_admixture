@@ -9,4 +9,26 @@ This repository contains all of the source code required to reproduce our paper 
 - `tex/` has the `LaTeX` source for the actual manuscript of the paper.
 - `analyses` contains configuration files for the different analyses performed using the pipelines. Similarly, `lib/` has some useful files for the plotting scripts. 
 
-To reproduce the analysis completely, please install the required `conda` environments for the specific pipeline that you want to run. There are instructions for this in each folder.
+### Setting up the Environment
+
+To reproduce the analysis completely, please install the required `conda` environment. This allows us to package a majority of the software dependencies together. There are several methods to install `conda`, see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/) for details. Once `conda` is installed, create the environment for this analysis from our list of dependencies: 
+
+```sh
+conda env create -f envs/aaa.yml
+```
+
+This will create a `conda` environemnt called `aaa`. Activate it:
+
+```
+conda activate aaa
+```
+
+There are a couple of dependencies that are not included in `conda` and must be installed manually. 
+
+- `msmc2` must be installed from the Github source [here](https://github.com/stschiff/msmc2). 
+- `admixr` must be installed from Github as well.
+
+```R
+install.packages("devtools")
+devtools::install_github("bodkan/admixr")
+```
