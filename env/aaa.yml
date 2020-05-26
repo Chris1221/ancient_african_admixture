@@ -3,13 +3,8 @@ channels:
   - luntergroup
   - conda-forge
   - defaults
+  - r
 dependencies:
   - python=3.7
-  - smcsmc
+  - smcsmc=1.0.2
   - snakemake
-  - numpy
-  - argparse
-  - gzip
-  - dplyr
-  - stringr
-  - data.table
